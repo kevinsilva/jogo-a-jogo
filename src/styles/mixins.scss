@@ -2,3 +2,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+@mixin hide-scrollbar-ms {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
