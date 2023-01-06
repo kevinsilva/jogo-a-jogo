@@ -26,6 +26,14 @@
     font-weight: 400;
   }
 
+  &__sections--preview {
+    @include mixins.flex-between;
+  }
+
+  &__sections--preview &__home-name {
+    margin-bottom: 1.5rem;
+  }
+
   &__home-section {
     margin-bottom: 1.5rem;
     @include mixins.flex-between;
@@ -39,6 +47,17 @@
   &__home-goals,
   &__away-name,
   &__away-goals {
+    font-size: 2rem;
     font-weight: 700;
+  }
+
+  &__tv-info {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__tv-name {
+    inline-size: 5rem;
   }
 }

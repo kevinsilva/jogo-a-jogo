@@ -2,12 +2,13 @@
 
 .scrollable-row {
   display: flex;
+  // flex-direction: row-reverse;
+  // needs to change margin.not()
   flex-wrap: nowrap;
   overflow-x: auto;
   padding: 5rem 0;
 
   @include mixins.hide-scrollbar-ms;
-
   &::-webkit-scrollbar {
     display: none;
   }

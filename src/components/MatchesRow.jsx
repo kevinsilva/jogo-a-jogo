@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
-import { mockFetchMatches } from '../mocks/services';
+import { mockFetchPreviews, mockFetchScores } from '../mocks/services';
 import ScoreCard from './ScoreCard';
+import PreviewCard from './PreviewCard';
 import '../styles/MatchesRow.scss';
 
 export default function MatchesRow({ leagueID, season, totalMatches }) {
   const [state, setState] = useState('pending');
-  const [matchesData, setMatchesData] = useState(null);
+  const [scoreData, setScoreData] = useState(null);
+  const [previewData, setPreviewData] = useState(null);
 
   useEffect(() => {
-    mockFetchMatches()
-      .then((data) => {
-        console.log('use', data);
-        setMatchesData(data);
+    Promise.all([mockFetchScores(), mockFetchPreviews()])
+      .then(([scores, previews]) => {
+        console.log(scores, previews);
+        setScoreData(scores);
+        setPreviewData(previews);
         setState('fulfilled');
       })
       .catch((error) => {
@@ -25,8 +28,11 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
 
   return (
     <div className="scrollable-row">
-      {matchesData.map((data, index) => (
-        <ScoreCard key={index} matchData={data} />
+      {scoreData.map((data, index) => (
+        <ScoreCard key={index} scoreData={data} />
+      ))}
+      {previewData.map((data, index) => (
+        <PreviewCard key={index} previewData={data} />
       ))}
     </div>
   );
