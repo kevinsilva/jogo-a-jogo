@@ -47,74 +47,92 @@ export const CLUBS = {
   benfica: {
     id: 211,
     league: 94,
+    mockForm: 'WWWWWWWDWWWWWL',
   },
   fcPorto: {
     id: 212,
     league: 94,
+    mockForm: 'LDDDDLDLWWLLDD',
   },
   sportingCP: {
     id: 228,
     league: 94,
+    mockForm: 'WWDWLDWWDLWWDL',
   },
   chelsea: {
     id: 49,
     league: 39,
+    mockForm: 'DLWLDLWWWLDWLW',
   },
   manchesterCity: {
     id: 50,
     league: 39,
+    mockForm: 'DLDLDWLLWWDWLD',
   },
   liverpool: {
     id: 40,
     league: 39,
+    mockForm: 'LDLLWDDLLDLWLL',
   },
   realMadrid: {
     id: 541,
     league: 140,
+    mockForm: 'LWLLLLDDDLWWDW',
   },
   barcelona: {
     id: 529,
     league: 140,
+    mockForm: 'DDDWWLLLLLDDDD',
   },
   atleticoMadrid: {
     id: 530,
     league: 140,
+    mockForm: 'WWLLWWLLWWLWWW',
   },
   juventus: {
     id: 496,
     league: 135,
+    mockForm: 'WDDDDDDLLDWLLL',
   },
   napoli: {
     id: 592,
     league: 135,
+    mockForm: 'LDLWWWWLDWDDWW',
   },
   asRoma: {
     id: 497,
     league: 135,
+    mockForm: 'DLWLDDDLLDWDLL',
   },
   bayernMunich: {
     id: 157,
     league: 78,
+    mockForm: 'DDWLWDDWWWLDDL',
   },
   dortmund: {
     id: 165,
     league: 78,
+    mockForm: 'LLWLDDDDDDWLDW',
   },
   bayerLeverkusen: {
     id: 168,
     league: 78,
+    mockForm: 'LLDLDWWDDDLWDW',
   },
   parisSaintGermain: {
     id: 85,
     league: 61,
+    mockForm: 'WLLWLLDWLLDDLW',
   },
   lyon: {
     id: 80,
     league: 61,
+    mockForm: 'LWLLLWLDWLWLWD',
   },
   monaco: {
     id: 91,
     league: 61,
+    mockForm: 'LLLWDWLDLDLLWW',
   },
 };
 
