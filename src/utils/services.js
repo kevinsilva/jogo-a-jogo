@@ -12,12 +12,24 @@ const getRequestOptions = () => {
 };
 
 export default async function fetchLeagueLastMatches(
-  league,
+  leagueID,
   season,
   totalMatches
 ) {
   const promise = fetch(
-    `https://v3.football.api-sports.io/fixtures?league=${league}&season=${season}&last=${totalMatches}`,
+    `https://v3.football.api-sports.io/fixtures?league=${leagueID}&season=${season}&last=${totalMatches}`,
+    getRequestOptions()
+  );
+
+  const response = await promise;
+  const result = await response.json();
+
+  return result;
+}
+
+async function fetchTeamStatistics(season, teamID, leagueID) {
+  const promise = fetch(
+    `https://v3.football.api-sports.io/teams/statistics?season=${season}&team=${teamID}&league=${leagueID}`,
     getRequestOptions()
   );
 
