@@ -48,21 +48,25 @@ export const CLUBS = {
     id: 211,
     league: 94,
     mockForm: 'WWWWWWWDWWWWWL',
+    leagueRank: 5,
   },
   fcPorto: {
     id: 212,
     league: 94,
     mockForm: 'LDDDDLDLWWLLDD',
+    leagueRank: 4,
   },
   sportingCP: {
     id: 228,
     league: 94,
     mockForm: 'WWDWLDWWDLWWDL',
+    leagueRank: 3,
   },
   chelsea: {
     id: 49,
     league: 39,
     mockForm: 'DLWLDLWWWLDWLW',
+    leagueRank: 5,
   },
   manchesterCity: {
     id: 50,

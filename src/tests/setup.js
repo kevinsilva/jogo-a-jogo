@@ -6,10 +6,10 @@ import { server } from '../mocks/server';
 // extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
 
-// beforeAll(() => server.listen());
-// afterAll(() => server.close());
+beforeAll(() => server.listen());
+afterAll(() => server.close());
 afterEach(() => {
-  // server.resetHandlers();
+  server.resetHandlers();
   // runs a cleanup after each test case (e.g. clearing jsdom)
   cleanup();
 });
