@@ -3,6 +3,18 @@
   justify-content: space-between;
 }
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin hide-scrollbar-ms {
   scrollbar-width: none;
   -ms-overflow-style: none;

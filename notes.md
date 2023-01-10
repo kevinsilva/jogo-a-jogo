@@ -17,7 +17,7 @@ _solution 1_
 2 - get the current form from the API for each club and give points
 3 - get the top 4 best preview and top 4 score games and show on feature row - if these teams play agains each other, they will repeat, so get next top team game.
 
-User Authentication
+## User Authentication
 
 - user registration
   - username/email, password, favorite team (optional), signup button, cancel button error msg (username already exists/ password must have 5 char.)
