@@ -1,7 +1,7 @@
 @use 'variables';
 @use 'mixins';
 
-.card {
+.match-card {
   background-color: variables.$color-white;
   text-transform: uppercase;
   min-width: 24rem;
