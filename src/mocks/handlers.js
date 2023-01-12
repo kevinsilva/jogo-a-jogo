@@ -1282,6 +1282,380 @@ export const mockStatistics = [
   },
 ];
 
+export const mockFeaturedScores = [
+  {
+    fixture: {
+      id: 973088,
+      referee: 'Manuel Olivera',
+      timezone: 'UTC',
+      date: '2023-01-10T20:45:00+00:00',
+      timestamp: 1673383500,
+      periods: { first: 1673383500, second: 1673387100 },
+      venue: {
+        id: 1294,
+        name: 'Est\u00e1dio Varzim Sport Club',
+        city: 'P\u00f3voa de Varzim',
+      },
+      status: { long: 'Match Finished', short: 'FT', elapsed: 90 },
+    },
+    league: {
+      id: 96,
+      name: 'Ta\u00e7a de Portugal',
+      country: 'Portugal',
+      logo: 'https://media-2.api-sports.io/football/leagues/96.png',
+      flag: 'https://media-2.api-sports.io/flags/pt.svg',
+      season: 2022,
+      round: 'Round of 16',
+    },
+    teams: {
+      home: {
+        id: 237,
+        name: 'Varzim',
+        logo: 'https://media-1.api-sports.io/football/teams/237.png',
+        winner: false,
+      },
+      away: {
+        id: 211,
+        name: 'Benfica',
+        logo: 'https://media-3.api-sports.io/football/teams/211.png',
+        winner: true,
+      },
+    },
+    goals: { home: 0, away: 2 },
+    score: {
+      halftime: { home: 0, away: 1 },
+      fulltime: { home: 0, away: 2 },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 878093,
+      referee: 'Jos\u00e9 Munuera',
+      timezone: 'UTC',
+      date: '2023-01-08T20:00:00+00:00',
+      timestamp: 1673208000,
+      periods: { first: 1673208000, second: 1673211600 },
+      venue: {
+        id: 19217,
+        name: 'Est\u00e1dio C\u00edvitas Metropolitano',
+        city: 'Madrid',
+      },
+      status: { long: 'Match Finished', short: 'FT', elapsed: 90 },
+    },
+    league: {
+      id: 140,
+      name: 'La Liga',
+      country: 'Spain',
+      logo: 'https://media-1.api-sports.io/football/leagues/140.png',
+      flag: 'https://media-3.api-sports.io/flags/es.svg',
+      season: 2022,
+      round: 'Regular Season - 16',
+    },
+    teams: {
+      home: {
+        id: 530,
+        name: 'Atletico Madrid',
+        logo: 'https://media-2.api-sports.io/football/teams/530.png',
+        winner: false,
+      },
+      away: {
+        id: 529,
+        name: 'Barcelona',
+        logo: 'https://media-1.api-sports.io/football/teams/529.png',
+        winner: true,
+      },
+    },
+    goals: { home: 0, away: 1 },
+    score: {
+      halftime: { home: 0, away: 1 },
+      fulltime: { home: 0, away: 1 },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 881948,
+      referee: 'R. Abisso',
+      timezone: 'UTC',
+      date: '2023-01-08T17:00:00+00:00',
+      timestamp: 1673197200,
+      periods: { first: 1673197200, second: 1673200800 },
+      venue: {
+        id: 905,
+        name: 'Stadio Comunale Luigi Ferraris',
+        city: 'Genova',
+      },
+      status: { long: 'Match Finished', short: 'FT', elapsed: 90 },
+    },
+    league: {
+      id: 135,
+      name: 'Serie A',
+      country: 'Italy',
+      logo: 'https://media-1.api-sports.io/football/leagues/135.png',
+      flag: 'https://media-2.api-sports.io/flags/it.svg',
+      season: 2022,
+      round: 'Regular Season - 17',
+    },
+    teams: {
+      home: {
+        id: 498,
+        name: 'Sampdoria',
+        logo: 'https://media-3.api-sports.io/football/teams/498.png',
+        winner: false,
+      },
+      away: {
+        id: 492,
+        name: 'Napoli',
+        logo: 'https://media-2.api-sports.io/football/teams/492.png',
+        winner: true,
+      },
+    },
+    goals: { home: 0, away: 2 },
+    score: {
+      halftime: { home: 0, away: 1 },
+      fulltime: { home: 0, away: 2 },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 898733,
+      referee: 'H\u00e9lder Malheiro',
+      timezone: 'UTC',
+      date: '2023-01-08T18:00:00+00:00',
+      timestamp: 1673200800,
+      periods: { first: 1673200800, second: 1673204400 },
+      venue: {
+        id: 1279,
+        name: 'Est\u00e1dio dos Barreiros',
+        city: 'Ilha da Madeira',
+      },
+      status: { long: 'Match Finished', short: 'FT', elapsed: 90 },
+    },
+    league: {
+      id: 94,
+      name: 'Primeira Liga',
+      country: 'Portugal',
+      logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+      flag: 'https://media-1.api-sports.io/flags/pt.svg',
+      season: 2022,
+      round: 'Regular Season - 15',
+    },
+    teams: {
+      home: {
+        id: 214,
+        name: 'Maritimo',
+        logo: 'https://media-2.api-sports.io/football/teams/214.png',
+        winner: true,
+      },
+      away: {
+        id: 228,
+        name: 'Sporting CP',
+        logo: 'https://media-2.api-sports.io/football/teams/228.png',
+        winner: false,
+      },
+    },
+    goals: { home: 1, away: 0 },
+    score: {
+      halftime: { home: 0, away: 0 },
+      fulltime: { home: 1, away: 0 },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+];
+
+export const mockFeaturedPreviews = [
+  {
+    fixture: {
+      id: 898747,
+      referee: null,
+      timezone: 'UTC',
+      date: '2023-01-15T18:00:00+00:00',
+      timestamp: 1673805600,
+      periods: { first: null, second: null },
+      venue: {
+        id: null,
+        name: 'Est\u00e1dio do Sport Lisboa e Benfica',
+        city: 'Lisboa',
+      },
+      status: { long: 'Not Started', short: 'NS', elapsed: null },
+    },
+    league: {
+      id: 94,
+      name: 'Primeira Liga',
+      country: 'Portugal',
+      logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+      flag: 'https://media-1.api-sports.io/flags/pt.svg',
+      season: 2022,
+      round: 'Regular Season - 16',
+    },
+    teams: {
+      home: {
+        id: 211,
+        name: 'Benfica',
+        logo: 'https://media-3.api-sports.io/football/teams/211.png',
+        winner: null,
+      },
+      away: {
+        id: 228,
+        name: 'Sporting CP',
+        logo: 'https://media-2.api-sports.io/football/teams/228.png',
+        winner: null,
+      },
+    },
+    goals: { home: null, away: null },
+    score: {
+      halftime: { home: null, away: null },
+      fulltime: { home: null, away: null },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 878105,
+      referee: null,
+      timezone: 'UTC',
+      date: '2023-01-15T15:15:00+00:00',
+      timestamp: 1673795700,
+      periods: { first: null, second: null },
+      venue: {
+        id: 19216,
+        name: 'Power Horse Stadium \u2013 Estadio de los Juegos Mediterr\u00e1neos',
+        city: 'Almer\u00eda',
+      },
+      status: { long: 'Not Started', short: 'NS', elapsed: null },
+    },
+    league: {
+      id: 140,
+      name: 'La Liga',
+      country: 'Spain',
+      logo: 'https://media-3.api-sports.io/football/leagues/140.png',
+      flag: 'https://media-3.api-sports.io/flags/es.svg',
+      season: 2022,
+      round: 'Regular Season - 17',
+    },
+    teams: {
+      home: {
+        id: 723,
+        name: 'Almeria',
+        logo: 'https://media-2.api-sports.io/football/teams/723.png',
+        winner: null,
+      },
+      away: {
+        id: 530,
+        name: 'Atletico Madrid',
+        logo: 'https://media-1.api-sports.io/football/teams/530.png',
+        winner: null,
+      },
+    },
+    goals: { home: null, away: null },
+    score: {
+      halftime: { home: null, away: null },
+      fulltime: { home: null, away: null },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 881955,
+      referee: 'D. Doveri',
+      timezone: 'UTC',
+      date: '2023-01-13T19:45:00+00:00',
+      timestamp: 1673639100,
+      periods: { first: null, second: null },
+      venue: {
+        id: 11904,
+        name: 'Stadio Diego Armando Maradona',
+        city: 'Napoli',
+      },
+      status: { long: 'Not Started', short: 'NS', elapsed: null },
+    },
+    league: {
+      id: 135,
+      name: 'Serie A',
+      country: 'Italy',
+      logo: 'https://media-2.api-sports.io/football/leagues/135.png',
+      flag: 'https://media-1.api-sports.io/flags/it.svg',
+      season: 2022,
+      round: 'Regular Season - 18',
+    },
+    teams: {
+      home: {
+        id: 492,
+        name: 'Napoli',
+        logo: 'https://media-1.api-sports.io/football/teams/492.png',
+        winner: null,
+      },
+      away: {
+        id: 496,
+        name: 'Juventus',
+        logo: 'https://media-3.api-sports.io/football/teams/496.png',
+        winner: null,
+      },
+    },
+    goals: { home: null, away: null },
+    score: {
+      halftime: { home: null, away: null },
+      fulltime: { home: null, away: null },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+  {
+    fixture: {
+      id: 898747,
+      referee: null,
+      timezone: 'UTC',
+      date: '2023-01-15T18:00:00+00:00',
+      timestamp: 1673805600,
+      periods: { first: null, second: null },
+      venue: {
+        id: null,
+        name: 'Est\u00e1dio do Sport Lisboa e Benfica',
+        city: 'Lisboa',
+      },
+      status: { long: 'Not Started', short: 'NS', elapsed: null },
+    },
+    league: {
+      id: 94,
+      name: 'Primeira Liga',
+      country: 'Portugal',
+      logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+      flag: 'https://media-3.api-sports.io/flags/pt.svg',
+      season: 2022,
+      round: 'Regular Season - 16',
+    },
+    teams: {
+      home: {
+        id: 211,
+        name: 'Benfica',
+        logo: 'https://media-1.api-sports.io/football/teams/211.png',
+        winner: null,
+      },
+      away: {
+        id: 228,
+        name: 'Sporting CP',
+        logo: 'https://media-3.api-sports.io/football/teams/228.png',
+        winner: null,
+      },
+    },
+    goals: { home: null, away: null },
+    score: {
+      halftime: { home: null, away: null },
+      fulltime: { home: null, away: null },
+      extratime: { home: null, away: null },
+      penalty: { home: null, away: null },
+    },
+  },
+];
+
 const getRequestOptions = () => {
   const myHeaders = new Headers();
   myHeaders.append('x-apisports-key', API_KEY);

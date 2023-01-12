@@ -109,7 +109,7 @@ export const CLUBS = {
     mockForm: 'WDDDDDDLLDWLLL',
   },
   napoli: {
-    id: 592,
+    id: 492,
     abbreviation: 'NAP',
     league: 135,
     mockForm: 'LDLWWWWLDWDDWW',
@@ -175,4 +175,8 @@ export function calcFeaturePoints(form) {
   });
 
   return total;
+}
+
+export function compareFirstIndex(a, b) {
+  return a[0] - b[0];
 }
