@@ -4,13 +4,15 @@
 .featured-card {
   background-color: variables.$color-white;
   text-transform: uppercase;
-  width: 27.8rem;
-  height: 46rem;
+  min-width: 27.8rem;
+  min-height: 46rem;
   padding: variables.$spacing-sm 0;
   border-radius: 0.5rem;
   box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
 
-  margin-left: 40%;
+  &:not(:last-child) {
+    margin-right: 4rem;
+  }
 
   &__header {
     text-align: center;

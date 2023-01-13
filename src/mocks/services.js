@@ -3,7 +3,7 @@ import { mockScores, mockPreviews, mockStatistics } from './handlers';
 export function mockFetchData(data) {
   return new Promise((thenCB, catchCB) => {
     setTimeout(() => {
-      if (Math.random() < 0.9) thenCB(data);
+      if (Math.random() < 0.99) thenCB(data);
       else catchCB('Error fetching data💥');
     }, 2000);
   });
@@ -12,7 +12,7 @@ export function mockFetchData(data) {
 export function mockFetchScores() {
   return new Promise((thenCB, catchCB) => {
     setTimeout(() => {
-      if (Math.random() < 0.9) thenCB(mockScores);
+      if (Math.random() < 0.99) thenCB(mockScores);
       else catchCB('Error fetching data💥');
     }, 2000);
   });
@@ -21,7 +21,7 @@ export function mockFetchScores() {
 export function mockFetchPreviews() {
   return new Promise((thenCB, catchCB) => {
     setTimeout(() => {
-      if (Math.random() < 0.9) thenCB(mockPreviews);
+      if (Math.random() < 0.99) thenCB(mockPreviews);
       else catchCB('Error fetching data💥');
     }, 2000);
   });
@@ -30,7 +30,7 @@ export function mockFetchPreviews() {
 export function mockFetchStatistics() {
   return new Promise((thenCB, catchCB) => {
     setTimeout(() => {
-      if (Math.random() < 0.9) thenCB(mockStatistics);
+      if (Math.random() < 0.99) thenCB(mockStatistics);
       else catchCB('Error fetching data💥');
     }, 2000);
   });
