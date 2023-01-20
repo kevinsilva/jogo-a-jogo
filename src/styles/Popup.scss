@@ -8,4 +8,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--visible {
+    visibility: visible;
+  }
+  &--hidden {
+    visibility: hidden;
+  }
+
+  &__btn-close {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }

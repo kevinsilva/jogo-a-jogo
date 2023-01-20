@@ -1,0 +1,13 @@
+@use 'mixins';
+
+.header {
+  @include mixins.flex-between;
+  padding: 2rem 6rem;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid black;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}

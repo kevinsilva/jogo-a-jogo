@@ -1,0 +1,46 @@
+@use 'mixins';
+
+.form {
+  background-color: white;
+  padding: 4rem;
+  min-width: 50rem;
+  position: relative;
+  z-index: 10;
+
+  &__input-container,
+  &__select-container {
+    @include mixins.flex-column;
+    margin-bottom: 1rem;
+  }
+
+  &__btn-container {
+    @include mixins.flex-between;
+    margin: 2rem 0;
+  }
+
+  &__input,
+  &__select {
+    padding: 1rem;
+  }
+
+  &__label {
+    margin-bottom: 1rem;
+  }
+
+  &__option-btn {
+    color: gray;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  &__submit-btn {
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+
+  &__error-msg {
+    color: crimson;
+  }
+}

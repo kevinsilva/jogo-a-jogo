@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { mockFetchPreviews, mockFetchScores } from '../mocks/services';
+import { mockFetchData } from '../mocks/services';
+import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import '../styles/MatchesRow.scss';
 
-export default function MatchesRow({ leagueID, season, totalMatches }) {
+export default function UserRow({ team, season }) {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
 
   useEffect(() => {
-    Promise.all([mockFetchScores(), mockFetchPreviews()])
+    Promise.all([
+      mockFetchData(mockUserScores),
+      mockFetchData(mockUserPreviews),
+    ])
       .then(([scores, previews]) => {
         console.log(scores, previews);
         setScoreData(scores);
@@ -28,7 +32,7 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
 
   return (
     <React.Fragment>
-      <h2>Primeira Liga</h2>
+      <h2>Your Team</h2>
       <div className="scrollable-row">
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />

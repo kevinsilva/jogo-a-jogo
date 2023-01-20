@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 
 import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
+import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         setTeam={setFavoriteTeam}
       />
       <FeaturedRow />
-      {/* <UserRow userSigned={isUserSigned} team={favoriteTeam} /> */}
+      {isUserSigned && favoriteTeam && <UserRow team={favoriteTeam} />}
       <MatchesRow />
     </div>
   );

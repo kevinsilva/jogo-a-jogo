@@ -1,28 +1,39 @@
 import { useState } from 'react';
-import SignBtn from './SignBtn';
+
 import Popup from './Popup';
-import SignForm from './SignForm';
+import Form from './Form';
+
+import '../styles/Header.scss';
 
 export default function Header({ userSigned, setSigned, team, setTeam }) {
   const [isPopupOpen, setPopupOpen] = useState(false);
-  const [username, setUsername] = useState('');
 
   return (
-    <header>
-      <h1>Logo</h1>
-      <SignBtn
-        user={userSigned}
-        handleClick={() => setPopupOpen(!isPopupOpen)}
-      />
-      <Popup open={isPopupOpen}>
-        <SignForm
+    <header className="header">
+      <h1>Jogo a Jogo</h1>
+      {!userSigned ? (
+        <Popup
+          open={isPopupOpen}
           onClose={() => setPopupOpen(false)}
-          setSigned={setSigned}
-          setUserName={setUsername}
-          setTeam={setTeam}
-        />
-      </Popup>
-      <p>{username}</p>
+          trigger={
+            <button className="btn" onClick={() => setPopupOpen(!isPopupOpen)}>
+              Sign In
+            </button>
+          }
+        >
+          <Form setSigned={setSigned} team={team} setTeam={setTeam} />
+        </Popup>
+      ) : (
+        <button
+          className="btn"
+          onClick={() => {
+            setPopupOpen(!isPopupOpen);
+            setSigned(false);
+          }}
+        >
+          Sign Out
+        </button>
+      )}
     </header>
   );
 }

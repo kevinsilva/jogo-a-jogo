@@ -180,3 +180,24 @@ export function calcFeaturePoints(form) {
 export function compareFirstIndex(a, b) {
   return a[0] - b[0];
 }
+
+export const isUserValid = (usersArr, email, password) => {
+  if (usersArr.map((user) => user.email).includes(email)) {
+    if (
+      usersArr.filter((user) => user.email === email)[0].password === password
+    )
+      return true;
+  }
+  return false;
+};
+
+export const isValid = {
+  email: {
+    unique: (usersArr, input) =>
+      !usersArr.map((user) => user.email).includes(input),
+    format: (input) => /^(.+)@(.+)$/.test(input),
+  },
+  password: {
+    format: (input) => input.length > 5,
+  },
+};
