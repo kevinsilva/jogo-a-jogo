@@ -24,7 +24,7 @@ export default function SignUp({
     setUsers([...users, { email, password, team }]);
     setSigned(true);
     setError('');
-    console.log(users); // why it does not show after setUsers?
+    console.log(users); // why does not show after setUsers?
   };
 
   return (
