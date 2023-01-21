@@ -28,7 +28,7 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
 
   return (
     <React.Fragment>
-      <h2>Primeira Liga</h2>
+      <h2 className="match-row__title">Primeira Liga</h2>
       <div className="scrollable-row">
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />

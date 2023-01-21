@@ -18,9 +18,9 @@ export default function SignUp({
     if (email == '' || password == '')
       return setError('Please enter your account details');
     if (!isValid.email.format(email) || !isValid.email.unique(users, email))
-      return setError('Email must be valid');
+      return setError('Email must be valid, Please try again!');
     if (!isValid.password.format(password))
-      return setError('Password must be over 5 char');
+      return setError('Password must be over 5 characters');
     setUsers([...users, { email, password, team }]);
     setSigned(true);
     setError('');
@@ -62,7 +62,9 @@ export default function SignUp({
           value={team}
           onChange={(e) => setTeam(e.target.value)}
         >
-          <option value="">&nbsp;</option>
+          <option value="" selected>
+            &nbsp;
+          </option>
           <option value="benfica">Benfica</option>
           <option value="realMadrid">Real Madrid</option>
         </select>

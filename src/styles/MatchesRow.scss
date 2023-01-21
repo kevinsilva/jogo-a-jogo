@@ -11,3 +11,9 @@
     display: none;
   }
 }
+
+.match-row__title,
+.user-row__title {
+  padding-left: 6rem;
+  transform: translateY(2rem);
+}

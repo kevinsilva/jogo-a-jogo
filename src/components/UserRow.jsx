@@ -32,7 +32,7 @@ export default function UserRow({ team, season }) {
 
   return (
     <React.Fragment>
-      <h2>Your Team</h2>
+      <h2 className="user-row__title">Your Team</h2>
       <div className="scrollable-row">
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
