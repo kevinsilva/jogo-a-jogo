@@ -1,15 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AppContext } from '../App';
 import { isUserValid } from '../utils/utilities';
 
-export default function SignIn({
-  users,
-  setSignIn,
-  setSigned,
-  setTeam,
-  setError,
-}) {
+export default function SignIn({ users, setSignIn, setTeam, setError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const context = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +14,7 @@ export default function SignIn({
       return setError('Please enter your account details');
     if (isUserValid(users, email, password)) {
       setTeam(users.filter((user) => user.email == email)[0].team);
-      setSigned(true);
+      context.setUserSigned(true);
       setError('');
     } else {
       setError('Info does not match, please try again');

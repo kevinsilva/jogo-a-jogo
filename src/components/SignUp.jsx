@@ -1,73 +1,68 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { AppContext } from '../App';
 import { isValid } from '../utils/utilities';
+
+const favoriteTeamOptions = [
+  { label: '', value: '' },
+  { label: 'Benfica', value: 'benfica' },
+  { label: 'Real Madrid', value: 'realMadrid' },
+];
 
 export default function SignUp({
   users,
   setUsers,
   setSignIn,
-  setSigned,
   team,
   setTeam,
   setError,
+  onError,
 }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const context = React.useContext(AppContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (email == '' || password == '')
       return setError('Please enter your account details');
     if (!isValid.email.format(email) || !isValid.email.unique(users, email))
-      return setError('Email must be valid, Please try again!');
+      // return setError('Email must be valid, Please try again!');
+      return onError({
+        msg: 'Email must be valid, Please try again!',
+        code: 123,
+      });
     if (!isValid.password.format(password))
       return setError('Password must be over 5 characters');
-    setUsers([...users, { email, password, team }]);
-    setSigned(true);
+    const newUsers = [...users, { email, password, team }];
+    setUsers(newUsers);
+    context.setUserSigned(true);
     setError('');
     console.log(users); // why does not show after setUsers?
+    console.log(newUsers);
   };
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="form__input-container">
-        <label htmlFor="" className="form__label">
-          Email
-        </label>
-        <input
-          className="form__input"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <TextInput label="Email" value={email} onChange={setEmail} />
       </div>
       <div className="form__input-container">
-        <label htmlFor="" className="form__label">
-          Password
-        </label>
-        <input
-          className="form__input"
+        <TextInput
+          label="Password"
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={setPassword}
         />
       </div>
       <div className="form__select-container">
-        <label htmlFor="" className="form__label">
-          Select your team
-        </label>
-        <select
-          className="form__select"
-          name=""
-          id=""
+        <SelectInput
+          label="Select your team"
           value={team}
-          onChange={(e) => setTeam(e.target.value)}
-        >
-          <option value="" selected>
-            &nbsp;
-          </option>
-          <option value="benfica">Benfica</option>
-          <option value="realMadrid">Real Madrid</option>
-        </select>
+          onChange={setTeam}
+          options={favoriteTeamOptions}
+        />
       </div>
       <div className="form__btn-container">
         <p
@@ -84,5 +79,44 @@ export default function SignUp({
         </button>
       </div>
     </form>
+  );
+}
+
+function TextInput({ label, value, onChange, type = 'text' }) {
+  return (
+    <>
+      <label htmlFor="" className="form__label">
+        {label}
+      </label>
+      <input
+        className="form__input"
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </>
+  );
+}
+
+function SelectInput({ label, value, onChange, options }) {
+  return (
+    <>
+      <label htmlFor="" className="form__label">
+        {label}
+      </label>
+      <select
+        className="form__select"
+        name=""
+        id=""
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </>
   );
 }

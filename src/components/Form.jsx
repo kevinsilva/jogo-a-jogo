@@ -5,7 +5,7 @@ import SignUp from './SignUp';
 
 import '../styles/Form.scss';
 
-export default function Form({ setSigned, team, setTeam }) {
+export default function Form({ team, setTeam }) {
   const [signIn, setSignIn] = useState(true);
   const [error, setError] = useState('');
   const [users, setUsers] = useState([
@@ -27,8 +27,6 @@ export default function Form({ setSigned, team, setTeam }) {
         <SignIn
           users={users}
           setSignIn={setSignIn}
-          setSigned={setSigned}
-          team={team}
           setTeam={setTeam}
           setError={setError}
         />
@@ -37,10 +35,10 @@ export default function Form({ setSigned, team, setTeam }) {
           users={users}
           setUsers={setUsers}
           setSignIn={setSignIn}
-          setSigned={setSigned}
           team={team}
           setTeam={setTeam}
           setError={setError}
+          onError={(msg) => setError(msg)}
         />
       )}
       <p className="form__error-msg">{error}&nbsp;</p>

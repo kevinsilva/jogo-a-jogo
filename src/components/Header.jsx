@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Popup from './Popup';
 import Form from './Form';
 
 import '../styles/Header.scss';
+import { AppContext } from '../App';
 
-export default function Header({ userSigned, setSigned, team, setTeam }) {
+export default function Header({ team, setTeam }) {
   const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const context = useContext(AppContext);
 
   return (
     <header className="header">
       <h1>Jogo a Jogo</h1>
-      {!userSigned ? (
+      {!context.isUserSigned ? (
         <Popup
           open={isPopupOpen}
           onClose={() => setPopupOpen(false)}
@@ -21,14 +24,15 @@ export default function Header({ userSigned, setSigned, team, setTeam }) {
             </button>
           }
         >
-          <Form setSigned={setSigned} team={team} setTeam={setTeam} />
+          <Form team={team} setTeam={setTeam} />
         </Popup>
       ) : (
         <button
           className="btn"
           onClick={() => {
             setPopupOpen(!isPopupOpen);
-            setSigned(false);
+            // setSigned(false);
+            context.setUserSigned(false);
           }}
         >
           Sign Out
