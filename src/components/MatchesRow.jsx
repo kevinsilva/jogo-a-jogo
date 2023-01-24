@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { mockFetchPreviews, mockFetchScores } from '../mocks/services';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
@@ -27,7 +27,7 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
   if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <React.Fragment>
+    <>
       <h2 className="match-row__title">Primeira Liga</h2>
       <div className="scrollable-row">
         {scoreData.map((data, index) => (
@@ -37,6 +37,6 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-    </React.Fragment>
+    </>
   );
 }

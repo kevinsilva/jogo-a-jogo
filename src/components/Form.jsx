@@ -26,15 +26,15 @@ export default function Form({ team, setTeam }) {
       {signIn ? (
         <SignIn
           users={users}
-          setSignIn={setSignIn}
+          onSignIn={(boolean) => setSignIn(boolean)}
           setTeam={setTeam}
-          setError={setError}
+          onError={(msg) => setError(msg)}
         />
       ) : (
         <SignUp
           users={users}
           setUsers={setUsers}
-          setSignIn={setSignIn}
+          onSignIn={(boolean) => setSignIn(boolean)}
           team={team}
           setTeam={setTeam}
           setError={setError}

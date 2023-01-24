@@ -201,3 +201,9 @@ export const isValid = {
     format: (input) => input.length > 5,
   },
 };
+
+export const favoriteTeamOptions = [
+  { label: '', value: '' },
+  { label: 'Benfica', value: 'benfica' },
+  { label: 'Real Madrid', value: 'realMadrid' },
+];

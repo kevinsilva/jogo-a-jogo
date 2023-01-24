@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
+import TextInput from './TextInput';
 import { AppContext } from '../App';
 import { isUserValid } from '../utils/utilities';
 
-export default function SignIn({ users, setSignIn, setTeam, setError }) {
+export default function SignIn({ users, onSignIn, setTeam, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,14 +11,15 @@ export default function SignIn({ users, setSignIn, setTeam, setError }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(users);
     if (email == '' || password == '')
-      return setError('Please enter your account details');
+      return onError('Please enter your account details');
     if (isUserValid(users, email, password)) {
       setTeam(users.filter((user) => user.email == email)[0].team);
       context.setUserSigned(true);
-      setError('');
+      onError('');
     } else {
-      setError('Info does not match, please try again');
+      onError('Info does not match, please try again');
       setPassword('');
     }
   };
@@ -25,33 +27,17 @@ export default function SignIn({ users, setSignIn, setTeam, setError }) {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="form__input-container">
-        <label htmlFor="" className="form__label">
-          Email
-        </label>
-        <input
-          className="form__input"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <TextInput label="Email" value={email} onChange={setEmail} />
       </div>
       <div className="form__input-container">
-        <label htmlFor="" className="form__label">
-          Password
-        </label>
-        <input
-          className="form__input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <TextInput label="Password" value={password} onChange={setPassword} />
       </div>
       <div className="form__btn-container">
         <p
           className="form__option-btn"
           onClick={() => {
-            setError('');
-            setSignIn(false);
+            onError('');
+            onSignIn(false);
           }}
         >
           Create account
