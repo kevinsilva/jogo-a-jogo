@@ -1,10 +1,8 @@
-import React, { useState, useContext } from 'react';
-
+import { useState, useContext } from 'react';
 import Popup from './Popup';
 import Form from './Form';
-
-import '../styles/Header.scss';
 import { AppContext } from '../App';
+import '../styles/Header.scss';
 
 export default function Header({ team, setTeam }) {
   const [isPopupOpen, setPopupOpen] = useState(false);

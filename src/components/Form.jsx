@@ -1,8 +1,6 @@
 import { useState } from 'react';
-
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-
 import '../styles/Form.scss';
 
 export default function Form({ team, setTeam }) {
@@ -27,17 +25,16 @@ export default function Form({ team, setTeam }) {
         <SignIn
           users={users}
           onSignIn={(boolean) => setSignIn(boolean)}
-          setTeam={setTeam}
+          onTeam={(team) => setTeam(team)}
           onError={(msg) => setError(msg)}
         />
       ) : (
         <SignUp
           users={users}
-          setUsers={setUsers}
+          onUsers={(users) => setUsers(users)}
           onSignIn={(boolean) => setSignIn(boolean)}
           team={team}
-          setTeam={setTeam}
-          setError={setError}
+          onTeam={(team) => setTeam(team)}
           onError={(msg) => setError(msg)}
         />
       )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useContext } from 'react';
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
 import { AppContext } from '../App';
@@ -6,16 +6,16 @@ import { isValid, favoriteTeamOptions } from '../utils/utilities';
 
 export default function SignUp({
   users,
-  setUsers,
+  onUsers,
   onSignIn,
   team,
-  setTeam,
+  onTeam,
   onError,
 }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const context = React.useContext(AppContext);
+  const context = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,11 +26,9 @@ export default function SignUp({
     if (!isValid.password.format(password))
       return onError('Password must be over 5 characters');
     const newUsers = [...users, { email, password, team }];
-    setUsers(newUsers);
+    onUsers(newUsers);
     context.setUserSigned(true);
     onError('');
-    console.log(users); // why does not show after setUsers?
-    console.log(newUsers);
   };
 
   return (
@@ -50,7 +48,7 @@ export default function SignUp({
         <SelectInput
           label="Select your team"
           value={team}
-          onChange={setTeam}
+          onChange={onTeam}
           options={favoriteTeamOptions}
         />
       </div>
