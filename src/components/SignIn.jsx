@@ -3,7 +3,7 @@ import TextInput from './TextInput';
 import { AppContext } from '../App';
 import { isUserValid } from '../utils/utilities';
 
-export default function SignIn({ users, onSignIn, onTeam, onError }) {
+export default function SignIn({ users, onSignIn, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +15,9 @@ export default function SignIn({ users, onSignIn, onTeam, onError }) {
     if (email == '' || password == '')
       return onError('Please enter your account details');
     if (isUserValid(users, email, password)) {
-      onTeam(users.filter((user) => user.email == email)[0].team);
+      context.setFavoriteTeam(
+        users.filter((user) => user.email == email)[0].team
+      );
       context.setUserSigned(true);
       onError('');
     } else {
@@ -30,7 +32,12 @@ export default function SignIn({ users, onSignIn, onTeam, onError }) {
         <TextInput label="Email" value={email} onChange={setEmail} />
       </div>
       <div className="form__input-container">
-        <TextInput label="Password" value={password} onChange={setPassword} />
+        <TextInput
+          label="Password"
+          value={password}
+          onChange={setPassword}
+          type="password"
+        />
       </div>
       <div className="form__btn-container">
         <p

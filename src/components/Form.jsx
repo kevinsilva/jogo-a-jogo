@@ -3,7 +3,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import '../styles/Form.scss';
 
-export default function Form({ team, setTeam }) {
+export default function Form() {
   const [signIn, setSignIn] = useState(true);
   const [error, setError] = useState('');
   const [users, setUsers] = useState([
@@ -25,7 +25,6 @@ export default function Form({ team, setTeam }) {
         <SignIn
           users={users}
           onSignIn={(boolean) => setSignIn(boolean)}
-          onTeam={(team) => setTeam(team)}
           onError={(msg) => setError(msg)}
         />
       ) : (
@@ -33,8 +32,6 @@ export default function Form({ team, setTeam }) {
           users={users}
           onUsers={(users) => setUsers(users)}
           onSignIn={(boolean) => setSignIn(boolean)}
-          team={team}
-          onTeam={(team) => setTeam(team)}
           onError={(msg) => setError(msg)}
         />
       )}

@@ -4,7 +4,7 @@ import Form from './Form';
 import { AppContext } from '../App';
 import '../styles/Header.scss';
 
-export default function Header({ team, setTeam }) {
+export default function Header() {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const context = useContext(AppContext);
@@ -22,7 +22,7 @@ export default function Header({ team, setTeam }) {
             </button>
           }
         >
-          <Form team={team} setTeam={setTeam} />
+          <Form />
         </Popup>
       ) : (
         <button

@@ -30,12 +30,14 @@ function App() {
   const context = {
     isUserSigned,
     setUserSigned,
+    favoriteTeam,
+    setFavoriteTeam,
   };
 
   return (
     <div className="App">
       <AppContext.Provider value={context}>
-        <Header team={favoriteTeam} setTeam={setFavoriteTeam} />
+        <Header />
       </AppContext.Provider>
       <FeaturedRow />
       {isUserSigned && favoriteTeam && <UserRow team={favoriteTeam} />}

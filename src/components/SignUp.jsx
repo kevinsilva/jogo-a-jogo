@@ -4,14 +4,7 @@ import SelectInput from './SelectInput';
 import { AppContext } from '../App';
 import { isValid, favoriteTeamOptions } from '../utils/utilities';
 
-export default function SignUp({
-  users,
-  onUsers,
-  onSignIn,
-  team,
-  onTeam,
-  onError,
-}) {
+export default function SignUp({ users, onUsers, onSignIn, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,10 +18,14 @@ export default function SignUp({
       return onError('Email must be valid, Please try again!');
     if (!isValid.password.format(password))
       return onError('Password must be over 5 characters');
-    const newUsers = [...users, { email, password, team }];
+    const newUsers = [
+      ...users,
+      { email, password, team: context.favoriteTeam },
+    ];
     onUsers(newUsers);
     context.setUserSigned(true);
     onError('');
+    console.log(newUsers);
   };
 
   return (
@@ -47,8 +44,8 @@ export default function SignUp({
       <div className="form__select-container">
         <SelectInput
           label="Select your team"
-          value={team}
-          onChange={onTeam}
+          value={context.favoriteTeam}
+          onChange={context.setFavoriteTeam}
           options={favoriteTeamOptions}
         />
       </div>
