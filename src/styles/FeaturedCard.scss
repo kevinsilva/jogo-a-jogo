@@ -2,13 +2,37 @@
 @use 'mixins';
 
 .featured-card {
-  background-color: variables.$color-white;
-  text-transform: uppercase;
-  min-width: 27.8rem;
-  min-height: 46rem;
-  padding: variables.$spacing-sm 0;
-  border-radius: 0.5rem;
-  box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
+  perspective: 150rem;
+
+  &__side {
+    min-width: 27.8rem;
+    min-height: 46rem;
+    background-color: variables.$color-white;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
+    padding: variables.$spacing-sm 0;
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+
+    &--front {
+      position: relative;
+    }
+
+    &--back {
+      position: absolute;
+      top: 0rem;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
 
   &:not(:last-child) {
     margin-right: 4rem;

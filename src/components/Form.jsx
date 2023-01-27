@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import '../styles/Form.scss';
@@ -6,6 +6,7 @@ import '../styles/Form.scss';
 export default function Form() {
   const [signIn, setSignIn] = useState(true);
   const [error, setError] = useState('');
+  const [bah, setBah] = useState('bah');
   const [users, setUsers] = useState([
     {
       email: 'kevin@gmail.com',
@@ -19,6 +20,10 @@ export default function Form() {
     },
   ]);
 
+  useEffect(() => {
+    console.log(bah);
+  }, [bah]);
+
   return (
     <div className="form">
       {signIn ? (
@@ -30,7 +35,7 @@ export default function Form() {
       ) : (
         <SignUp
           users={users}
-          onUsers={(users) => setUsers(users)}
+          onUsers={(users) => setBah(users)}
           onSignIn={(boolean) => setSignIn(boolean)}
           onError={(msg) => setError(msg)}
         />

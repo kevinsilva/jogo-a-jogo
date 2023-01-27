@@ -32,3 +32,22 @@ _solution 1_
 - when the user chooses his favorite team, it adds a favorite team games row on under the featured games row. It will show all score and preview games available.
 
 - persist users in browser local storage.
+
+## Card Click & Hover Events
+
+- click event on matchcards triggers a popup with either two h2h results (if results), or a coutdown timer (if preview).
+- hover on featurecards triggers a rotation animation with same data as on matchcards.
+
+requirements
+
+- popup (done)
+- hover animation
+- h2h data
+- coutdown timer
+
+PROBLEM: with h2h data. maybe change to other match info?
+
+### future feature:
+
+- click triggers popup that gives match stats on both types of cards.
+- matchcard click with countdown and h2h data gets replaced by hover animation (instead of rotating card, it rolls data downwards).
