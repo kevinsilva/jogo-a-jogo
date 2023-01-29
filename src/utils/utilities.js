@@ -207,3 +207,93 @@ export const favoriteTeamOptions = [
   { label: 'Benfica', value: 'benfica' },
   { label: 'Real Madrid', value: 'realMadrid' },
 ];
+
+function calcRemainingTime1(matchTimestamp) {
+  const matchTime = matchTimestamp * 1000;
+  const now = new Date().getTime();
+  const remainingTime = new Date(matchTime - now);
+
+  const remaining = {
+    days: () => Math.floor(remainingTime / (1000 * 60 * 60 * 24)),
+    hours: () => remainingTime / (1000 * 60 * 60),
+    min: () => Math.floor(remainingTime / (1000 * 60)),
+    sec: () => Math.floor(remainingTime / 1000),
+  };
+
+  if (remaining.days())
+    return remaining.days() > 1
+      ? `faltam ${remaining.days()} dias`
+      : `falta 1 dia`;
+  if (remaining.hours())
+    return remaining.hours() > 2
+      ? `faltam ${Math.floor(remaining.hours())} horas`
+      : remaining.hours() > 1
+      ? `falta mais de uma hora`
+      : `falta 1 hora`;
+  if (remaining.min())
+    return remaining.min() > 1
+      ? `faltam ${remaining.min()} minutos`
+      : `falta 1 minuto`;
+  if (remaining.sec())
+    return remaining.sec() > 1
+      ? `faltam ${remaining.sec()} segundos`
+      : `falta 1 segundo`;
+  return `e roda a bola`;
+}
+
+function calcRemainingTime2(matchTimestamp) {
+  const matchTime = matchTimestamp * 1000;
+  const now = new Date().getTime();
+  const remainingTime = new Date(matchTime - now);
+
+  if (remainingTime < 0) return `E roda a bola`;
+
+  const remaining = {
+    dias: remainingTime / (1000 * 60 * 60 * 24),
+    horas: remainingTime / (1000 * 60 * 60),
+    minutos: remainingTime / (1000 * 60),
+    segundos: remainingTime / 1000,
+  };
+
+  const isHalfUp = (time) => !(Math.floor(time) == Math.round(time));
+
+  let [type, value] = Object.entries(remaining).find(
+    (arr) => Math.floor(arr[1]) > 0
+  );
+  console.log(isHalfUp(value), value);
+
+  const verb = Math.floor(value) == 1 ? 'falta' : 'faltam';
+  const adverb = isHalfUp(value) ? 'e mei' : '';
+  const adverbGender = type === 'dias' ? 'o' : type === 'horas' ? 'a' : '';
+
+  type = verb.length === 5 ? type.substring(0, type.length - 1) : type;
+
+  return `${verb} ${Math.floor(value)} ${type} ${adverb}${adverbGender}`;
+}
+
+export function calcRemainingTime(matchTimestamp) {
+  const matchTime = matchTimestamp * 1000;
+  const now = new Date().getTime();
+  const remainingTime = new Date(matchTime - now);
+
+  if (remainingTime < 0) return `E roda a bola`;
+
+  const remaining = {
+    dias: remainingTime / (1000 * 60 * 60 * 24),
+    horas: remainingTime / (1000 * 60 * 60),
+    minutos: remainingTime / (1000 * 60),
+    segundos: remainingTime / 1000,
+  };
+
+  const isHalfUp = (time) => !(Math.floor(time) == Math.round(time));
+
+  let [type, value] = Object.entries(remaining).find(
+    (time) => Math.floor(time[1]) > 0
+  );
+
+  const verb = Math.floor(value) == 1 ? 'falta' : 'faltam';
+  let adverb = isHalfUp(value) ? 'mais de' : 'cerca de';
+
+  if (verb.length === 5) type = type.substring(0, type.length - 1);
+  return `${verb} ${adverb} ${Math.floor(value)} ${type}`;
+}

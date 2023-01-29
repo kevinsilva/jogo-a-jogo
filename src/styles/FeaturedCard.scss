@@ -53,6 +53,12 @@
     margin-top: 3rem;
   }
 
+  &__home-section,
+  &__away-section {
+    display: flex;
+    align-items: baseline;
+  }
+
   &__home-section {
     margin-top: -0.5rem;
     margin-bottom: 1rem;
@@ -62,6 +68,12 @@
   &__away-name {
     font-size: 13rem;
     font-weight: 900;
+  }
+
+  &__home-img,
+  &__away-img {
+    width: 9rem;
+    // height: 9rem;
   }
 
   &__away-name {

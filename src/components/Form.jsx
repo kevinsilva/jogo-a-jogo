@@ -6,7 +6,6 @@ import '../styles/Form.scss';
 export default function Form() {
   const [signIn, setSignIn] = useState(true);
   const [error, setError] = useState('');
-  const [bah, setBah] = useState('bah');
   const [users, setUsers] = useState([
     {
       email: 'kevin@gmail.com',
@@ -19,10 +18,6 @@ export default function Form() {
       team: 'benfica',
     },
   ]);
-
-  useEffect(() => {
-    console.log(bah);
-  }, [bah]);
 
   return (
     <div className="form">

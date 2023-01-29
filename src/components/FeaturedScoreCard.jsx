@@ -15,10 +15,18 @@ export default function FeaturedScoreCard({ scoreData }) {
             <h3 className="featured-card__home-name">
               {scoreData.teams.home.name.slice(0, 3)}
             </h3>
-            {/* <img className="featured-card__home-img" src="#" alt="" /> */}
+            <img
+              className="featured-card__home-img"
+              src={scoreData.teams.home.logo}
+              alt=""
+            />
           </div>
           <div className="featured-card__away-section">
-            {/* <img className="featured-card__away-img" src="#" alt="" /> */}
+            <img
+              className="featured-card__away-img"
+              src={scoreData.teams.away.logo}
+              alt=""
+            />
             <h3 className="featured-card__away-name">
               {scoreData.teams.away.name.slice(0, 3)}
             </h3>

@@ -41,11 +41,17 @@ _solution 1_
 requirements
 
 - popup (done)
-- hover animation
+- hover animation (done)
 - h2h data
 - coutdown timer
 
 PROBLEM: with h2h data. maybe change to other match info?
+
+Countdown Timer
+
+- A calculation that takes time as input and returns days/hours/minutes/seconds/string.
+- date now
+- date event 1676491200
 
 ### future feature:
 
