@@ -3,7 +3,7 @@ import TextInput from './TextInput';
 import { AppContext } from '../App';
 import { isUserValid } from '../utils/utilities';
 
-export default function SignIn({ users, onSignIn, onError }) {
+export default function SignIn({ onSignIn, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,12 +11,12 @@ export default function SignIn({ users, onSignIn, onError }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(users);
+    console.log(context.users);
     if (email == '' || password == '')
       return onError('Please enter your account details');
-    if (isUserValid(users, email, password)) {
+    if (isUserValid(context.users, email, password)) {
       context.setFavoriteTeam(
-        users.filter((user) => user.email == email)[0].team
+        context.users.filter((user) => user.email == email)[0].team
       );
       context.setUserSigned(true);
       onError('');

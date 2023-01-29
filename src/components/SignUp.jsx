@@ -4,7 +4,7 @@ import SelectInput from './SelectInput';
 import { AppContext } from '../App';
 import { isValid, favoriteTeamOptions } from '../utils/utilities';
 
-export default function SignUp({ users, onUsers, onSignIn, onError }) {
+export default function SignUp({ onSignIn, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,15 +14,18 @@ export default function SignUp({ users, onUsers, onSignIn, onError }) {
     e.preventDefault();
     if (email == '' || password == '')
       return onError('Please enter your account details');
-    if (!isValid.email.format(email) || !isValid.email.unique(users, email))
+    if (
+      !isValid.email.format(email) ||
+      !isValid.email.unique(context.users, email)
+    )
       return onError('Email must be valid, Please try again!');
     if (!isValid.password.format(password))
       return onError('Password must be over 5 characters');
     const newUsers = [
-      ...users,
+      ...context.users,
       { email, password, team: context.favoriteTeam },
     ];
-    onUsers(newUsers);
+    context.setUsers(newUsers);
     context.setUserSigned(true);
     onError('');
     console.log(newUsers);

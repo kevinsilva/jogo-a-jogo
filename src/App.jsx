@@ -6,11 +6,23 @@ import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
 
 export const AppContext = React.createContext();
+const initialUsers = [
+  {
+    email: 'kevin@gmail.com',
+    password: 'abc',
+    team: 'benfica',
+  },
+  {
+    email: 'william@gmail.com',
+    password: '123',
+    team: 'benfica',
+  },
+];
 
 function App() {
   const [isUserSigned, setUserSigned] = useState(false);
   const [favoriteTeam, setFavoriteTeam] = useState('');
-
+  const [users, setUsers] = useState(initialUsers);
   // useEffect(() => {
   //   const data = JSON.parse(window.localStorage.getItem('data'));
   //   if (data.isUserSigned) setUserSigned(data.isUserSigned);
@@ -32,6 +44,8 @@ function App() {
     setUserSigned,
     favoriteTeam,
     setFavoriteTeam,
+    users,
+    setUsers, //TODO: nao passar o setter! (pois perde-se o controle)
   };
 
   return (
