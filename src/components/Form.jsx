@@ -30,7 +30,7 @@ export default function Form() {
       ) : (
         <SignUp
           users={users}
-          onUsers={(users) => setBah(users)}
+          onUsers={(users) => setUsers(users)}
           onSignIn={(boolean) => setSignIn(boolean)}
           onError={(msg) => setError(msg)}
         />

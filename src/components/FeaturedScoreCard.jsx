@@ -47,7 +47,10 @@ export default function FeaturedScoreCard({ scoreData }) {
           </h4>
         </div>
       </div>
-      <div className="featured-card__side featured-card__side--back">back</div>
+      <div className="featured-card__side featured-card__side--back">
+        <h3>{scoreData.fixture.venue.name}</h3>
+        <h3>{scoreData.fixture.venue.city}</h3>
+      </div>
     </div>
   );
 }
