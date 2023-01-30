@@ -4,9 +4,11 @@ import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
+import { isValid, isUserValid } from './utils/utilities';
 
 export const AppContext = React.createContext();
-const initialUsers = [
+
+const baseUsers = [
   {
     email: 'kevin@gmail.com',
     password: 'abc',
@@ -22,7 +24,7 @@ const initialUsers = [
 function App() {
   const [isUserSigned, setUserSigned] = useState(false);
   const [favoriteTeam, setFavoriteTeam] = useState('');
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState(baseUsers);
   // useEffect(() => {
   //   const data = JSON.parse(window.localStorage.getItem('data'));
   //   if (data.isUserSigned) setUserSigned(data.isUserSigned);
@@ -39,13 +41,44 @@ function App() {
   //   );
   // }, [isUserSigned, favoriteTeam]);
 
+  const addUser = (email, password) => {
+    if (email == '' || password == '')
+      return 'Please enter your account details';
+    if (
+      !isValid.email.format(email) ||
+      !isValid.email.unique(context.users, email)
+    )
+      return 'Email must be valid, Please try again!';
+    if (!isValid.password.format(password))
+      return 'Password must be over 5 characters';
+
+    const newUsers = [...users, { email, password, team: favoriteTeam }];
+    setUsers(newUsers);
+    return '';
+  };
+
+  const signUser = (email, password) => {
+    if (email == '' || password == '')
+      return 'Please enter your account details';
+    if (isUserValid(context.users, email, password)) {
+      context.setFavoriteTeam(
+        context.users.filter((user) => user.email == email)[0].team
+      );
+      return '';
+    } else {
+      setPassword('');
+      return 'Info does not match, please try again';
+    }
+  };
+
   const context = {
     isUserSigned,
     setUserSigned,
     favoriteTeam,
     setFavoriteTeam,
     users,
-    setUsers, //TODO: nao passar o setter! (pois perde-se o controle)
+    addUser,
+    signUser,
   };
 
   return (

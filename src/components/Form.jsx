@@ -4,7 +4,7 @@ import SignUp from './SignUp';
 import '../styles/Form.scss';
 
 export default function Form() {
-  const [signIn, setSignIn] = useState(true);
+  const [mode, setMode] = useState('sign in');
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -16,14 +16,14 @@ export default function Form() {
 
   return (
     <div className="form">
-      {signIn ? (
+      {mode == 'sign in' ? (
         <SignIn
-          onSignIn={(boolean) => setSignIn(boolean)}
+          onSignUpClick={() => setMode('sign up')}
           onError={(msg) => setError(msg)}
         />
       ) : (
         <SignUp
-          onSignIn={(boolean) => setSignIn(boolean)}
+          onSignInClick={() => setMode('sign in')}
           onError={(msg) => setError(msg)}
         />
       )}

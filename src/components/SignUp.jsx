@@ -2,9 +2,9 @@ import { useState, useContext } from 'react';
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
 import { AppContext } from '../App';
-import { isValid, favoriteTeamOptions } from '../utils/utilities';
+import { favoriteTeamOptions } from '../utils/utilities';
 
-export default function SignUp({ onSignIn, onError }) {
+export default function SignUp({ onSignInClick, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,23 +12,11 @@ export default function SignUp({ onSignIn, onError }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email == '' || password == '')
-      return onError('Please enter your account details');
-    if (
-      !isValid.email.format(email) ||
-      !isValid.email.unique(context.users, email)
-    )
-      return onError('Email must be valid, Please try again!');
-    if (!isValid.password.format(password))
-      return onError('Password must be over 5 characters');
-    const newUsers = [
-      ...context.users,
-      { email, password, team: context.favoriteTeam },
-    ];
-    context.setUsers(newUsers);
-    context.setUserSigned(true);
-    onError('');
-    console.log(newUsers);
+    const error = context.addUser(email, password);
+
+    // if (!error) context.setUserSigned(true);
+    context.setUserSigned(!Boolean(error));
+    onError(error);
   };
 
   return (
@@ -48,7 +36,7 @@ export default function SignUp({ onSignIn, onError }) {
         <SelectInput
           label="Select your team"
           value={context.favoriteTeam}
-          onChange={context.setFavoriteTeam}
+          onChange={context.setFavoriteTeam} // TODO passar para estado local
           options={favoriteTeamOptions}
         />
       </div>
@@ -57,7 +45,7 @@ export default function SignUp({ onSignIn, onError }) {
           className="form__option-btn"
           onClick={() => {
             onError('');
-            onSignIn(true);
+            onSignInClick(true);
           }}
         >
           Sign in instead

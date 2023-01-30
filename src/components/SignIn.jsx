@@ -3,7 +3,7 @@ import TextInput from './TextInput';
 import { AppContext } from '../App';
 import { isUserValid } from '../utils/utilities';
 
-export default function SignIn({ onSignIn, onError }) {
+export default function SignIn({ onSignUpClick, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,19 +11,9 @@ export default function SignIn({ onSignIn, onError }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(context.users);
-    if (email == '' || password == '')
-      return onError('Please enter your account details');
-    if (isUserValid(context.users, email, password)) {
-      context.setFavoriteTeam(
-        context.users.filter((user) => user.email == email)[0].team
-      );
-      context.setUserSigned(true);
-      onError('');
-    } else {
-      onError('Info does not match, please try again');
-      setPassword('');
-    }
+    const error = context.signUser(email, password);
+    context.setUserSigned(!Boolean(error));
+    onError(error);
   };
 
   return (
@@ -44,7 +34,7 @@ export default function SignIn({ onSignIn, onError }) {
           className="form__option-btn"
           onClick={() => {
             onError('');
-            onSignIn(false);
+            onSignUpClick(false);
           }}
         >
           Create account
