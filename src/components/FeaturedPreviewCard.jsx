@@ -51,9 +51,7 @@ export default function FeaturedPreviewCard({ previewData }) {
       </div>
       <div className="featured-card__side featured-card__side--back">
         <div className="featured-card__header">
-          <h4 className="featured-card__league-name">
-            {previewData.league.name}
-          </h4>
+          <h4 className="featured-card__title">Pontapé de Saída</h4>
         </div>
         <div className="featured-card__sections featured-card__sections--preview">
           <div className="featured-card__timer-section">

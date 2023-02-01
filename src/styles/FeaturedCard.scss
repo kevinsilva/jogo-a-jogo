@@ -48,7 +48,9 @@
   }
 
   &__league-name,
-  &__date {
+  &__date,
+  &__title,
+  &__footnote {
     color: variables.$color-gray;
     font-size: 2rem;
     font-weight: 100;
