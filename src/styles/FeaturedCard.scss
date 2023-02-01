@@ -5,8 +5,10 @@
   perspective: 150rem;
 
   &__side {
-    min-width: 27.8rem;
-    min-height: 46rem;
+    // min-width: 27.8rem;
+    // min-height: 46rem;
+    width: 29rem;
+    height: 47.2rem;
     background-color: variables.$color-white;
     text-transform: uppercase;
     border-radius: 0.5rem;
@@ -20,6 +22,9 @@
     }
 
     &--back {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       position: absolute;
       top: 0rem;
       transform: rotateY(180deg);
@@ -48,6 +53,9 @@
     font-size: 2rem;
     font-weight: 100;
   }
+  &__sections--score {
+    text-align: center;
+  }
 
   &__sections--preview &__section-line {
     margin-top: 3rem;
@@ -57,6 +65,32 @@
   &__away-section {
     display: flex;
     align-items: baseline;
+  }
+
+  &__timer-section {
+    text-align: center;
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__stadium-section {
+    display: flex;
+    align-items: center;
+    height: 20rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__city-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 9rem;
+    position: relative;
+    top: 3rem;
+    width: 80%;
+    margin: 0 auto;
   }
 
   &__home-section {
@@ -79,6 +113,27 @@
   &__away-name {
     text-align: right;
     margin-top: -5rem;
+  }
+
+  &__timer {
+    font-size: 7rem;
+    font-weight: 900;
+    color: black;
+
+    &::first-line {
+      color: gray;
+    }
+  }
+  &__stadium-name {
+    color: gray;
+    font-size: 3.2rem;
+    font-weight: 900;
+  }
+
+  &__city-name {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: black;
   }
 
   &__section-line {
@@ -111,7 +166,7 @@
     font-weight: 900;
   }
 
-  & &__footer {
+  &__footer {
     @include mixins.flex-center;
   }
 }

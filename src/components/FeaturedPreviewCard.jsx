@@ -50,7 +50,23 @@ export default function FeaturedPreviewCard({ previewData }) {
         </div>
       </div>
       <div className="featured-card__side featured-card__side--back">
-        <h3>{calcRemainingTime(previewData.fixture.timestamp)}</h3>
+        <div className="featured-card__header">
+          <h4 className="featured-card__league-name">
+            {previewData.league.name}
+          </h4>
+        </div>
+        <div className="featured-card__sections featured-card__sections--preview">
+          <div className="featured-card__timer-section">
+            <h4 className="featured-card__timer">
+              {calcRemainingTime(previewData.fixture.timestamp)}
+            </h4>
+          </div>
+        </div>
+        <div className="featured-card__footer">
+          <h4 className="featured-card__date">
+            {formatDate(previewData.fixture.date)}
+          </h4>
+        </div>
       </div>
     </div>
   );

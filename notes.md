@@ -57,3 +57,18 @@ Countdown Timer
 
 - click triggers popup that gives match stats on both types of cards.
 - matchcard click with countdown and h2h data gets replaced by hover animation (instead of rotating card, it rolls data downwards).
+
+### Passing setFavoriteTeam Locally
+
+<!-- prettier-ignore -->
+-App
+  -Header
+    -PopUp
+      -Form
+        -SignIn
+        -SignUp
+          -team / setTeam
+
+-UserRow team={users.map(signIn=true)team}
+
+problem: passing the state to local changes signin / signup implementation since the favorite team state is need in app parent component.

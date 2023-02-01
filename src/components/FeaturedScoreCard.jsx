@@ -48,8 +48,29 @@ export default function FeaturedScoreCard({ scoreData }) {
         </div>
       </div>
       <div className="featured-card__side featured-card__side--back">
-        <h3>{scoreData.fixture.venue.name}</h3>
-        <h3>{scoreData.fixture.venue.city}</h3>
+        <div className="featured-card__header">
+          <h4 className="featured-card__league-name">
+            {scoreData.league.name}
+          </h4>
+        </div>
+        <div className="featured-card__sections featured-card__sections--score">
+          <div className="featured-card__stadium-section">
+            <h4 className="featured-card__stadium-name">
+              {scoreData.fixture.venue.name}
+            </h4>
+          </div>
+          <hr className="featured-card__section-line" />
+          <div className="featured-card__city-section">
+            <h4 className="featured-card__city-name">
+              {scoreData.fixture.venue.city}
+            </h4>
+          </div>
+        </div>
+        <div className="featured-card__footer">
+          <h4 className="featured-card__date">
+            {formatDate(scoreData.fixture.date)}
+          </h4>
+        </div>
       </div>
     </div>
   );
