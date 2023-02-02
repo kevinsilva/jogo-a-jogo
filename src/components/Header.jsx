@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="header">
       <h1>Jogo a Jogo</h1>
-      {!context.isUserSigned ? (
+      {!context.isUserOnline() ? (
         <Popup
           open={isPopupOpen}
           onClose={() => setPopupOpen(false)}
@@ -30,7 +30,6 @@ export default function Header() {
           onClick={() => {
             setPopupOpen(!isPopupOpen);
             context.signOut();
-            context.setUserSigned(false);
           }}
         >
           Sign Out

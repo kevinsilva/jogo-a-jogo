@@ -297,3 +297,7 @@ export function calcRemainingTime(matchTimestamp) {
   if (verb.length === 5) type = type.substring(0, type.length - 1);
   return `${verb} ${adverb} ${Math.floor(value)} ${type}`;
 }
+
+export const getUserTeam = (users) => {
+  return users.find((user) => user.isOnline == true)?.team;
+};

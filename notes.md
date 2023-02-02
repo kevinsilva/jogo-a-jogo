@@ -72,3 +72,11 @@ Countdown Timer
 -UserRow team={users.map(signIn=true)team}
 
 problem: passing the state to local changes signin / signup implementation since the favorite team state is need in app parent component.
+
+### Example
+
+    e.preventDefault();
+    const error = context.addUser(email, password, favoriteTeam);
+    // if (!error) context.setUserSigned(true);
+    // context.setUserSigned(!Boolean(error));
+    onError(error);

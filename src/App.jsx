@@ -4,7 +4,7 @@ import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
-import { isValid, isUserValid } from './utils/utilities';
+import { isValid, isUserValid, getUserTeam } from './utils/utilities';
 
 export const AppContext = React.createContext();
 
@@ -22,7 +22,6 @@ const baseUsers = [
 ];
 
 function App() {
-  const [isUserSigned, setUserSigned] = useState(false);
   const [users, setUsers] = useState(baseUsers);
   // useEffect(() => {
   //   const data = JSON.parse(window.localStorage.getItem('data'));
@@ -50,7 +49,6 @@ function App() {
       return 'Email must be valid, Please try again!';
     if (!isValid.password.format(password))
       return 'Password must be over 5 characters';
-
     const newUsers = [...users, { email, password, team, isOnline: true }];
     setUsers(newUsers);
     return '';
@@ -78,9 +76,8 @@ function App() {
     setUsers(copyUsers);
   };
 
-  const getUserTeam = () => {
-    const onlineUser = users.find((user) => user.isOnline == true);
-    return onlineUser.team;
+  const isUserOnline = () => {
+    return users.find((user) => user.isOnline) ? true : false;
   };
 
   useEffect(() => {
@@ -88,12 +85,11 @@ function App() {
   }, [users]);
 
   const context = {
-    isUserSigned,
-    setUserSigned,
     users,
     addUser,
     signUser,
     signOut,
+    isUserOnline,
   };
 
   return (
@@ -102,8 +98,10 @@ function App() {
         <Header />
       </AppContext.Provider>
       <FeaturedRow />
-      {isUserSigned && getUserTeam()}
-      {isUserSigned && getUserTeam() && <UserRow team={getUserTeam()} />}
+      {isUserOnline() && getUserTeam(users)}
+      {isUserOnline() && getUserTeam(users) && (
+        <UserRow team={getUserTeam(users)} />
+      )}
       <MatchesRow />
     </div>
   );

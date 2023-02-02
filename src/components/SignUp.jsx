@@ -14,8 +14,6 @@ export default function SignUp({ onSignInClick, onError }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const error = context.addUser(email, password, favoriteTeam);
-    // if (!error) context.setUserSigned(true);
-    context.setUserSigned(!Boolean(error));
     onError(error);
   };
 

@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import TextInput from './TextInput';
 import { AppContext } from '../App';
-import { isUserValid } from '../utils/utilities';
 
 export default function SignIn({ onSignUpClick, onError }) {
   const [email, setEmail] = useState('');
@@ -12,7 +11,6 @@ export default function SignIn({ onSignUpClick, onError }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const error = context.signUser(email, password);
-    context.setUserSigned(!Boolean(error));
     onError(error);
   };
 
