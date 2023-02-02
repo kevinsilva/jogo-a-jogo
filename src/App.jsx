@@ -55,8 +55,8 @@ function App() {
       return 'Please enter your account details';
     if (isUserValid(context.users, email, password)) {
       const copyUsers = structuredClone(context.users);
-      const updateUser = copyUsers.find((user) => user.email == email);
-      updateUser.isOnline = true;
+      const foundUser = copyUsers.find((user) => user.email == email);
+      foundUser.isOnline = true;
       setUsers(copyUsers);
       return '';
     } else {
@@ -67,18 +67,14 @@ function App() {
 
   const signOut = () => {
     const copyUsers = structuredClone(context.users);
-    const updateUser = copyUsers.find((user) => user.isOnline == true);
-    updateUser.isOnline = false;
+    const foundUser = copyUsers.find((user) => user.isOnline == true);
+    foundUser.isOnline = false;
     setUsers(copyUsers);
   };
 
   const isUserOnline = () => {
     return users.find((user) => user.isOnline) ? true : false;
   };
-
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
 
   const context = {
     users,
