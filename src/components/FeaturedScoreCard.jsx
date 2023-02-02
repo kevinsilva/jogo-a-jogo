@@ -17,14 +17,14 @@ export default function FeaturedScoreCard({ scoreData }) {
             </h3>
             <img
               className="featured-card__home-img"
-              src={scoreData.teams.home.logo}
+              // src={scoreData.teams.home.logo}
               alt=""
             />
           </div>
           <div className="featured-card__away-section">
             <img
               className="featured-card__away-img"
-              src={scoreData.teams.away.logo}
+              // src={scoreData.teams.away.logo}
               alt=""
             />
             <h3 className="featured-card__away-name">

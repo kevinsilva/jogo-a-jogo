@@ -7,13 +7,13 @@ import { favoriteTeamOptions } from '../utils/utilities';
 export default function SignUp({ onSignInClick, onError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [favoriteTeam, setFavoriteTeam] = useState('');
 
   const context = useContext(AppContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const error = context.addUser(email, password);
-
+    const error = context.addUser(email, password, favoriteTeam);
     // if (!error) context.setUserSigned(true);
     context.setUserSigned(!Boolean(error));
     onError(error);
@@ -35,8 +35,8 @@ export default function SignUp({ onSignInClick, onError }) {
       <div className="form__select-container">
         <SelectInput
           label="Select your team"
-          value={context.favoriteTeam}
-          onChange={context.setFavoriteTeam} // TODO passar para estado local
+          value={favoriteTeam}
+          onChange={setFavoriteTeam}
           options={favoriteTeamOptions}
         />
       </div>

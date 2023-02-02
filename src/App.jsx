@@ -23,7 +23,6 @@ const baseUsers = [
 
 function App() {
   const [isUserSigned, setUserSigned] = useState(false);
-  const [favoriteTeam, setFavoriteTeam] = useState('');
   const [users, setUsers] = useState(baseUsers);
   // useEffect(() => {
   //   const data = JSON.parse(window.localStorage.getItem('data'));
@@ -41,7 +40,7 @@ function App() {
   //   );
   // }, [isUserSigned, favoriteTeam]);
 
-  const addUser = (email, password) => {
+  const addUser = (email, password, team) => {
     if (email == '' || password == '')
       return 'Please enter your account details';
     if (
@@ -52,7 +51,7 @@ function App() {
     if (!isValid.password.format(password))
       return 'Password must be over 5 characters';
 
-    const newUsers = [...users, { email, password, team: favoriteTeam }];
+    const newUsers = [...users, { email, password, team, isOnline: true }];
     setUsers(newUsers);
     return '';
   };
@@ -61,9 +60,10 @@ function App() {
     if (email == '' || password == '')
       return 'Please enter your account details';
     if (isUserValid(context.users, email, password)) {
-      context.setFavoriteTeam(
-        context.users.filter((user) => user.email == email)[0].team
-      );
+      const copyUsers = structuredClone(context.users);
+      const updateUser = copyUsers.find((user) => user.email == email);
+      updateUser.isOnline = true;
+      setUsers(copyUsers);
       return '';
     } else {
       setPassword('');
@@ -71,14 +71,29 @@ function App() {
     }
   };
 
+  const signOut = () => {
+    const copyUsers = structuredClone(context.users);
+    const updateUser = copyUsers.find((user) => user.isOnline == true);
+    updateUser.isOnline = false;
+    setUsers(copyUsers);
+  };
+
+  const getUserTeam = () => {
+    const onlineUser = users.find((user) => user.isOnline == true);
+    return onlineUser.team;
+  };
+
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
+
   const context = {
     isUserSigned,
     setUserSigned,
-    favoriteTeam,
-    setFavoriteTeam,
     users,
     addUser,
     signUser,
+    signOut,
   };
 
   return (
@@ -87,7 +102,8 @@ function App() {
         <Header />
       </AppContext.Provider>
       <FeaturedRow />
-      {isUserSigned && favoriteTeam && <UserRow team={favoriteTeam} />}
+      {isUserSigned && getUserTeam()}
+      {isUserSigned && getUserTeam() && <UserRow team={getUserTeam()} />}
       <MatchesRow />
     </div>
   );

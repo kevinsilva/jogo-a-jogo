@@ -22,14 +22,14 @@ export default function FeaturedPreviewCard({ previewData }) {
             </h3>
             <img
               className="featured-card__home-img"
-              src={previewData.teams.home.logo}
+              // src={previewData.teams.home.logo}
               alt=""
             />
           </div>
           <div className="featured-card__away-section">
             <img
               className="featured-card__away-img"
-              src={previewData.teams.away.logo}
+              // src={previewData.teams.away.logo}
               alt=""
             />
             <h3 className="featured-card__away-name">

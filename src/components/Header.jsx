@@ -29,6 +29,7 @@ export default function Header() {
           className="btn"
           onClick={() => {
             setPopupOpen(!isPopupOpen);
+            context.signOut();
             context.setUserSigned(false);
           }}
         >
