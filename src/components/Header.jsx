@@ -28,8 +28,8 @@ export default function Header() {
         <button
           className="btn"
           onClick={() => {
-            setPopupOpen(!isPopupOpen);
             context.signOut();
+            setPopupOpen(false);
           }}
         >
           Sign Out

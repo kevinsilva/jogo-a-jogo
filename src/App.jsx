@@ -23,21 +23,17 @@ const baseUsers = [
 
 function App() {
   const [users, setUsers] = useState(baseUsers);
-  // useEffect(() => {
-  //   const data = JSON.parse(window.localStorage.getItem('data'));
-  //   if (data.isUserSigned) setUserSigned(data.isUserSigned);
-  //   if (data.favoriteTeam) setFavoriteTeam(data.favoriteTeam);
-  // }, []);
 
-  // useEffect(() => {
-  //   window.localStorage.setItem(
-  //     'data',
-  //     JSON.stringify({
-  //       isUserSigned: isUserSigned,
-  //       favoriteTeam: favoriteTeam,
-  //     })
-  //   );
-  // }, [isUserSigned, favoriteTeam]);
+  useEffect(() => {
+    console.log('get');
+    const storedUsers = JSON.parse(localStorage.getItem('data'));
+    if (storedUsers) setUsers(storedUsers);
+  }, []);
+
+  useEffect(() => {
+    if (users !== baseUsers)
+      localStorage.setItem('data', JSON.stringify(users));
+  }, [users]);
 
   const addUser = (email, password, team) => {
     if (email == '' || password == '')
