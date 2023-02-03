@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { mockFetchPreviews, mockFetchScores } from '../mocks/services';
+import { mockFetchData } from '../mocks/services';
+import { mockScores, mockPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import '../styles/MatchesRow.scss';
@@ -10,7 +11,7 @@ export default function MatchesRow({ leagueID, season, totalMatches }) {
   const [previewData, setPreviewData] = useState(null);
 
   useEffect(() => {
-    Promise.all([mockFetchScores(), mockFetchPreviews()])
+    Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
       .then(([scores, previews]) => {
         console.log(scores, previews);
         setScoreData(scores);
