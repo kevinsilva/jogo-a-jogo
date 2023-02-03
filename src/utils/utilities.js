@@ -301,3 +301,11 @@ export function calcRemainingTime(matchTimestamp) {
 export const getUserTeam = (users) => {
   return users.find((user) => user.isOnline == true)?.team;
 };
+
+export function getCurrentSeason() {
+  const month = new Date().getMonth();
+  const year = new Date().getFullYear();
+
+  if (month < 7) return year - 1;
+  return year;
+}

@@ -17,3 +17,28 @@
   padding-left: 6rem;
   transform: translateY(2rem);
 }
+
+.spinner {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid gray;
+  border-top-color: black;
+  border-right-color: black;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+  transition: 0.2s;
+  position: relative;
+  left: 50vw;
+  margin-bottom: 10rem;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

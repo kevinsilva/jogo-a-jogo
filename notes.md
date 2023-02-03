@@ -80,3 +80,16 @@ problem: passing the state to local changes signin / signup implementation since
     // if (!error) context.setUserSigned(true);
     // context.setUserSigned(!Boolean(error));
     onError(error);
+
+### fetchFeatured
+
+loop CLUBS
+fetch team statistics for form
+calc form points
+return array with club id and points
+order
+fetch team last and next match
+
+Else
+
+fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
