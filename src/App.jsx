@@ -4,7 +4,7 @@ import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
-import { isValid, isUserValid, getUserTeam } from './utils/utilities';
+import { isValid, isUserValid, getUserTeam, LEAGUES } from './utils/utilities';
 
 export const AppContext = React.createContext();
 
@@ -94,7 +94,11 @@ function App() {
       {isUserOnline() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
-      <MatchesRow />
+      <MatchesRow
+        leagueName={'Primeira Liga'}
+        leagueID={94}
+        totalMatches={LEAGUES['Primeira Liga'].matchesByRound}
+      />
     </div>
   );
 }
