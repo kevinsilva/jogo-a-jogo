@@ -29,7 +29,7 @@ export default function FeaturedRow() {
   }
 
   // function center() {
-  //   const container = document.querySelector('.scrollable-row');
+  //   const container = document.getElementById('#scrollable-row');
   //   const items = document.querySelectorAll('.featured-card');
   //   const middleIndex = Math.floor(items.length / 2);
   //   const middleItem = items[middleIndex];
@@ -49,7 +49,6 @@ export default function FeaturedRow() {
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');
-        center();
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +61,7 @@ export default function FeaturedRow() {
   if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <div className="scrollable-row">
+    <div className="scrollable-row" id="featured-row">
       {scoreData.map((data, index) => (
         <FeaturedScoreCard key={index} scoreData={data} />
       ))}

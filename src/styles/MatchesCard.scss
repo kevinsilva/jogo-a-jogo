@@ -2,7 +2,7 @@
 @use 'mixins';
 
 .match-card {
-  background-color: variables.$color-white;
+  background-color: variables.$color-black_light;
   text-transform: uppercase;
   min-width: 27.8rem;
   min-height: 11rem;
@@ -11,7 +11,7 @@
   box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
 
   &:nth-of-type(10) {
-    background-color: red;
+    // background-color: red;
     margin: auto;
   }
 

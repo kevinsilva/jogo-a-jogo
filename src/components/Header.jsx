@@ -11,7 +11,8 @@ export default function Header() {
 
   return (
     <header className="header">
-      <h1>Jogo a Jogo</h1>
+      <img className="logo" src="../assets/logo.png" alt="" />
+      {/* <h1>Jogo a Jogo</h1> */}
       {!context.isUserOnline() ? (
         <Popup
           open={isPopupOpen}

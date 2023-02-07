@@ -1,7 +1,8 @@
+@use 'variables';
 @use 'mixins';
 
 .form {
-  background-color: white;
+  background-color: variables.$color-black_light;
   padding: 4rem;
   min-width: 50rem;
   position: relative;
@@ -20,6 +21,7 @@
 
   &__input,
   &__select {
+    background-color: variables.$color-black_light;
     padding: 1rem;
   }
 
