@@ -160,7 +160,7 @@ export const TEAMS = {
   },
 };
 
-export const featuredTeams = [
+export const FEATURED_TEAMS = [
   211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
 ];
 

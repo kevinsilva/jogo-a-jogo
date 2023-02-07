@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { featuredTeams } from '../utils/utilities';
+import { FEATURED_TEAMS } from '../utils/utilities';
 import { getFeaturedMatches } from '../utils/services';
 import { mockFetchData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
@@ -41,8 +41,8 @@ export default function FeaturedRow() {
 
   useEffect(() => {
     Promise.all([
-      getFeaturedMatches(featuredTeams, 'last'),
-      getFeaturedMatches(featuredTeams, 'next'),
+      getFeaturedMatches(FEATURED_TEAMS, 'last'),
+      getFeaturedMatches(FEATURED_TEAMS, 'next'),
     ])
       .then(([scores, previews]) => {
         console.log(scores, previews);
