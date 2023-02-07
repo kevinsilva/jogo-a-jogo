@@ -1,3 +1,5 @@
+import { fetchTeamStats } from './services';
+
 export const API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
 
 export const LEAGUES = {
@@ -43,7 +45,7 @@ export const LEAGUES = {
   },
 };
 
-export const CLUBS = {
+export const TEAMS = {
   benfica: {
     id: 211,
     abbreviation: 'SLB',
@@ -158,6 +160,10 @@ export const CLUBS = {
   },
 };
 
+export const featuredTeams = [
+  211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
+];
+
 export function formatDate(date) {
   //date format: '2022-11-14T20:15:00+00:00'
   const day = date.slice(5, 10).split('-').reverse().join('/');
@@ -166,7 +172,7 @@ export function formatDate(date) {
   return `${day} - ${hour}`;
 }
 
-export function calcFeaturePoints(form) {
+export function calcFormPoints(form) {
   let total = 0;
 
   form.split('').forEach((letter) => {
@@ -177,8 +183,8 @@ export function calcFeaturePoints(form) {
   return total;
 }
 
-export function compareFirstIndex(a, b) {
-  return a[0] - b[0];
+export function compareSecondIndex(a, b) {
+  return b[1] - a[1];
 }
 
 export const isUserValid = (usersArr, email, password) => {
@@ -308,4 +314,15 @@ export function getCurrentSeason() {
 
   if (month < 7) return year - 1;
   return year;
+}
+
+export function sortTeamsByForm(teamsForm) {
+  const formPoints = teamsForm.map(([teamID, teamForm]) => {
+    teamForm = calcFormPoints(teamForm);
+    return [teamID, teamForm];
+  });
+
+  const sortedTeamsForm = formPoints.sort(compareSecondIndex);
+  const sortedTeams = sortedTeamsForm.map(([teamID, _]) => teamID);
+  return sortedTeams;
 }

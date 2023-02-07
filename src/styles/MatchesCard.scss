@@ -10,6 +10,11 @@
   border-radius: 0.5rem;
   box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
 
+  &:nth-of-type(10) {
+    background-color: red;
+    margin: auto;
+  }
+
   &:not(:last-child) {
     margin-right: 2rem;
   }

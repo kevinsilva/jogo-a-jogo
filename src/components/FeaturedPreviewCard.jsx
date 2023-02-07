@@ -1,7 +1,7 @@
 import {
   formatDate,
   LEAGUES,
-  CLUBS,
+  TEAMS,
   calcRemainingTime,
 } from '../utils/utilities';
 import '../styles/FeaturedCard.scss';

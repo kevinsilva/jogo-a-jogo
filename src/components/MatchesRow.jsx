@@ -11,39 +11,37 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     fetchLeagueMatches(leagueID, totalMatches, 'last'),
-  //     fetchLeagueMatches(leagueID, totalMatches, 'next'),
-  //   ])
-  //     .then(([scores, previews]) => {
-  //       console.log(scores, previews);
-  //       setScoreData(scores.response);
-  //       setPreviewData(previews.response);
-  //       setState('fulfilled');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setState('rejected');
-  //     });
-  // }, []);
-
-  useEffect(() => {
-    Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
+  function getMockMatches() {
+    return Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
       .then(([scores, previews]) => {
         console.log(scores, previews);
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');
-        // setState('pending');
       })
       .catch((error) => {
         console.log(error);
         setState('rejected');
       });
+  }
+
+  useEffect(() => {
+    Promise.all([
+      fetchLeagueMatches(leagueID, totalMatches, 'last'),
+      fetchLeagueMatches(leagueID, totalMatches, 'next'),
+    ])
+      .then(([scores, previews]) => {
+        console.log(scores, previews);
+        setScoreData(scores.response);
+        setPreviewData(previews.response);
+        setState('fulfilled');
+      })
+      .catch((error) => {
+        console.log(error);
+        getMockMatches();
+      });
   }, []);
 
-  // if (state == 'pending') return <h1>Loading...</h1>;
   if (state == 'pending') return <div className="spinner"></div>;
   if (state == 'rejected') return <h1>Error, try again later</h1>;
 
