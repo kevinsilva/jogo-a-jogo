@@ -12,6 +12,8 @@ The project started by defining how to visually represent both the results and t
 
 The page has three main features: a login/user registration, a featured section at the top, and various championship sections at the bottom.
 
+The login/user registration adds another row to the UI with all past and future matches of selected team at registration. The featured section fetches one past game and one next game from the most important teams. The championship sections fetches matches from previous championship round and next round.
+
 This project started by determining the rules for this game, naming the constituent elements and defining the separation of concerns. After designing the interface, the game was developed with both a functional approach, and a object oriented (oop) class approach.
 
 Since the main concept takes inspiration from guitar colors, the monochromatic interface was designed on [Figma](https://www.figma.com/) with the clear intention as to make the guitar color pop. I resorted to HTML and [Tailwind](https://tailwindcss.com/) to program the interface with static elements, making the usability as simple as possible.
