@@ -48,113 +48,109 @@ export const LEAGUES = {
 export const TEAMS = {
   benfica: {
     id: 211,
-    abbreviation: 'SLB',
+    label: 'Benfica',
     league: 94,
     mockForm: 'WWWWWWWDWWWWWL',
-    leagueRank: 5,
   },
   fcPorto: {
     id: 212,
-    abbreviation: 'FCP',
+    label: 'Porto',
     league: 94,
     mockForm: 'LDDDDLDLWWLLDD',
-    leagueRank: 4,
   },
   sportingCP: {
     id: 228,
-    abbreviation: 'SCP',
+    label: 'Sporting',
     league: 94,
     mockForm: 'WWDWLDWWDLWWDL',
-    leagueRank: 3,
   },
   chelsea: {
     id: 49,
-    abbreviation: 'CHE',
+    label: 'Chelsea',
     league: 39,
     mockForm: 'DLWLDLWWWLDWLW',
-    leagueRank: 5,
   },
   manchesterCity: {
     id: 50,
-    abbreviation: 'MCI',
+    label: 'Manchester City',
     league: 39,
     mockForm: 'DLDLDWLLWWDWLD',
   },
   liverpool: {
     id: 40,
-    abbreviation: 'LIV',
+    label: 'Liverpool',
     league: 39,
     mockForm: 'LDLLWDDLLDLWLL',
   },
   realMadrid: {
     id: 541,
-    abbreviation: 'RMD',
+    label: 'Real Madrid',
     league: 140,
     mockForm: 'LWLLLLDDDLWWDW',
   },
   barcelona: {
     id: 529,
-    abbreviation: 'FCB',
+    label: 'Barcelona',
     league: 140,
     mockForm: 'DDDWWLLLLLDDDD',
   },
   atleticoMadrid: {
     id: 530,
-    abbreviation: 'ATM',
+    label: 'Atlético Madrid',
     league: 140,
     mockForm: 'WWLLWWLLWWLWWW',
   },
   juventus: {
     id: 496,
-    abbreviation: 'JUV',
+    label: 'Juventus',
     league: 135,
     mockForm: 'WDDDDDDLLDWLLL',
   },
   napoli: {
     id: 492,
-    abbreviation: 'NAP',
+    label: 'Napoli',
     league: 135,
     mockForm: 'LDLWWWWLDWDDWW',
   },
   asRoma: {
     id: 497,
-    abbreviation: 'ROM',
+    label: 'Roma',
     league: 135,
     mockForm: 'DLWLDDDLLDWDLL',
   },
   bayernMunich: {
     id: 157,
-    abbreviation: 'MUN',
+    label: 'Bayern Munich',
     league: 78,
     mockForm: 'DDWLWDDWWWLDDL',
   },
   dortmund: {
     id: 165,
-    abbreviation: 'DOR',
+    label: 'Dortmund',
     league: 78,
     mockForm: 'LLWLDDDDDDWLDW',
   },
   bayerLeverkusen: {
     id: 168,
-    abbreviation: 'BAY',
+    label: 'Leverkusen',
     league: 78,
     mockForm: 'LLDLDWWDDDLWDW',
   },
   parisSaintGermain: {
     id: 85,
-    abbreviation: 'PSG',
+    label: 'Paris Saint Germain',
     league: 61,
     mockForm: 'WLLWLLDWLLDDLW',
   },
   lyon: {
     id: 80,
-    abbreviation: 'LYO',
+    label: 'Lyon',
     league: 61,
     mockForm: 'LWLLLWLDWLWLWD',
   },
   monaco: {
     id: 91,
-    abbreviation: 'AMO',
+    label: 'Monaco',
     league: 61,
     mockForm: 'LLLWDWLDLDLLWW',
   },
@@ -208,11 +204,15 @@ export const isValid = {
   },
 };
 
-export const favoriteTeamOptions = [
-  { label: '', value: '' },
-  { label: 'Benfica', value: 'benfica' },
-  { label: 'Real Madrid', value: 'realMadrid' },
-];
+// export const favoriteTeamOptions = [
+//   { label: '', value: '' },
+//   { label: 'Benfica', value: 'benfica' },
+//   { label: 'Real Madrid', value: 'realMadrid' },
+// ];
+
+export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
+  return { label: team.label, value: team.id };
+});
 
 function calcRemainingTime1(matchTimestamp) {
   const matchTime = matchTimestamp * 1000;
