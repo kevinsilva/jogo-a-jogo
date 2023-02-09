@@ -93,3 +93,11 @@ fetch team last and next match
 Else
 
 fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
+
+## todos
+
+- documentation
+- error: why there are errors fetching the data?
+- complete UI
+- favorite clubs feature: USER ROW!
+- Popup on matches!

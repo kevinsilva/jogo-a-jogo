@@ -25,3 +25,7 @@ export async function getFeaturedMockData() {
       setState('rejected');
     });
 }
+
+export async function getMockData(scoreData, previewData) {
+  return Promise.all([mockFetchData(scoreData), mockFetchData(previewData)]);
+}

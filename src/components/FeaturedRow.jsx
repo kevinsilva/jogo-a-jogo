@@ -45,7 +45,7 @@ export default function FeaturedRow() {
       getFeaturedMatches(FEATURED_TEAMS, 'next'),
     ])
       .then(([scores, previews]) => {
-        console.log(scores, previews);
+        console.log('DATA: ', scores, previews);
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');

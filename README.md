@@ -14,6 +14,22 @@ The page has three main features: a login/user registration, a featured section 
 
 The login/user registration adds another row to the UI with all past and future matches of selected team at registration. The featured section fetches one past game and one next game from the most important teams. The championship sections fetches matches from previous championship round and next round.
 
+The main component is the App component.
+
+The Header component is responsible for returning the trigger of the sign feature. It resorts to the useContext hook to call the function isUserOnline, which determines if there is an user with the property isOnline set to true. If there is no user online, the Header component returns the button trigger for the sign Form component, a child of a Popup component. If there is a user online, then the Header component returns a button that calls the sign out function of the context.
+
+The Form component holds the state for the sign mode and the form validation errors. It returns the SignIn Component by default, but a button or the SignUp Component. The Sig
+
+is the parent of the Form component. It either displays a trigger button for the popup that returns the sign form or a sign out button.
+
+App
+Header with context for users data base, localstorage, functions: sign, signout, add, isonline.
+has popup with a button trigger and a form as a child
+
+Featured Row
+User Row
+Matches Row
+
 This project started by determining the rules for this game, naming the constituent elements and defining the separation of concerns. After designing the interface, the game was developed with both a functional approach, and a object oriented (oop) class approach.
 
 Since the main concept takes inspiration from guitar colors, the monochromatic interface was designed on [Figma](https://www.figma.com/) with the clear intention as to make the guitar color pop. I resorted to HTML and [Tailwind](https://tailwindcss.com/) to program the interface with static elements, making the usability as simple as possible.

@@ -31,7 +31,7 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
       fetchLeagueMatches(leagueID, totalMatches, 'next'),
     ])
       .then(([scores, previews]) => {
-        console.log(scores, previews);
+        console.log('MATCHES: ', scores, previews);
         setScoreData(scores.response);
         setPreviewData(previews.response);
         setState('fulfilled');
