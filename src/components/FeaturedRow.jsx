@@ -41,20 +41,37 @@ export default function FeaturedRow() {
 
   useEffect(() => {
     Promise.all([
-      getFeaturedMatches(FEATURED_TEAMS, 'last'),
-      getFeaturedMatches(FEATURED_TEAMS, 'next'),
+      mockFetchData(mockFeaturedScores),
+      mockFetchData(mockFeaturedPreviews),
     ])
       .then(([scores, previews]) => {
-        console.log('DATA: ', scores, previews);
+        console.log(scores, previews);
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');
       })
       .catch((error) => {
         console.log(error);
-        getMockFeatured();
+        setState('rejected');
       });
   }, []);
+
+  // useEffect(() => {
+  //   Promise.all([
+  //     getFeaturedMatches(FEATURED_TEAMS, 'last'),
+  //     getFeaturedMatches(FEATURED_TEAMS, 'next'),
+  //   ])
+  //     .then(([scores, previews]) => {
+  //       console.log('DATA: ', scores, previews);
+  //       setScoreData(scores);
+  //       setPreviewData(previews);
+  //       setState('fulfilled');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       getMockFeatured();
+  //     });
+  // }, []);
 
   // if (state == 'pending') return <h1>Loading...</h1>;
   if (state == 'pending') return <div className="spinner"></div>;

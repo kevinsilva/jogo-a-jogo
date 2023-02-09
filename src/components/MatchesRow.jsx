@@ -26,21 +26,35 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   }
 
   useEffect(() => {
-    Promise.all([
-      fetchLeagueMatches(leagueID, totalMatches, 'last'),
-      fetchLeagueMatches(leagueID, totalMatches, 'next'),
-    ])
+    Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
       .then(([scores, previews]) => {
-        console.log('MATCHES: ', scores, previews);
-        setScoreData(scores.response);
-        setPreviewData(previews.response);
+        console.log(scores, previews);
+        setScoreData(scores);
+        setPreviewData(previews);
         setState('fulfilled');
       })
       .catch((error) => {
         console.log(error);
-        getMockMatches();
+        setState('rejected');
       });
   }, []);
+
+  // useEffect(() => {
+  //   Promise.all([
+  //     fetchLeagueMatches(leagueID, totalMatches, 'last'),
+  //     fetchLeagueMatches(leagueID, totalMatches, 'next'),
+  //   ])
+  //     .then(([scores, previews]) => {
+  //       console.log('MATCHES: ', scores, previews);
+  //       setScoreData(scores.response);
+  //       setPreviewData(previews.response);
+  //       setState('fulfilled');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       getMockMatches();
+  //     });
+  // }, []);
 
   if (state == 'pending') return <div className="spinner"></div>;
   if (state == 'rejected') return <h1>Error, try again later</h1>;
