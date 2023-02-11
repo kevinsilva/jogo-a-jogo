@@ -1,14 +1,12 @@
+@use 'variables';
+@use 'mixins';
+
 .popup {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.w-screen_h-screen;
+  @include mixins.absolute_zero;
+  background-color: variables.$color-background;
   z-index: 5;
+  @include mixins.flex-center_align-center;
 
   &--visible {
     visibility: visible;
@@ -18,13 +16,10 @@
   }
 
   &__btn-close {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    @include mixins.w-screen_h-screen;
+    @include mixins.absolute_zero;
     background-color: transparent;
+    z-index: 1;
     cursor: pointer;
   }
 }

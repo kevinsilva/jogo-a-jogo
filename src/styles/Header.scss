@@ -1,18 +1,32 @@
+@use 'variables';
 @use 'mixins';
 
 .header {
-  @include mixins.flex-between;
   padding: 2rem 6rem;
-}
+  @include mixins.flex-between_align-center;
 
-.btn {
-  background-color: transparent;
-  border: 1px solid black;
-  padding: 1rem 2rem;
-  cursor: pointer;
+  &__btn {
+    height: 4rem;
+    padding: 1rem 2rem;
+    border: 1px solid variables.$color-white;
+    // border-image-slice: 1;
+    // border-width: 1px;
+    color: variables.$color-white;
+    text-transform: uppercase;
+    background-color: black;
+    cursor: pointer;
+
+    // &:hover {
+    //   border-image-source: linear-gradient(
+    //     to right,
+    //     variables.$color-green,
+    //     variables.$color-red
+    //   );
+    // }
+  }
 }
 
 .logo {
-  width: 3rem;
-  height: 3rem;
+  width: 12rem;
+  height: 12rem;
 }

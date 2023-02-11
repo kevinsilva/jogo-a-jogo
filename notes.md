@@ -101,3 +101,21 @@ fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
 - complete UI
 - favorite clubs feature: USER ROW!
 - Popup on matches!
+
+Box Model Properties:
+width, height, padding, border, margin
+
+Layout Properties:
+float, clear, display, position
+
+Typographical Properties:
+font-family, font-size, color, line-height, text-align, text-transform, text-decoration
+
+Visual Properties:
+background, opacity, visibility, cursor, z-index
+
+Transforms and Transitions:
+transform, transition
+
+Flexbox and Grid Properties: flex-_, grid-_
+Others: list-style, table-layout, animation, etc.

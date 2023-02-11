@@ -2,47 +2,70 @@
 @use 'mixins';
 
 .form {
-  background-color: variables.$color-black_light;
-  padding: 4rem;
   min-width: 50rem;
+  padding: 4rem;
+  border-radius: 0.5rem;
   position: relative;
+  background-color: variables.$color-black_light;
+  overflow: hidden;
   z-index: 10;
 
   &__input-container,
   &__select-container {
+    margin-bottom: 6rem;
     @include mixins.flex-column;
-    margin-bottom: 1rem;
   }
 
   &__btn-container {
-    @include mixins.flex-between;
     margin: 2rem 0;
+    @include mixins.flex-between;
+    align-items: baseline;
+  }
+
+  &__select-container {
+    margin-bottom: 4rem;
+    position: relative;
   }
 
   &__input,
   &__select {
-    background-color: variables.$color-black_light;
     padding: 1rem;
+    border: 1px solid variables.$color-black-lighter;
+    font-family: 'Barlow Condensed';
+    font-size: 1.6rem;
+    color: variables.$color-white;
+    background-color: variables.$color-black_light;
+
+    &:focus {
+      outline: none;
+      background-color: variables.$color-black-lighter;
+    }
   }
 
   &__label {
     margin-bottom: 1rem;
+    font-size: 2.4rem;
+    font-weight: 700;
   }
 
   &__option-btn {
-    color: gray;
     font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: variables.$color-gray;
     cursor: pointer;
   }
 
   &__submit-btn {
-    background-color: transparent;
-    border: 1px solid black;
     padding: 1rem 2rem;
+    border: 1px solid variables.$color-white;
+    color: variables.$color-white;
+    text-transform: uppercase;
+    background-color: transparent;
     cursor: pointer;
   }
 
   &__error-msg {
-    color: crimson;
+    color: variables.$color-red;
   }
 }

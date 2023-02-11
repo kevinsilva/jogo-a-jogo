@@ -11,14 +11,26 @@ export default function Header() {
 
   return (
     <header className="header">
-      <img className="logo" src="../assets/logo.png" alt="" />
-      {/* <h1>Jogo a Jogo</h1> */}
+      <div className="logo-container">
+        {/* <img className="logo" src="src/assets/logo.svg" alt="" /> */}
+        <h1>Jogo a Jogo</h1>
+      </div>
+
       {!context.isUserOnline() ? (
         <Popup
           open={isPopupOpen}
-          onClose={() => setPopupOpen(false)}
+          onClose={() => {
+            setPopupOpen(false);
+            // document.body.style.overflow = 'auto';
+          }}
           trigger={
-            <button className="btn" onClick={() => setPopupOpen(!isPopupOpen)}>
+            <button
+              className="header__btn"
+              onClick={() => {
+                setPopupOpen(!isPopupOpen);
+                // document.body.style.overflow = 'hidden';
+              }}
+            >
               Sign In
             </button>
           }
@@ -27,7 +39,7 @@ export default function Header() {
         </Popup>
       ) : (
         <button
-          className="btn"
+          className="header__btn"
           onClick={() => {
             context.signOut();
             setPopupOpen(false);

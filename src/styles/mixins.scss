@@ -3,12 +3,24 @@
   justify-content: space-between;
 }
 
+@mixin flex-between_align-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin flex-column {
   display: flex;
   flex-direction: column;
 }
 
 @mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center_align-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,4 +35,15 @@
 @mixin hide-scrollbar-ms {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@mixin w-screen_h-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin absolute_zero {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

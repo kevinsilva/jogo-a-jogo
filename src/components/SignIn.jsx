@@ -11,6 +11,7 @@ export default function SignIn({ onSignUpClick, onError }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const error = context.signUser(email, password);
+    setPassword('');
     onError(error);
   };
 

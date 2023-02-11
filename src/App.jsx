@@ -6,6 +6,8 @@ import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
 import { isValid, isUserValid, getUserTeam, LEAGUES } from './utils/utilities';
 
+import './styles/footer.scss';
+
 export const AppContext = React.createContext();
 
 const baseUsers = [
@@ -60,7 +62,7 @@ function App() {
       setUsers(copyUsers);
       return '';
     } else {
-      setPassword('');
+      // setPassword('');
       return 'Info does not match, please try again';
     }
   };
@@ -139,6 +141,30 @@ function App() {
         leagueID={3}
         totalMatches={LEAGUES['UEFA Europa League'].matchesByRound}
       />
+      <div className="footer">
+        <div className="footer__social">
+          <a href="https://github.com/kevinsilva">
+            <img
+              className="github-logo"
+              src="src/assets/logo-github.svg"
+              alt=""
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/kevinsilva-j/">
+            <img
+              className="linkedin-logo"
+              src="src/assets/logo-linkedin.svg"
+              alt=""
+            />
+          </a>
+        </div>
+        <h6 className="footer__credits">
+          &#169; 2023 Kevin Silva // Big thanks to
+          <a href="https://www.linkedin.com/in/williamrjribeiro/">
+            William R. J. Ribeiro
+          </a>
+        </h6>
+      </div>
     </div>
   );
 }

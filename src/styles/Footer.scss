@@ -1,0 +1,28 @@
+@use 'variables';
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 14rem;
+}
+
+.footer__credits {
+  color: variables.$color-gray;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.footer__social {
+}
+
+.linkedin-logo,
+.github-logo {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(102%) contrast(102%);
+  height: 3rem;
+
+  &:first-child {
+    margin-right: 1rem;
+  }
+}
