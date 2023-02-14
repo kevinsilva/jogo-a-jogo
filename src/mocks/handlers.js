@@ -37,13 +37,13 @@ export const mockScores = [
       home: {
         id: 227,
         name: 'Santa Clara',
-        logo: 'https://media-5.api-sports.io/football/teams/227.png',
+        logo: 'https://media-2.api-sports.io/football/teams/227.png',
         winner: true,
       },
       away: {
         id: 230,
         name: 'Estoril',
-        logo: 'https://media-5.api-sports.io/football/teams/230.png',
+        logo: 'https://media-2.api-sports.io/football/teams/230.png',
         winner: false,
       },
     },
@@ -105,13 +105,13 @@ export const mockScores = [
       home: {
         id: 242,
         name: 'Famalicao',
-        logo: 'https://media-4.api-sports.io/football/teams/242.png',
+        logo: 'https://media-2.api-sports.io/football/teams/242.png',
         winner: false,
       },
       away: {
         id: 228,
         name: 'Sporting CP',
-        logo: 'https://media-5.api-sports.io/football/teams/228.png',
+        logo: 'https://media-2.api-sports.io/football/teams/228.png',
         winner: true,
       },
     },
@@ -173,7 +173,7 @@ export const mockScores = [
       home: {
         id: 216,
         name: 'Portimonense',
-        logo: 'https://media-5.api-sports.io/football/teams/216.png',
+        logo: 'https://media-2.api-sports.io/football/teams/216.png',
         winner: false,
       },
       away: {
@@ -241,13 +241,13 @@ export const mockScores = [
       home: {
         id: 211,
         name: 'Benfica',
-        logo: 'https://media-5.api-sports.io/football/teams/211.png',
+        logo: 'https://media-2.api-sports.io/football/teams/211.png',
         winner: true,
       },
       away: {
         id: 762,
         name: 'GIL Vicente',
-        logo: 'https://media-4.api-sports.io/football/teams/762.png',
+        logo: 'https://media-2.api-sports.io/football/teams/762.png',
         winner: false,
       },
     },
@@ -309,7 +309,7 @@ export const mockScores = [
       home: {
         id: 4716,
         name: 'Casa Pia',
-        logo: 'https://media-4.api-sports.io/football/teams/4716.png',
+        logo: 'https://media-2.api-sports.io/football/teams/4716.png',
         winner: false,
       },
       away: {
@@ -383,7 +383,7 @@ export const mockScores = [
       away: {
         id: 214,
         name: 'Maritimo',
-        logo: 'https://media-4.api-sports.io/football/teams/214.png',
+        logo: 'https://media-2.api-sports.io/football/teams/214.png',
         winner: false,
       },
     },

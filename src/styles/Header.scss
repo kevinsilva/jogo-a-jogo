@@ -2,7 +2,16 @@
 @use 'mixins';
 
 .header {
-  padding: 2rem 6rem;
+  padding: 8rem 6rem;
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-width: 0.5rem;
+
+  border-image-source: linear-gradient(
+    to right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
   @include mixins.flex-between_align-center;
 
   &__btn {
@@ -13,7 +22,7 @@
     // border-width: 1px;
     color: variables.$color-white;
     text-transform: uppercase;
-    background-color: black;
+    background-color: variables.$color-black;
     cursor: pointer;
 
     // &:hover {
@@ -29,4 +38,5 @@
 .logo {
   width: 12rem;
   height: 12rem;
+  // filter: grayscale(1);
 }

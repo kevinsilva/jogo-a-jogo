@@ -58,8 +58,14 @@ export default function UserRow({ team }) {
 
   return (
     <>
-      <h2 className="user-row__title">Your Team</h2>
-      <div className="scrollable-row">
+      <div className="matches__title-container">
+        <h2 className="matches__title">
+          o teu clube
+          <span className="emphasis">{team}</span>
+        </h2>
+      </div>
+      <h2 className="user-row__title">❤️ Todas as competições</h2>
+      <div className="scrollable-row" id="user-row">
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
         ))}

@@ -17,14 +17,14 @@ export default function FeaturedScoreCard({ scoreData }) {
             </h3>
             <img
               className="featured-card__home-img"
-              // src={scoreData.teams.home.logo}
+              src={scoreData.teams.home.logo}
               alt=""
             />
           </div>
           <div className="featured-card__away-section">
             <img
               className="featured-card__away-img"
-              // src={scoreData.teams.away.logo}
+              src={scoreData.teams.away.logo}
               alt=""
             />
             <h3 className="featured-card__away-name">
@@ -49,7 +49,7 @@ export default function FeaturedScoreCard({ scoreData }) {
       </div>
       <div className="featured-card__side featured-card__side--back">
         <div className="featured-card__header">
-          <h4 className="featured-card__title">Estádio</h4>
+          <h4 className="featured-card__title">Recinto</h4>
         </div>
         <div className="featured-card__sections featured-card__sections--score">
           <div className="featured-card__stadium-section">
@@ -65,7 +65,7 @@ export default function FeaturedScoreCard({ scoreData }) {
           </div>
         </div>
         <div className="featured-card__footer">
-          <h4 className="featured-card__footnote">cidade</h4>
+          <h4 className="featured-card__footnote">Local</h4>
         </div>
       </div>
     </div>

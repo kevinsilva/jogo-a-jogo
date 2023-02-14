@@ -41,11 +41,20 @@
 
   &__home-section {
     margin-bottom: 1.5rem;
-    @include mixins.flex-between;
+    display: flex;
+    align-items: center;
+    // @include mixins.flex-between;
   }
 
   &__away-section {
-    @include mixins.flex-between;
+    // @include mixins.flex-between;
+    display: flex;
+    align-items: center;
+  }
+
+  &__home-goals,
+  &__away-goals {
+    margin-left: auto;
   }
 
   &__home-name,
@@ -54,6 +63,12 @@
   &__away-goals {
     font-size: 2rem;
     font-weight: 700;
+  }
+
+  &__home-logo,
+  &__away-logo {
+    height: 2rem;
+    margin-right: 0.5rem;
   }
 
   &__tv-info {

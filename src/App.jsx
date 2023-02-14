@@ -96,6 +96,13 @@ function App() {
       {isUserOnline() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
+
+      <div className="matches__title-container">
+        <h2 className="matches__title">
+          <span className="emphasis"> campeonatos</span>nacionais
+        </h2>
+      </div>
+
       <MatchesRow
         leagueName={'UEFA Champions League'}
         leagueID={2}
@@ -142,6 +149,12 @@ function App() {
         totalMatches={LEAGUES['UEFA Europa League'].matchesByRound}
       />
       <div className="footer">
+        <h6 className="footer__credits">
+          &#169; 2023 Kevin Silva 🔵 special thanks to &nbsp;
+          <a href="https://www.linkedin.com/in/williamrjribeiro/">
+            William R. J. Ribeiro
+          </a>
+        </h6>
         <div className="footer__social">
           <a href="https://github.com/kevinsilva">
             <img
@@ -158,12 +171,6 @@ function App() {
             />
           </a>
         </div>
-        <h6 className="footer__credits">
-          &#169; 2023 Kevin Silva // Big thanks to
-          <a href="https://www.linkedin.com/in/williamrjribeiro/">
-            William R. J. Ribeiro
-          </a>
-        </h6>
       </div>
     </div>
   );

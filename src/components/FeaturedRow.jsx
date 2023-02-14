@@ -78,13 +78,31 @@ export default function FeaturedRow() {
   if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <div className="scrollable-row" id="featured-row">
-      {scoreData.map((data, index) => (
-        <FeaturedScoreCard key={index} scoreData={data} />
-      ))}
-      {previewData.map((data, index) => (
-        <FeaturedPreviewCard key={index} previewData={data} />
-      ))}
+    <div className="intro">
+      <div className="featured__title-container">
+        <h2 className="featured__title">
+          jogos
+          <br />
+          em
+          <span className="emphasis">destaque</span>
+        </h2>
+      </div>
+      {/* <div className="animation__text-container">
+        <span className="animation__arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <h3 className="animation__text"></h3>
+      </div> */}
+      <div className="scrollable-row" id="featured-row">
+        {scoreData.map((data, index) => (
+          <FeaturedScoreCard key={index} scoreData={data} />
+        ))}
+        {previewData.map((data, index) => (
+          <FeaturedPreviewCard key={index} previewData={data} />
+        ))}
+      </div>
     </div>
   );
 }

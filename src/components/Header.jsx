@@ -12,8 +12,8 @@ export default function Header() {
   return (
     <header className="header">
       <div className="logo-container">
-        {/* <img className="logo" src="src/assets/logo.svg" alt="" /> */}
-        <h1>Jogo a Jogo</h1>
+        <img className="logo" src="src/assets/Vector.svg" alt="" />
+        {/* <h1>Jogo a Jogo</h1> */}
       </div>
 
       {!context.isUserOnline() ? (
@@ -31,7 +31,7 @@ export default function Header() {
                 // document.body.style.overflow = 'hidden';
               }}
             >
-              Sign In
+              Entrar
             </button>
           }
         >
