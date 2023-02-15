@@ -122,16 +122,17 @@ Others: list-style, table-layout, animation, etc.
 
 ## outros
 
-- error message
-- hover
+- error message ✔
 - traduzir ✔
-- breakpoints
-- info scroll
-- centrar rows
-- clean code
+- bug scroll form
 - bug sign
 - arranjar mocks
+- info scroll
+- hover
+- breakpoints
+- centrar rows
 - add hover arrow on scroll
+- clean code
 
 - doc
 - prettier, github

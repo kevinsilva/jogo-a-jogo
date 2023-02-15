@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
-import MatchesRow from './components/MatchesRow';
+import Matches from './components/Matches';
 import Footer from './components/Footer';
-import { isValid, isUserValid, getUserTeam, LEAGUES } from './utils/utilities';
+import { isValid, isUserValid, getUserTeam } from './utils/utilities';
 
 export const AppContext = React.createContext();
 
@@ -91,62 +91,11 @@ function App() {
         <Header />
       </AppContext.Provider>
       <FeaturedRow />
-      {/* {isUserOnline() && getUserTeam(users)} */}
+
       {isUserOnline() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
-
-      <div className="matches__title-container">
-        <h2 className="matches__title">
-          as melhores<span className="emphasis"> competições</span>
-        </h2>
-      </div>
-
-      <MatchesRow
-        leagueName={'UEFA Champions League'}
-        leagueID={2}
-        totalMatches={LEAGUES['UEFA Champions League'].matchesByRound}
-      />
-
-      <MatchesRow
-        leagueName={'Primeira Liga'}
-        leagueID={94}
-        totalMatches={LEAGUES['Primeira Liga'].matchesByRound}
-      />
-      <MatchesRow
-        leagueName={'Premier League'}
-        leagueID={39}
-        totalMatches={LEAGUES['Premier League'].matchesByRound}
-      />
-      <MatchesRow
-        leagueName={'La Liga'}
-        leagueID={140}
-        totalMatches={LEAGUES['La Liga'].matchesByRound}
-      />
-
-      <MatchesRow
-        leagueName={'Serie A'}
-        leagueID={135}
-        totalMatches={LEAGUES['Serie A'].matchesByRound}
-      />
-
-      <MatchesRow
-        leagueName={'Bundesliga'}
-        leagueID={78}
-        totalMatches={LEAGUES['Bundesliga'].matchesByRound}
-      />
-
-      <MatchesRow
-        leagueName={'League 1'}
-        leagueID={61}
-        totalMatches={LEAGUES['League 1'].matchesByRound}
-      />
-
-      <MatchesRow
-        leagueName={'UEFA Europa League'}
-        leagueID={3}
-        totalMatches={LEAGUES['UEFA Europa League'].matchesByRound}
-      />
+      <Matches />
       <Footer />
     </div>
   );
