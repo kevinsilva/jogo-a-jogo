@@ -4,9 +4,8 @@ import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import MatchesRow from './components/MatchesRow';
+import Footer from './components/Footer';
 import { isValid, isUserValid, getUserTeam, LEAGUES } from './utils/utilities';
-
-import './styles/footer.scss';
 
 export const AppContext = React.createContext();
 
@@ -92,14 +91,14 @@ function App() {
         <Header />
       </AppContext.Provider>
       <FeaturedRow />
-      {isUserOnline() && getUserTeam(users)}
+      {/* {isUserOnline() && getUserTeam(users)} */}
       {isUserOnline() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
 
       <div className="matches__title-container">
         <h2 className="matches__title">
-          <span className="emphasis"> campeonatos</span>nacionais
+          as melhores<span className="emphasis"> competições</span>
         </h2>
       </div>
 
@@ -148,30 +147,7 @@ function App() {
         leagueID={3}
         totalMatches={LEAGUES['UEFA Europa League'].matchesByRound}
       />
-      <div className="footer">
-        <h6 className="footer__credits">
-          &#169; 2023 Kevin Silva 🔵 special thanks to &nbsp;
-          <a href="https://www.linkedin.com/in/williamrjribeiro/">
-            William R. J. Ribeiro
-          </a>
-        </h6>
-        <div className="footer__social">
-          <a href="https://github.com/kevinsilva">
-            <img
-              className="github-logo"
-              src="src/assets/logo-github.svg"
-              alt=""
-            />
-          </a>
-          <a href="https://www.linkedin.com/in/kevinsilva-j/">
-            <img
-              className="linkedin-logo"
-              src="src/assets/logo-linkedin.svg"
-              alt=""
-            />
-          </a>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

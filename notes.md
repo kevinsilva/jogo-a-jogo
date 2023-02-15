@@ -119,3 +119,20 @@ transform, transition
 
 Flexbox and Grid Properties: flex-_, grid-_
 Others: list-style, table-layout, animation, etc.
+
+## outros
+
+- error message
+- hover
+- traduzir
+- breakpoints
+- info scroll
+- centrar rows
+- clean code
+- bug sign
+- arranjar mocks
+
+- doc
+- prettier, github
+
+-footer ✔

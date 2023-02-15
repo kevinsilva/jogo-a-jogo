@@ -60,7 +60,7 @@ export default function UserRow({ team }) {
     <>
       <div className="matches__title-container">
         <h2 className="matches__title">
-          o teu clube
+          o meu clube
           <span className="emphasis">{team}</span>
         </h2>
       </div>

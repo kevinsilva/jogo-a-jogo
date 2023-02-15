@@ -26,6 +26,30 @@
   line-height: 8rem;
 }
 
+.featured__subtitle {
+  margin-top: 5rem;
+  font-weight: 900;
+  font-size: 4rem;
+  transition: all 0.2s;
+  // color: variables.$color-black;
+  // text-shadow: 0 0 1.5px variables.$color-white,
+  //   0 0 1.5px variables.$color-white, 0 0 1.5px variables.$color-white,
+  //   0 0 1.5px variables.$color-white;
+
+  &::after {
+    content: '';
+    background-image: linear-gradient(
+      to right,
+      variables.$color-blue_lighter,
+      variables.$color-blue
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textChange 5s linear infinite alternate;
+  }
+}
+
 .emphasis {
   display: block;
   text-shadow: none;
@@ -157,28 +181,18 @@
 
 @keyframes textChange {
   0% {
-    content: 'resultados';
+    opacity: 1;
+    content: '\2190 resultados';
   }
 
   50% {
-    color: black;
-  }
-  100% {
-    content: 'previsões';
-  }
-}
-
-@keyframes arrowChange {
-  0% {
-    content: '<';
-  }
-
-  50% {
+    opacity: 0;
     color: black;
   }
 
   100% {
-    content: '>';
+    opacity: 1;
+    content: 'previsões \2192';
   }
 }
 

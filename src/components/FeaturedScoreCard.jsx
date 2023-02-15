@@ -22,14 +22,19 @@ export default function FeaturedScoreCard({ scoreData }) {
             />
           </div>
           <div className="featured-card__away-section">
+            {/* <img
+              className="featured-card__away-img"
+              src={scoreData.teams.away.logo}
+              alt=""
+            /> */}
+            <h3 className="featured-card__away-name">
+              {scoreData.teams.away.name.slice(0, 3)}
+            </h3>
             <img
               className="featured-card__away-img"
               src={scoreData.teams.away.logo}
               alt=""
             />
-            <h3 className="featured-card__away-name">
-              {scoreData.teams.away.name.slice(0, 3)}
-            </h3>
           </div>
           <hr className="featured-card__section-line" />
           <div className="featured-card__score-section">

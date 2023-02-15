@@ -86,15 +86,16 @@ export default function FeaturedRow() {
           em
           <span className="emphasis">destaque</span>
         </h2>
+        {/* <h4 className="featured__subtitle"></h4> */}
       </div>
-      {/* <div className="animation__text-container">
-        <span className="animation__arrow">
+      <div className="animation__text-container">
+        {/* <span className="animation__arrow">
           <span></span>
           <span></span>
           <span></span>
-        </span>
-        <h3 className="animation__text"></h3>
-      </div> */}
+        </span> */}
+        {/* <h3 className="animation__text"></h3> */}
+      </div>
       <div className="scrollable-row" id="featured-row">
         {scoreData.map((data, index) => (
           <FeaturedScoreCard key={index} scoreData={data} />

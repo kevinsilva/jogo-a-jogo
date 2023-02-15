@@ -1,3 +1,5 @@
+@use 'variables';
+
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
@@ -32,6 +34,12 @@
   align-items: center;
 }
 
+@mixin flex-around_align-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 @mixin hide-scrollbar-ms {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -46,4 +54,16 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@mixin gradient-border {
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-width: 0.5rem;
+
+  border-image-source: linear-gradient(
+    to right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
 }
