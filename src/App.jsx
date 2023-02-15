@@ -38,14 +38,14 @@ function App() {
 
   const addUser = (email, password, team) => {
     if (email == '' || password == '')
-      return 'Please enter your account details';
+      return 'Introduza os seus detalhes de conta.';
     if (
       !isValid.email.format(email) ||
       !isValid.email.unique(context.users, email)
     )
-      return 'Email must be valid, Please try again!';
+      return 'Introduza um email válido!';
     if (!isValid.password.format(password))
-      return 'Password must be over 5 characters';
+      return 'A palavra-passe deve ter mais de 5 caracteres.';
     const newUsers = [...users, { email, password, team, isOnline: true }];
     setUsers(newUsers);
     return '';
@@ -53,7 +53,7 @@ function App() {
 
   const signUser = (email, password) => {
     if (email == '' || password == '')
-      return 'Please enter your account details';
+      return 'Introduza os seus detalhes de conta.';
     if (isUserValid(context.users, email, password)) {
       const copyUsers = structuredClone(context.users);
       const foundUser = copyUsers.find((user) => user.email == email);
@@ -62,7 +62,7 @@ function App() {
       return '';
     } else {
       // setPassword('');
-      return 'Info does not match, please try again';
+      return 'As informações não correspondem. Por favor, tente novamente.';
     }
   };
 

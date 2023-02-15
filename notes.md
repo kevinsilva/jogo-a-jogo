@@ -132,6 +132,7 @@ Others: list-style, table-layout, animation, etc.
 - breakpoints
 - centrar rows
 - add hover arrow on scroll
+- rever Error.jsx
 - clean code
 
 - doc

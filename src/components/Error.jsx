@@ -1,7 +1,7 @@
 export default function Error({ type = 'generic', children }) {
   if (type == 'form')
     return (
-      <p className="error__msg error__msg--red">
+      <p className="error__msg">
         <img
           className="alert-icon alert-icon--red"
           src="src/assets/alert.svg"
