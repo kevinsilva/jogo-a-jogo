@@ -5,6 +5,9 @@ import { mockFetchData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 import FeaturedScoreCard from './FeaturedScoreCard';
 import FeaturedPreviewCard from './FeaturedPreviewCard';
+import Error from './Error';
+
+// import '../styles/MatchesRow.scss';
 
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');
@@ -73,9 +76,8 @@ export default function FeaturedRow() {
   //     });
   // }, []);
 
-  // if (state == 'pending') return <h1>Loading...</h1>;
   if (state == 'pending') return <div className="spinner"></div>;
-  if (state == 'rejected') return <h1>Error, try again later</h1>;
+  if (state == 'rejected') return <Error />;
 
   return (
     <div className="intro">

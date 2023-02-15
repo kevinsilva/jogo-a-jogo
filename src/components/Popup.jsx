@@ -1,5 +1,3 @@
-import '../styles/Popup.scss';
-
 export default function Popup({ trigger, open, onClose, children }) {
   return (
     <>

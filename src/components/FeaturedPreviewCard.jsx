@@ -4,7 +4,7 @@ import {
   TEAMS,
   calcRemainingTime,
 } from '../utils/utilities';
-import '../styles/FeaturedCard.scss';
+// import '../styles/FeaturedCard.scss';
 
 export default function FeaturedPreviewCard({ previewData }) {
   return (

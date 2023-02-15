@@ -1,5 +1,4 @@
 import { formatDate, LEAGUES } from '../utils/utilities';
-import '../styles/MatchesCard.scss';
 
 export default function PreviewCard({ previewData }) {
   return (

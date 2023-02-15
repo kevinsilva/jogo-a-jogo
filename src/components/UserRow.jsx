@@ -3,7 +3,7 @@ import { getMockData, mockFetchData } from '../mocks/services';
 import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
-import '../styles/MatchesRow.scss';
+
 import { fetchTeamMatches } from '../utils/services';
 
 export default function UserRow({ team }) {

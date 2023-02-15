@@ -4,7 +4,8 @@ import { mockFetchData } from '../mocks/services';
 import { mockScores, mockPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
-import '../styles/MatchesRow.scss';
+import Error from './Error';
+// import '../styles/MatchesRow.scss';
 
 export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [state, setState] = useState('pending');
@@ -57,7 +58,7 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   // }, []);
 
   if (state == 'pending') return <div className="spinner"></div>;
-  if (state == 'rejected') return <h1>Error, try again later</h1>;
+  if (state == 'rejected') return <Error />;
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import '../styles/Form.scss';
+import Error from './Error';
 
 export default function Form() {
   const [mode, setMode] = useState('sign in');
@@ -27,7 +27,7 @@ export default function Form() {
           onError={(msg) => setError(msg)}
         />
       )}
-      <p className="form__error-msg">{error}&nbsp;</p>
+      {error && <Error type="form" children={error} />}
     </div>
   );
 }

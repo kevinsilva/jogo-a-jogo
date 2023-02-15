@@ -1,4 +1,13 @@
 @use 'variables';
+@use 'mixins';
+@use '_Header.scss';
+@use '_Popup.scss';
+@use '_Form.scss';
+@use '_FeaturedCard.scss';
+@use '_MatchesCard.scss';
+@use '_MatchesRow.scss';
+@use '_Footer.scss';
+@use '_Error.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&display=swap');
 

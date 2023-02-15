@@ -1,5 +1,4 @@
 import { formatDate } from '../utils/utilities';
-import '../styles/MatchesCard.scss';
 
 export default function ScoreCard({ scoreData }) {
   return (

@@ -1,5 +1,4 @@
 import { formatDate } from '../utils/utilities';
-import '../styles/FeaturedCard.scss';
 
 export default function FeaturedScoreCard({ scoreData }) {
   return (
