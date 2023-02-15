@@ -124,13 +124,14 @@ Others: list-style, table-layout, animation, etc.
 
 - error message
 - hover
-- traduzir
+- traduzir ✔
 - breakpoints
 - info scroll
 - centrar rows
 - clean code
 - bug sign
 - arranjar mocks
+- add hover arrow on scroll
 
 - doc
 - prettier, github

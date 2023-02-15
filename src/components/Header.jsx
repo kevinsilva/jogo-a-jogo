@@ -45,7 +45,7 @@ export default function Header() {
             setPopupOpen(false);
           }}
         >
-          Sign Out
+          Terminar sessão
         </button>
       )}
     </header>

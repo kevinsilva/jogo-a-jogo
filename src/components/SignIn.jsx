@@ -22,7 +22,7 @@ export default function SignIn({ onSignUpClick, onError }) {
       </div>
       <div className="form__input-container">
         <TextInput
-          label="Password"
+          label="Palavra-passe"
           value={password}
           onChange={setPassword}
           type="password"
@@ -36,10 +36,10 @@ export default function SignIn({ onSignUpClick, onError }) {
             onSignUpClick(false);
           }}
         >
-          Create account
+          Criar conta
         </p>
         <button className="form__submit-btn" type="submit">
-          Sign In
+          Entrar
         </button>
       </div>
     </form>

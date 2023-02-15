@@ -24,7 +24,7 @@ export default function SignUp({ onSignInClick, onError }) {
       </div>
       <div className="form__input-container">
         <TextInput
-          label="Password"
+          label="Palavra-passe"
           type="password"
           value={password}
           onChange={setPassword}
@@ -32,7 +32,7 @@ export default function SignUp({ onSignInClick, onError }) {
       </div>
       <div className="form__select-container">
         <SelectInput
-          label="Select your team"
+          label="Seleccione o seu clube"
           value={favoriteTeam}
           onChange={setFavoriteTeam}
           options={favoriteTeamOptions}
@@ -46,10 +46,10 @@ export default function SignUp({ onSignInClick, onError }) {
             onSignInClick(true);
           }}
         >
-          Sign in instead
+          Iniciar sessão
         </p>
         <button className="form__submit-btn" type="submit">
-          Create Account
+          Criar conta
         </button>
       </div>
     </form>
