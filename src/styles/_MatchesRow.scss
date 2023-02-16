@@ -63,15 +63,20 @@
 }
 
 .scrollable-row {
-  padding: 5rem 6rem;
+  padding: 6rem;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   position: relative;
+  cursor: default;
 
-  @include mixins.hide-scrollbar-ms;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &:hover + .arrow::before,
+  &:hover + .arrow::after {
+    opacity: 1;
   }
 }
 
@@ -84,15 +89,48 @@
   padding-left: 6rem;
 }
 
+.arrow {
+  content: '';
+  position: relative;
+
+  &::before {
+    content: '\276E\00a0resultados';
+    color: variables.$color-gray_dark;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    transition: 1s;
+
+    bottom: 23rem;
+    left: 8rem;
+    position: absolute;
+    opacity: 0;
+  }
+
+  &::after {
+    content: 'previsões\00a0\276F';
+    color: variables.$color-gray_dark;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+    bottom: 23rem;
+    left: 91vw;
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+  }
+}
+
 .match-row__title {
-  padding-left: 10rem;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 9rem;
   position: relative;
 }
 .match-row__title::before {
   content: '';
   position: absolute;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   left: 6rem;
   background-color: variables.$color-blue;
   border-radius: 50%;

@@ -125,13 +125,13 @@ Others: list-style, table-layout, animation, etc.
 - error message ✔
 - traduzir ✔
 - bug scroll form
-- bug sign
+- bug signin
 - arranjar mocks
 - info scroll
 - hover
 - breakpoints
 - centrar rows
-- add hover arrow on scroll
+- add hover arrow on scroll ✔
 - rever Error.jsx
 - clean code
 

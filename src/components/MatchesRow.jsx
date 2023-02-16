@@ -61,7 +61,7 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   if (state == 'rejected') return <Error />;
 
   return (
-    <>
+    <div>
       <h2 className="match-row__title">{leagueName}</h2>
       <div className="scrollable-row">
         {scoreData.map((data, index) => (
@@ -71,6 +71,7 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-    </>
+      <div className="arrow">&nbsp;</div>
+    </div>
   );
 }
