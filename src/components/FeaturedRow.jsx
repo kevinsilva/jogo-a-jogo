@@ -88,7 +88,11 @@ export default function FeaturedRow() {
           em
           <span className="emphasis">destaque</span>
         </h2>
-        {/* <h4 className="featured__subtitle"></h4> */}
+        <h4 className="featured__subtitle">
+          &#8594; deslize para previsões
+          <br />
+          &#8592; deslize para resultados
+        </h4>
       </div>
       <div className="animation__text-container">
         {/* <span className="animation__arrow">

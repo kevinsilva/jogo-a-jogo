@@ -27,27 +27,37 @@
 }
 
 .featured__subtitle {
-  margin-top: 5rem;
-  font-weight: 900;
-  font-size: 4rem;
+  margin-top: 3rem;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-left: 1rem;
   transition: all 0.2s;
+  background-image: linear-gradient(
+    to bottom right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   // color: variables.$color-black;
   // text-shadow: 0 0 1.5px variables.$color-white,
   //   0 0 1.5px variables.$color-white, 0 0 1.5px variables.$color-white,
   //   0 0 1.5px variables.$color-white;
 
-  &::after {
-    content: '';
-    background-image: linear-gradient(
-      to right,
-      variables.$color-blue_lighter,
-      variables.$color-blue
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textChange 5s linear infinite alternate;
-  }
+  // &::after {
+  //   content: '';
+  //   background-image: linear-gradient(
+  //     to right,
+  //     variables.$color-blue_lighter,
+  //     variables.$color-blue
+  //   );
+  //   background-clip: text;
+  //   -webkit-background-clip: text;
+  //   -webkit-text-fill-color: transparent;
+  //   animation: textChange 5s linear infinite alternate;
+  // }
 }
 
 .emphasis {
