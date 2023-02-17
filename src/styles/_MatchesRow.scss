@@ -143,7 +143,8 @@
   }
 }
 
-.matches__section .scrollable-row {
+.matches__section .scrollable-row,
+#user-row {
   &:hover + .matches__left-arrow,
   &:hover ~ .matches__right-arrow {
     color: variables.$color-gray;
