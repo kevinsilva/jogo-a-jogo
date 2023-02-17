@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FEATURED_TEAMS } from '../utils/utilities';
 import { getFeaturedMatches } from '../utils/services';
 import { mockFetchData } from '../mocks/services';
@@ -6,13 +6,26 @@ import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 import FeaturedScoreCard from './FeaturedScoreCard';
 import FeaturedPreviewCard from './FeaturedPreviewCard';
 import Error from './Error';
-
-// import '../styles/MatchesRow.scss';
+import RightArrowBtn from './RightArrowBtn';
+import LeftArrowBtn from './LeftArrowBtn';
 
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
+  const scrollableRef = useRef(null);
+
+  const handleLeftButtonClick = () => {
+    if (scrollableRef.current) {
+      scrollableRef.current.scrollLeft += 200;
+    }
+  };
+
+  const handleRightButtonClick = () => {
+    if (scrollableRef.current) {
+      scrollableRef.current.scrollLeft -= 200;
+    }
+  };
 
   function getMockFeatured() {
     return Promise.all([
@@ -102,7 +115,7 @@ export default function FeaturedRow() {
         </span> */}
         {/* <h3 className="animation__text"></h3> */}
       </div>
-      <div className="scrollable-row" id="featured-row">
+      <div className="scrollable-row" id="featured-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <FeaturedScoreCard key={index} scoreData={data} />
         ))}
@@ -110,6 +123,14 @@ export default function FeaturedRow() {
           <FeaturedPreviewCard key={index} previewData={data} />
         ))}
       </div>
+      <LeftArrowBtn
+        onClick={handleLeftButtonClick}
+        className="featured__left-arrow"
+      />
+      <RightArrowBtn
+        onClick={handleRightButtonClick}
+        className="featured__right-arrow"
+      />
     </div>
   );
 }

@@ -3,6 +3,44 @@
 
 .featured-card {
   perspective: 150rem;
+  position: relative;
+
+  &:first-child {
+    padding-left: 40%;
+  }
+
+  &:first-child::before {
+    content: '';
+    width: 300%;
+    height: 100%;
+    background-color: black;
+    left: 43rem;
+    position: absolute;
+    box-shadow: 1rem 1rem 74rem black;
+    filter: blur(4.5rem);
+  }
+
+  // &:first-child::before {
+  //   content: '\276E';
+  //   color: variables.$color-gray_dark;
+  //   position: absolute;
+  //   top: 20rem;
+  //   left: -3rem;
+  //   font-size: 3rem;
+  //   opacity: 0;
+  //   transition: 1s;
+  // }
+
+  // &:last-child::after {
+  //   content: '\276F';
+  //   color: variables.$color-gray_dark;
+  //   position: absolute;
+  //   top: 20rem;
+  //   right: -3rem;
+  //   font-size: 3rem;
+  //   opacity: 0;
+  //   transition: 1s;
+  // }
 
   &__side {
     // min-width: 27.8rem;

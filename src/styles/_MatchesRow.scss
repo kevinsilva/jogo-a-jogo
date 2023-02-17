@@ -3,15 +3,56 @@
 
 .intro {
   display: flex;
+  padding-left: 6rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.featured__left-arrow {
+  position: absolute;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  font-size: 4rem;
+  cursor: pointer;
+  z-index: 20;
+  top: 26.78rem;
+  left: 2rem;
+  transition: all 0.4s;
+
+  &:hover {
+    color: variables.$color-gray;
+  }
+}
+
+.featured__right-arrow {
+  position: absolute;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  font-size: 4rem;
+  cursor: pointer;
+  z-index: 20;
+  top: 6rem;
+  right: -3rem;
+  height: 80%;
+  width: 10%;
+  transition: all 0.4s;
+
+  &:hover {
+    color: variables.$color-gray;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+  }
 }
 
 .featured__title-container {
-  margin: 15rem 6rem 10rem;
+  position: absolute;
+  margin: 15rem 6rem 10rem 0;
 }
 
 .matches__title-container {
   text-align: right;
-  margin: 15rem 6rem 10rem 0;
+  margin: 0rem 6rem 10rem 0;
 }
 
 .featured__title,
@@ -68,8 +109,13 @@
 
 #featured-row {
   margin-left: 0;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-snap-type: x mandatory;
+
+  &:hover > .featured-card:first-child::before,
+  &:hover > .featured-card:last-child::after {
+    opacity: 1;
+  }
 }
 
 .scrollable-row {
@@ -77,16 +123,23 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  // overflow: scroll;
+  width: auto;
   position: relative;
   cursor: default;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
   }
 
-  &:hover + .arrow::before,
-  &:hover + .arrow::after {
-    opacity: 1;
+  &:hover + .featured__left-arrow,
+  &:hover ~ .featured__right-arrow {
+    color: variables.$color-gray;
+  }
+
+  &:hover ~ .featured__right-arrow {
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
   }
 }
 
@@ -130,6 +183,13 @@
   }
 }
 
+.user-matches__container {
+  padding-top: 5rem;
+}
+.matches-container {
+  padding-top: 5rem;
+}
+
 .match-row__title {
   display: inline-flex;
   align-items: center;
@@ -168,115 +228,6 @@
 
   100% {
     transform: rotate(360deg);
-  }
-}
-
-.animation__text-container {
-  display: flex;
-  align-items: baseline;
-  position: relative;
-  left: 50%;
-  // animation: changeOrder 5s;
-}
-
-// .animation__arrow span {
-//   display: inline-flex;
-//   align-items: center;
-//   flex-direction: row;
-//   width: 3rem;
-//   height: 3rem;
-//   color: black;
-//   border-bottom: 2px solid white;
-//   border-left: 2px solid white;
-//   transform: rotate(45deg) translateY(-1rem);
-//   margin-right: 1rem;
-//   // transform: rotate(225deg);
-//   // animation: scroll 10s infinite;
-//   // animation-direction: reverse;
-
-//   &:nth-child(2) {
-//     animation-delay: -0.2s;
-//   }
-//   &:nth-child(3) {
-//     animation-delay: -0.4s;
-//   }
-//   // &::after {
-//   //   content: '';
-//   //   display: block;
-//   //   animation: arrowChange 5s linear infinite;
-// }
-
-.animation__text {
-  display: flex;
-  font-weight: 900;
-  font-size: 9rem;
-  color: variables.$color-black;
-  text-shadow: 0 0 1.5px variables.$color-white,
-    0 0 1.5px variables.$color-white, 0 0 1.5px variables.$color-white,
-    0 0 1.5px variables.$color-white;
-
-  &::before {
-    content: '';
-    // display: block;
-    animation: arrowChange 10s linear infinite;
-  }
-
-  &::after {
-    content: '';
-    animation: textChange 5s linear infinite;
-  }
-}
-
-@keyframes textChange {
-  0% {
-    opacity: 1;
-    content: '\2190 resultados';
-  }
-
-  50% {
-    opacity: 0;
-    color: black;
-  }
-
-  100% {
-    opacity: 1;
-    content: 'previsões \2192';
-  }
-}
-
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    transform: rotate(45deg) translateY(-1rem);
-  }
-  15% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 0;
-    transform: rotate(45deg) translateY(-1rem);
-  }
-
-  45% {
-    opacity: 0;
-    transform: rotate(225deg) translateY(-1rem);
-    // transform: scaleX(-1) rotate(45deg) translateY(-1rem);
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 0;
-    transform: rotate(225deg) translateY(-1rem);
-    // transform: scaleX(-1) rotate(45deg) translateY(-1rem);
-  }
-
-  100% {
-    opacity: 0;
-    transform: rotate(45deg) translateY(-1rem);
   }
 }
 

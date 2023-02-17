@@ -3,7 +3,7 @@ import { LEAGUES } from '../utils/utilities';
 
 export default function Matches() {
   return (
-    <>
+    <div className="matches-container">
       <div className="matches__title-container">
         <h2 className="matches__title">
           as melhores<span className="emphasis"> competições</span>
@@ -56,6 +56,6 @@ export default function Matches() {
           totalMatches={LEAGUES['UEFA Europa League'].matchesByRound}
         />
       </div>
-    </>
+    </div>
   );
 }

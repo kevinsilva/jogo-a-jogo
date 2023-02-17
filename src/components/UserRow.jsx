@@ -57,7 +57,7 @@ export default function UserRow({ team }) {
   if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <>
+    <div className="user-matches__container">
       <div className="matches__title-container">
         <h2 className="matches__title">
           o meu clube
@@ -73,6 +73,6 @@ export default function UserRow({ team }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

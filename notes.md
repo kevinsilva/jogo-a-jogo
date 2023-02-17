@@ -122,20 +122,22 @@ Others: list-style, table-layout, animation, etc.
 
 ## outros
 
-- error message ✔
-- traduzir ✔
+1- botões
+
+UI + Functionality
+
+2- bugs
+3- hover / animations / mobile
+4- mocks
+5- clean
+6- doc
+
 - bug scroll form
 - bug signin
-- arranjar mocks
-- info scroll
-- hover
-- breakpoints
-- centrar rows
-- add hover arrow on scroll ✔
-- rever Error.jsx
-- clean code
 
-- doc
-- prettier, github
+EXTRA:
+
+- centrar rows
+- rever Error.jsx
 
 -footer ✔
