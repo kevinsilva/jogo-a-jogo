@@ -1,16 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchLeagueMatches } from '../utils/services';
 import { mockFetchData } from '../mocks/services';
 import { mockScores, mockPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import Error from './Error';
+import RightArrowBtn from './RightArrowBtn';
+import LeftArrowBtn from './LeftArrowBtn';
 // import '../styles/MatchesRow.scss';
 
 export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
+  const scrollableRef = useRef(null);
+
+  const handleLeftButtonClick = () => {
+    if (scrollableRef.current) {
+      scrollableRef.current.scrollLeft += 200;
+    }
+  };
+
+  const handleRightButtonClick = () => {
+    if (scrollableRef.current) {
+      scrollableRef.current.scrollLeft -= 200;
+    }
+  };
 
   function getMockMatches() {
     return Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
@@ -63,7 +78,7 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   return (
     <div>
       <h2 className="match-row__title">{leagueName}</h2>
-      <div className="scrollable-row">
+      <div className="scrollable-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
         ))}
@@ -71,7 +86,14 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-      <div className="arrow">&nbsp;</div>
+      <LeftArrowBtn
+        onClick={handleLeftButtonClick}
+        className="matches__left-arrow"
+      />
+      <RightArrowBtn
+        onClick={handleRightButtonClick}
+        className="matches__right-arrow"
+      />
     </div>
   );
 }
