@@ -122,17 +122,14 @@ Others: list-style, table-layout, animation, etc.
 
 ## outros
 
-1- botões
-
-UI + Functionality
-
+1- botões ✔
 2- bugs
 3- hover / animations / mobile
 4- mocks
 5- clean
 6- doc
 
-- bug scroll form
+- bug scroll form ✔
 - bug signin
 
 EXTRA:

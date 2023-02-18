@@ -160,6 +160,14 @@ export const FEATURED_TEAMS = [
   211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
 ];
 
+export function preventScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
+export function restoreScroll() {
+  document.body.style.overflow = 'auto';
+}
+
 export function formatDate(date) {
   //date format: '2022-11-14T20:15:00+00:00'
   const day = date.slice(5, 10).split('-').reverse().join('/');

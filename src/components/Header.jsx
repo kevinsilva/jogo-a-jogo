@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import Popup from './Popup';
 import Form from './Form';
 import { AppContext } from '../App';
+import { preventScroll, restoreScroll } from '../utils/utilities';
 
 export default function Header() {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -19,14 +20,14 @@ export default function Header() {
           open={isPopupOpen}
           onClose={() => {
             setPopupOpen(false);
-            document.body.style.overflow = 'auto';
+            restoreScroll();
           }}
           trigger={
             <button
               className="header__btn"
               onClick={() => {
                 setPopupOpen(!isPopupOpen);
-                document.body.style.overflow = 'hidden';
+                preventScroll();
               }}
             >
               Entrar

@@ -5,7 +5,12 @@ import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import Matches from './components/Matches';
 import Footer from './components/Footer';
-import { isValid, isUserValid, getUserTeam } from './utils/utilities';
+import {
+  isValid,
+  isUserValid,
+  getUserTeam,
+  restoreScroll,
+} from './utils/utilities';
 
 export const AppContext = React.createContext();
 
@@ -48,7 +53,7 @@ function App() {
       return 'A palavra-passe deve ter mais de 5 caracteres.';
     const newUsers = [...users, { email, password, team, isOnline: true }];
     setUsers(newUsers);
-    document.body.style.overflow = 'auto';
+    restoreScroll();
     return '';
   };
 
@@ -60,7 +65,7 @@ function App() {
       const foundUser = copyUsers.find((user) => user.email == email);
       foundUser.isOnline = true;
       setUsers(copyUsers);
-      document.body.style.overflow = 'auto';
+      restoreScroll();
       return '';
     } else {
       // setPassword('');
