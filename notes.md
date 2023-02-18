@@ -132,6 +132,10 @@ Others: list-style, table-layout, animation, etc.
 - bug scroll form ✔
 - bug signin
 
+problema:
+
+when I log, I see my club ID, not name.
+
 EXTRA:
 
 - centrar rows

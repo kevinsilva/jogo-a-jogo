@@ -5,7 +5,7 @@ import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import RightArrowBtn from './RightArrowBtn';
 import LeftArrowBtn from './LeftArrowBtn';
-
+import { getTeamLabel } from '../utils/utilities';
 import { fetchTeamMatches } from '../utils/services';
 
 export default function UserRow({ team }) {
@@ -76,7 +76,7 @@ export default function UserRow({ team }) {
       <div className="matches__title-container">
         <h2 className="matches__title">
           o meu clube
-          <span className="emphasis">{team}</span>
+          <span className="emphasis">{getTeamLabel(team)}</span>
         </h2>
       </div>
       <h2 className="user-row__title">❤️ Todas as competições</h2>

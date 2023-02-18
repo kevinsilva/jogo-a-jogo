@@ -218,9 +218,16 @@ export const isValid = {
 //   { label: 'Real Madrid', value: 'realMadrid' },
 // ];
 
-export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
-  return { label: team.label, value: team.id };
-});
+// export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
+//   return { label: team.label, value: team.id };
+// });
+
+export const favoriteTeamOptions = Object.values(TEAMS).reduce(
+  (acc, team) => {
+    return [...acc, { label: team.label, value: team.id }];
+  },
+  [{ label: '', value: '' }]
+);
 
 function calcRemainingTime1(matchTimestamp) {
   const matchTime = matchTimestamp * 1000;
@@ -310,6 +317,10 @@ export function calcRemainingTime(matchTimestamp) {
 
   if (verb.length === 5) type = type.substring(0, type.length - 1);
   return `${verb} ${adverb} ${Math.floor(value)} ${type}`;
+}
+
+export function getTeamLabel(teamID) {
+  return Object.values(TEAMS).filter((team) => team.id == teamID)[0]?.label;
 }
 
 export const getUserTeam = (users) => {

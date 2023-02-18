@@ -31,12 +31,12 @@ function App() {
   const [users, setUsers] = useState(baseUsers);
 
   useEffect(() => {
-    console.log('get');
     const storedUsers = JSON.parse(localStorage.getItem('data'));
     if (storedUsers) setUsers(storedUsers);
   }, []);
 
   useEffect(() => {
+    console.log(users);
     if (users !== baseUsers)
       localStorage.setItem('data', JSON.stringify(users));
   }, [users]);
