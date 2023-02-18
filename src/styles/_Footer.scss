@@ -8,14 +8,18 @@
   @include mixins.flex-around_align-center;
 }
 
-.footer__credits {
+.footer__logo {
+  height: 4rem;
+}
+
+.footer__copy {
   font-size: variables.$font-sm;
   font-weight: variables.$weight-light;
   color: variables.$color-gray;
 }
 
 .github-logo {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .linkedin-logo,

@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="logo-container">
-        <img className="logo" src="src/assets/Vector.svg" alt="" />
+        <img className="logo" src="src/assets/logo.svg" alt="" />
       </div>
 
       {!context.isUserOnline() ? (

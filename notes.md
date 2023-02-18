@@ -123,18 +123,14 @@ Others: list-style, table-layout, animation, etc.
 ## outros
 
 1- botões ✔
-2- bugs
+2- bugs ✔
 3- hover / animations / mobile
 4- mocks
 5- clean
 6- doc
 
 - bug scroll form ✔
-- bug signin
-
-problema:
-
-when I log, I see my club ID, not name.
+- bug signin ✔
 
 EXTRA:
 
