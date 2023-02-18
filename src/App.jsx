@@ -48,6 +48,7 @@ function App() {
       return 'A palavra-passe deve ter mais de 5 caracteres.';
     const newUsers = [...users, { email, password, team, isOnline: true }];
     setUsers(newUsers);
+    document.body.style.overflow = 'auto';
     return '';
   };
 
@@ -59,6 +60,7 @@ function App() {
       const foundUser = copyUsers.find((user) => user.email == email);
       foundUser.isOnline = true;
       setUsers(copyUsers);
+      document.body.style.overflow = 'auto';
       return '';
     } else {
       // setPassword('');

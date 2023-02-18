@@ -12,7 +12,6 @@ export default function Header() {
     <header className="header">
       <div className="logo-container">
         <img className="logo" src="src/assets/Vector.svg" alt="" />
-        {/* <h1>Jogo a Jogo</h1> */}
       </div>
 
       {!context.isUserOnline() ? (
@@ -20,14 +19,14 @@ export default function Header() {
           open={isPopupOpen}
           onClose={() => {
             setPopupOpen(false);
-            // document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto';
           }}
           trigger={
             <button
               className="header__btn"
               onClick={() => {
                 setPopupOpen(!isPopupOpen);
-                // document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
               }}
             >
               Entrar
