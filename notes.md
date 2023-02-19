@@ -128,13 +128,3 @@ Others: list-style, table-layout, animation, etc.
 4- mocks
 5- clean
 6- doc
-
-- bug scroll form ✔
-- bug signin ✔
-
-EXTRA:
-
-- centrar rows
-
--leagues ✔
--footer ✔
