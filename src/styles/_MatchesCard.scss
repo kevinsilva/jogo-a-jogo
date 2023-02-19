@@ -2,52 +2,42 @@
 @use 'mixins';
 
 .match-card {
-  background-color: variables.$color-black_light;
-  text-transform: uppercase;
   min-width: 27.8rem;
-  min-height: 11rem;
+  // min-height: 11rem;
+  height: 14rem;
   padding: variables.$spacing-sm;
   border-radius: 0.5rem;
-  box-shadow: 0rem 0.5rem 1rem rgba(variables.$color-black, 0.15);
-
-  &:nth-of-type(10) {
-    // background-color: red;
-    margin: auto;
-  }
+  text-transform: uppercase;
+  background-color: variables.$color-black_light;
 
   &:not(:last-child) {
     margin-right: 2rem;
   }
 
   &__header {
-    color: variables.$color-gray;
-    font-weight: 100;
     margin-bottom: variables.$spacing-sm;
     @include mixins.flex-between;
+    color: variables.$color-gray;
   }
 
-  &__league-name,
+  &__league,
   &__date {
     font-weight: 400;
   }
 
-  &__sections--preview {
-    @include mixins.flex-between;
+  &__main {
+    &--preview {
+      @include mixins.flex-between;
+    }
   }
 
-  &__sections--preview &__home-name {
-    margin-bottom: 1.5rem;
-  }
-
-  &__home-section {
+  &__home {
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    // @include mixins.flex-between;
   }
 
-  &__away-section {
-    // @include mixins.flex-between;
+  &__away {
     display: flex;
     align-items: center;
   }
@@ -57,21 +47,13 @@
     margin-left: auto;
   }
 
-  &__home-name,
-  &__home-goals,
-  &__away-name,
-  &__away-goals {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  &__home-logo,
-  &__away-logo {
+  &__home-img,
+  &__away-img {
     height: 2rem;
     margin-right: 0.5rem;
   }
 
-  &__tv-info {
+  &__tv {
     display: flex;
     align-items: center;
     text-align: center;
