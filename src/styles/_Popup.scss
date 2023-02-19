@@ -15,9 +15,10 @@
     visibility: hidden;
   }
 
-  &__btn-close {
+  &__button-close {
     @include mixins.w-screen_h-screen;
     @include mixins.absolute_zero;
+    border: none;
     background-color: transparent;
     z-index: 1;
     cursor: pointer;

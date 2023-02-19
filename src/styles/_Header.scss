@@ -14,7 +14,7 @@
   );
   @include mixins.flex-between_align-center;
 
-  &__btn {
+  &__button {
     height: 4rem;
     padding: 1rem 2rem;
     border: 1px solid variables.$color-white;
@@ -35,7 +35,7 @@
   }
 }
 
-.logo {
+.header__logo {
   width: 12rem;
   height: 12rem;
   // filter: grayscale(1);

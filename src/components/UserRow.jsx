@@ -69,12 +69,12 @@ export default function UserRow({ team }) {
       });
   }, []);
 
-  if (state == 'pending') return <div className="spinner">&nbsp;</div>;
+  if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
   // if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <section className="section">
+    <section className="user">
       <div className="section__title-container">
         <h2 className="section__title">
           o meu clube

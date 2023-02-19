@@ -3,7 +3,7 @@ export default function Popup({ trigger, open, onClose, children }) {
     <>
       <div className={`popup popup--${open ? 'visible' : 'hidden'}`}>
         <div>{children}</div>
-        <button className="popup__btn-close" onClick={onClose}>
+        <button className="popup__button-close" onClick={onClose}>
           &nbsp;
         </button>
       </div>

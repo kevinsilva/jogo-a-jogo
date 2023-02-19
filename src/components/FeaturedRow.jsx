@@ -89,31 +89,25 @@ export default function FeaturedRow() {
   //     });
   // }, []);
 
-  if (state == 'pending') return <div className="spinner"></div>;
+  if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
 
   return (
-    <div className="intro">
+    <section className="featured">
       <div className="featured__title-container">
-        <h2 className="featured__title">
+        <h2 className="section__title">
           jogos
           <br />
           em
-          <span className="title--emphasis">destaque</span>
+          <span className="section__title section__title--emphasis">
+            destaque
+          </span>
         </h2>
         <h4 className="featured__subtitle">
           &#8594; deslize para previsões
           <br />
           &#8592; deslize para resultados
         </h4>
-      </div>
-      <div className="animation__text-container">
-        {/* <span className="animation__arrow">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span> */}
-        {/* <h3 className="animation__text"></h3> */}
       </div>
       <div className="scrollable-row" id="featured-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
@@ -131,6 +125,6 @@ export default function FeaturedRow() {
         onClick={handleRightButtonClick}
         className="featured__right-arrow"
       />
-    </div>
+    </section>
   );
 }

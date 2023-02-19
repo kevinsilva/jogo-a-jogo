@@ -3,7 +3,7 @@ import { LEAGUES } from '../utils/utilities';
 
 export default function Leagues() {
   return (
-    <section className="section section--leagues">
+    <section className="leagues">
       <div className="section__title-container">
         <h2 className="section__title">
           as melhores
