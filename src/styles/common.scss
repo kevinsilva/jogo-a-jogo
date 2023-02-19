@@ -67,20 +67,30 @@
   height: 4rem;
   padding: 1rem 2rem;
   border: 1px solid variables.$color-white;
-  // border-image-slice: 1;
-  // border-width: 1px;
+  border-image-slice: 1;
+  border-width: 1px;
   color: variables.$color-white;
   text-transform: uppercase;
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.2s;
 
-  // &:hover {
-  //   border-image-source: linear-gradient(
-  //     to right,
-  //     variables.$color-green,
-  //     variables.$color-red
-  //   );
-  // }
+  &:hover {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-blue_light,
+      variables.$color-blue
+    );
+
+    border-image-source: linear-gradient(
+      to right,
+      variables.$color-blue_light,
+      variables.$color-blue
+    );
+  }
 }
 
 .secondary-button {
@@ -89,6 +99,14 @@
   text-transform: uppercase;
   color: variables.$color-gray;
   cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+
+  &:hover {
+    color: variables.$color-blue_light;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
 }
 
 .right-arrow,

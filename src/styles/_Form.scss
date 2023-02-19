@@ -32,6 +32,7 @@
 
     &:focus {
       outline: none;
+      border: 1px solid variables.$color-gray;
       background-color: variables.$color-black-lighter;
     }
   }

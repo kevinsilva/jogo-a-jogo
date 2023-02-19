@@ -22,4 +22,9 @@
 .github-logo {
   filter: variables.$svg-white;
   height: 3rem;
+  transition: all 0.2s;
+
+  &:hover {
+    filter: variables.$svg-gray;
+  }
 }
