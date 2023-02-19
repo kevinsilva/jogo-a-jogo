@@ -1,49 +1,43 @@
 @use 'variables';
 @use 'mixins';
 
-.matches__left-arrow {
+.user {
   position: relative;
-  color: transparent;
-  background-color: transparent;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-  z-index: 20;
-  bottom: 20rem;
-  right: 1rem;
-  transition: all 0.4s;
-  height: 15rem;
-  width: 11rem;
-
-  &:hover {
-    color: variables.$color-gray;
-    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1));
-  }
+  margin-top: 12rem;
 }
 
-.matches__right-arrow {
+.leagues {
+  margin-top: 12rem;
+}
+
+.matches-row {
   position: relative;
-  color: transparent;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-  z-index: 20;
-  bottom: 20rem;
-  left: 85vw;
-  transition: all 0.4s;
+}
+
+.left-arrow--matches-row,
+.right-arrow--matches-row {
+  font-size: 4rem;
   height: 15rem;
   width: 11rem;
-  background-color: transparent;
-  // background-color: red;
+  top: 8rem;
+}
 
-  &:hover {
-    color: variables.$color-gray;
-    background-image: linear-gradient(
-      to right,
-      transparent,
-      rgba(0, 0, 0, 0.8)
-    );
-  }
+.left-arrow--matches-row,
+.left-arrow--user-row {
+  left: -1rem;
+}
+
+.right-arrow--matches-row,
+.right-arrow--user-row {
+  right: -1rem;
+}
+
+.left-arrow--user-row,
+.right-arrow--user-row {
+  font-size: 4rem;
+  height: 15rem;
+  width: 11rem;
+  top: 34.5rem;
 }
 
 .matches-row__title {
@@ -67,24 +61,18 @@
   }
 }
 
-.matches-rows__container .scrollable-row,
+.matches-row .scrollable-row,
 #user-row {
-  &:hover + .matches__left-arrow,
-  &:hover ~ .matches__right-arrow {
+  &:hover + .left-arrow,
+  &:hover ~ .right-arrow {
     color: variables.$color-gray;
-    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
   }
 
-  &:hover + .matches__left-arrow {
-    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1));
+  &:hover + .left-arrow {
+    background-image: variables.$left-arrow_shadow;
   }
 
-  &:hover ~ .matches__right-arrow {
-    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+  &:hover ~ .right-arrow {
+    background-image: variables.$right-arrow_shadow;
   }
-}
-
-#user-row {
-  padding-left: 0;
-  padding-right: 0;
 }

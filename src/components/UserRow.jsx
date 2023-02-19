@@ -17,13 +17,13 @@ export default function UserRow({ team }) {
 
   const handleLeftButtonClick = () => {
     if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft += 200;
+      scrollableRef.current.scrollLeft -= 200;
     }
   };
 
   const handleRightButtonClick = () => {
     if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft -= 200;
+      scrollableRef.current.scrollLeft += 200;
     }
   };
 
@@ -96,11 +96,11 @@ export default function UserRow({ team }) {
       </div>
       <LeftArrowButton
         onClick={handleLeftButtonClick}
-        className="matches__left-arrow"
+        className="left-arrow left-arrow--user-row"
       />
       <RightArrowButton
         onClick={handleRightButtonClick}
-        className="matches__right-arrow"
+        className="right-arrow right-arrow--user-row"
       />
     </section>
   );

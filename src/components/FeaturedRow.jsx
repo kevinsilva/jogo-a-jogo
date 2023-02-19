@@ -119,11 +119,11 @@ export default function FeaturedRow() {
       </div>
       <LeftArrowButton
         onClick={handleLeftButtonClick}
-        className="featured__left-arrow"
+        className="left-arrow left-arrow--featured"
       />
       <RightArrowButton
         onClick={handleRightButtonClick}
-        className="featured__right-arrow"
+        className="right-arrow right-arrow--featured"
       />
     </section>
   );

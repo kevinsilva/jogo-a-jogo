@@ -35,12 +35,13 @@ body {
   font-weight: 400;
   background-color: variables.$color-black;
   color: variables.$color-white;
+  overflow-x: hidden;
 }
 
 a,
 a:focus,
 a:visited,
 a:active {
-  color: white;
+  color: variables.$color-gray;
   text-decoration: none;
 }

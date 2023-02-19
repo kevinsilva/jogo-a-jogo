@@ -4,7 +4,7 @@
 .footer {
   height: 14rem;
   @include mixins.gradient-border;
-  margin-top: 15rem;
+  margin-top: 12rem;
   @include mixins.flex-around_align-center;
 }
 

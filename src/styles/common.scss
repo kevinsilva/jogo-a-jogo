@@ -1,48 +1,6 @@
 @use 'variables';
 @use 'mixins';
 
-/* Logo
------------------------------------------- */
-.logo-main {
-  width: 12rem;
-  height: 12rem;
-  // filter: grayscale(1);
-}
-
-.logo-secondary {
-  height: 4rem;
-}
-
-/* Buttons
------------------------------------------- */
-.primary-button {
-  height: 4rem;
-  padding: 1rem 2rem;
-  border: 1px solid variables.$color-white;
-  // border-image-slice: 1;
-  // border-width: 1px;
-  color: variables.$color-white;
-  text-transform: uppercase;
-  background-color: transparent;
-  cursor: pointer;
-
-  // &:hover {
-  //   border-image-source: linear-gradient(
-  //     to right,
-  //     variables.$color-green,
-  //     variables.$color-red
-  //   );
-  // }
-}
-
-.secondary-button {
-  font-size: 1.8rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: variables.$color-gray;
-  cursor: pointer;
-}
-
 /* Sections
 ------------------------------------------ */
 .section {
@@ -93,11 +51,80 @@
   width: auto;
   position: relative;
   cursor: default;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Logo
+------------------------------------------ */
+.logo-main {
+  width: 12rem;
+  height: 12rem;
+  // filter: grayscale(1);
+}
+
+.logo-secondary {
+  height: 4rem;
+}
+
+/* Buttons
+------------------------------------------ */
+.primary-button {
+  height: 4rem;
+  padding: 1rem 2rem;
+  border: 1px solid variables.$color-white;
+  // border-image-slice: 1;
+  // border-width: 1px;
+  color: variables.$color-white;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+
+  // &:hover {
+  //   border-image-source: linear-gradient(
+  //     to right,
+  //     variables.$color-green,
+  //     variables.$color-red
+  //   );
+  // }
+}
+
+.secondary-button {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: variables.$color-gray;
+  cursor: pointer;
+}
+
+.right-arrow,
+.left-arrow {
+  font-weight: 100;
+  position: absolute;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    font-size: 5rem;
+    color: variables.$color-gray;
+  }
+}
+
+.right-arrow:hover {
+  background-image: variables.$right-arrow_shadow;
+}
+
+.left-arrow:hover {
+  background-image: variables.$left-arrow_shadow;
 }
 
 /* Loading
