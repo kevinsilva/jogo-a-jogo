@@ -135,7 +135,6 @@ Others: list-style, table-layout, animation, etc.
 EXTRA:
 
 - centrar rows
-- rever Error.jsx
 
 -leagues ✔
 -footer ✔

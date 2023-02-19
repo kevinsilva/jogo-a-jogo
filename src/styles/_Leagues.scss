@@ -1,0 +1,90 @@
+@use 'variables';
+@use 'mixins';
+
+.matches__left-arrow {
+  position: relative;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 20;
+  bottom: 20rem;
+  right: 1rem;
+  transition: all 0.4s;
+  height: 15rem;
+  width: 11rem;
+
+  &:hover {
+    color: variables.$color-gray;
+    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1));
+  }
+}
+
+.matches__right-arrow {
+  position: relative;
+  color: transparent;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 20;
+  bottom: 20rem;
+  left: 85vw;
+  transition: all 0.4s;
+  height: 15rem;
+  width: 11rem;
+  background-color: transparent;
+  // background-color: red;
+
+  &:hover {
+    color: variables.$color-gray;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      rgba(0, 0, 0, 0.8)
+    );
+  }
+}
+
+.matches-row__title {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 9rem;
+  position: relative;
+
+  &--user {
+    padding-left: 6rem;
+  }
+
+  &--leagues::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 6rem;
+    background-color: variables.$color-blue;
+    border-radius: 50%;
+  }
+}
+
+.matches-rows__container .scrollable-row,
+#user-row {
+  &:hover + .matches__left-arrow,
+  &:hover ~ .matches__right-arrow {
+    color: variables.$color-gray;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+  }
+
+  &:hover + .matches__left-arrow {
+    background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1));
+  }
+
+  &:hover ~ .matches__right-arrow {
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+  }
+}
+
+#user-row {
+  padding-left: 0;
+  padding-right: 0;
+}
