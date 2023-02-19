@@ -28,9 +28,9 @@ export default function SignIn({ onSignUpClick, onError }) {
           type="password"
         />
       </div>
-      <div className="form__btn-container">
+      <div className="form__button-container">
         <p
-          className="form__option-btn"
+          className="secondary-button"
           onClick={() => {
             onError('');
             onSignUpClick(false);
@@ -38,7 +38,7 @@ export default function SignIn({ onSignUpClick, onError }) {
         >
           Criar conta
         </p>
-        <button className="form__submit-btn" type="submit">
+        <button className="primary-button" type="submit">
           Entrar
         </button>
       </div>

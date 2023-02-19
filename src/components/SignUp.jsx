@@ -30,7 +30,7 @@ export default function SignUp({ onSignInClick, onError }) {
           onChange={setPassword}
         />
       </div>
-      <div className="form__select-container">
+      <div className="form__input-container">
         <SelectInput
           label="Seleccione o seu clube"
           value={favoriteTeam}
@@ -38,9 +38,9 @@ export default function SignUp({ onSignInClick, onError }) {
           options={favoriteTeamOptions}
         />
       </div>
-      <div className="form__btn-container">
+      <div className="form__button-container">
         <p
-          className="form__option-btn"
+          className="secondary-button"
           onClick={() => {
             onError('');
             onSignInClick(true);
@@ -48,7 +48,7 @@ export default function SignUp({ onSignInClick, onError }) {
         >
           Iniciar sessão
         </p>
-        <button className="form__submit-btn" type="submit">
+        <button className="primary-button" type="submit">
           Criar conta
         </button>
       </div>

@@ -29,8 +29,8 @@ export default function Footer() {
           </a>
         </p>
       </div>
-      <div className="footer__logo-container">
-        <img className="footer__logo" src="src/assets/logo.svg" alt="logo" />
+      <div className="logo-container">
+        <img className="logo-secondary" src="src/assets/logo.svg" alt="logo" />
       </div>
     </footer>
   );

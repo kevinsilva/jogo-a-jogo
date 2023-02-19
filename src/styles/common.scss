@@ -1,6 +1,48 @@
 @use 'variables';
 @use 'mixins';
 
+/* Logo
+------------------------------------------ */
+.logo-main {
+  width: 12rem;
+  height: 12rem;
+  // filter: grayscale(1);
+}
+
+.logo-secondary {
+  height: 4rem;
+}
+
+/* Buttons
+------------------------------------------ */
+.primary-button {
+  height: 4rem;
+  padding: 1rem 2rem;
+  border: 1px solid variables.$color-white;
+  // border-image-slice: 1;
+  // border-width: 1px;
+  color: variables.$color-white;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+
+  // &:hover {
+  //   border-image-source: linear-gradient(
+  //     to right,
+  //     variables.$color-green,
+  //     variables.$color-red
+  //   );
+  // }
+}
+
+.secondary-button {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: variables.$color-gray;
+  cursor: pointer;
+}
+
 /* Sections
 ------------------------------------------ */
 .section {

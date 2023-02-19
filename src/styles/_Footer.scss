@@ -8,10 +8,6 @@
   @include mixins.flex-around_align-center;
 }
 
-.footer__logo {
-  height: 4rem;
-}
-
 .footer__copy {
   font-size: variables.$font-sm;
   font-weight: variables.$weight-light;
