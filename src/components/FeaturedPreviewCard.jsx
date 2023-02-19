@@ -4,19 +4,16 @@ import {
   TEAMS,
   calcRemainingTime,
 } from '../utils/utilities';
-// import '../styles/FeaturedCard.scss';
 
 export default function FeaturedPreviewCard({ previewData }) {
   return (
     <div className="featured-card">
       <div className="featured-card__side featured-card__side--front">
         <div className="featured-card__header">
-          <h4 className="featured-card__league-name">
-            {previewData.league.name}
-          </h4>
+          <h4 className="featured-card__info">{previewData.league.name}</h4>
         </div>
-        <div className="featured-card__sections featured-card__sections--preview">
-          <div className="featured-card__home-section">
+        <div className="featured-card__main">
+          <div className="featured-card__home">
             <h3 className="featured-card__home-name">
               {previewData.teams.home.name.slice(0, 3)}
             </h3>
@@ -26,7 +23,7 @@ export default function FeaturedPreviewCard({ previewData }) {
               alt=""
             />
           </div>
-          <div className="featured-card__away-section">
+          <div className="featured-card__away">
             <img
               className="featured-card__away-img"
               src={previewData.teams.away.logo}
@@ -36,32 +33,32 @@ export default function FeaturedPreviewCard({ previewData }) {
               {previewData.teams.away.name.slice(0, 3)}
             </h3>
           </div>
-          <hr className="featured-card__section-line" />
-          <div className="featured-card__tv-info">
+          <hr className="line" />
+          <div className="featured-card__tv">
             <h4 className="featured-card__tv-name">
               {LEAGUES[previewData.league.name].tvChannel[0]}
             </h4>
           </div>
         </div>
         <div className="featured-card__footer">
-          <h4 className="featured-card__date">
+          <h4 className="featured-card__info">
             {formatDate(previewData.fixture.date)}
           </h4>
         </div>
       </div>
       <div className="featured-card__side featured-card__side--back">
         <div className="featured-card__header">
-          <h4 className="featured-card__title">Pontapé de Saída</h4>
+          <h4 className="featured-card__info">Pontapé de Saída</h4>
         </div>
-        <div className="featured-card__sections featured-card__sections--preview">
-          <div className="featured-card__timer-section">
-            <h4 className="featured-card__timer">
+        <div className="featured-card__main">
+          <div className="featured-card__timer">
+            <h4 className="featured-card__timer-phrase">
               {calcRemainingTime(previewData.fixture.timestamp)}
             </h4>
           </div>
         </div>
         <div className="featured-card__footer">
-          <h4 className="featured-card__date">
+          <h4 className="featured-card__info">
             {formatDate(previewData.fixture.date)}
           </h4>
         </div>

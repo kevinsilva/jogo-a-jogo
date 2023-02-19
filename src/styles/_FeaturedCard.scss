@@ -20,28 +20,6 @@
     filter: blur(4.5rem);
   }
 
-  // &:first-child::before {
-  //   content: '\276E';
-  //   color: variables.$color-gray_dark;
-  //   position: absolute;
-  //   top: 20rem;
-  //   left: -3rem;
-  //   font-size: 3rem;
-  //   opacity: 0;
-  //   transition: 1s;
-  // }
-
-  // &:last-child::after {
-  //   content: '\276F';
-  //   color: variables.$color-gray_dark;
-  //   position: absolute;
-  //   top: 20rem;
-  //   right: -3rem;
-  //   font-size: 3rem;
-  //   opacity: 0;
-  //   transition: 1s;
-  // }
-
   &__side {
     // min-width: 27.8rem;
     // min-height: 46rem;
@@ -88,53 +66,20 @@
     text-align: center;
   }
 
-  &__league-name,
-  &__date,
-  &__title,
-  &__footnote {
+  &__info {
     color: variables.$color-gray;
     font-size: 2rem;
     font-weight: 100;
   }
-  &__sections--score {
-    text-align: center;
-  }
 
-  &__sections--preview &__section-line {
-    margin-top: 3rem;
-  }
-
-  &__home-section,
-  &__away-section {
+  &__home,
+  &__away {
     display: flex;
     justify-content: space-around;
     align-items: baseline;
   }
 
-  &__timer-section {
-    width: 80%;
-    height: 80%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  &__stadium-section {
-    width: 80%;
-    height: 20rem;
-    margin: 0 auto;
-    @include mixins.flex-center_align-center;
-  }
-
-  &__city-section {
-    width: 80%;
-    height: 9rem;
-    margin: 0 auto;
-    @include mixins.flex-center_align-center;
-    position: relative;
-    top: 3rem;
-  }
-
-  &__home-section {
+  &__home {
     margin-top: -0.5rem;
     margin-bottom: 1rem;
   }
@@ -146,6 +91,11 @@
     font-weight: 900;
   }
 
+  &__away-name {
+    margin-top: -5rem;
+    text-align: right;
+  }
+
   &__home-img,
   &__away-img {
     width: 8.5rem;
@@ -154,54 +104,18 @@
     // height: 8.5rem;
   }
 
-  &__away-name {
-    margin-top: -5rem;
-    text-align: right;
-  }
-
-  &__timer {
-    font-size: 7rem;
-    font-weight: 900;
-    color: variables.$color-white;
-
-    &::first-line {
-      color: variables.$color-gray;
-    }
-  }
-  &__stadium-name {
-    position: relative;
-    bottom: 3rem;
-    font-size: 4.2rem;
-    font-weight: 900;
-    color: variables.$color-gray;
-  }
-
-  &__city-name {
-    font-size: 3.4rem;
-    font-weight: 900;
-    color: variables.$color-white;
-  }
-
-  &__section-line {
-    width: calc(100% - 3.6rem);
-    height: 1px;
-    border: none;
-    margin: 0 auto;
-    background-color: variables.$color-gray;
-  }
-
-  &__score-section {
+  &__score {
     margin-top: -0.5rem;
     @include mixins.flex-center;
   }
 
-  &__home-goals,
-  &__away-goals {
+  &__score-home,
+  &__score-away {
     font-size: 9.6rem;
     font-weight: 900;
   }
 
-  &__tv-info {
+  &__tv {
     @include mixins.flex-center_align-center;
   }
 
@@ -210,6 +124,53 @@
     margin-bottom: 1.9rem;
     font-size: 3.6rem;
     font-weight: 900;
+  }
+
+  &__stadium {
+    width: 80%;
+    height: 20rem;
+    margin: 0 auto;
+    @include mixins.flex-center_align-center;
+  }
+
+  &__stadium-name {
+    position: relative;
+    bottom: 3rem;
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: variables.$color-gray;
+  }
+
+  &__city {
+    width: 80%;
+    height: 9rem;
+    margin: 0 auto;
+    @include mixins.flex-center_align-center;
+    position: relative;
+    top: 3rem;
+  }
+
+  &__city-name {
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: variables.$color-white;
+  }
+
+  &__timer {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__timer-phrase {
+    font-size: 7rem;
+    font-weight: 900;
+    color: variables.$color-white;
+
+    &::first-line {
+      color: variables.$color-gray;
+    }
   }
 
   &__footer {
