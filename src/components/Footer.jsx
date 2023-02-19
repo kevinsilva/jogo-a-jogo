@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__social">
         <a href="https://github.com/kevinsilva" target="_blank">
           <img
@@ -32,6 +32,6 @@ export default function Footer() {
       <div className="footer__logo-container">
         <img className="footer__logo" src="src/assets/logo.svg" alt="logo" />
       </div>
-    </div>
+    </footer>
   );
 }

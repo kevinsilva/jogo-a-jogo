@@ -6,8 +6,8 @@ import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 import FeaturedScoreCard from './FeaturedScoreCard';
 import FeaturedPreviewCard from './FeaturedPreviewCard';
 import Error from './Error';
-import RightArrowBtn from './RightArrowBtn';
-import LeftArrowBtn from './LeftArrowBtn';
+import RightArrowButton from './RightArrowButton';
+import LeftArrowButton from './LeftArrowButton';
 
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');
@@ -99,7 +99,7 @@ export default function FeaturedRow() {
           jogos
           <br />
           em
-          <span className="emphasis">destaque</span>
+          <span className="title--emphasis">destaque</span>
         </h2>
         <h4 className="featured__subtitle">
           &#8594; deslize para previsões
@@ -123,11 +123,11 @@ export default function FeaturedRow() {
           <FeaturedPreviewCard key={index} previewData={data} />
         ))}
       </div>
-      <LeftArrowBtn
+      <LeftArrowButton
         onClick={handleLeftButtonClick}
         className="featured__left-arrow"
       />
-      <RightArrowBtn
+      <RightArrowButton
         onClick={handleRightButtonClick}
         className="featured__right-arrow"
       />

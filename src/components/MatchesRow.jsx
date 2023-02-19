@@ -5,9 +5,8 @@ import { mockScores, mockPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import Error from './Error';
-import RightArrowBtn from './RightArrowBtn';
-import LeftArrowBtn from './LeftArrowBtn';
-// import '../styles/MatchesRow.scss';
+import RightArrowButton from './RightArrowButton';
+import LeftArrowButton from './LeftArrowButton';
 
 export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [state, setState] = useState('pending');
@@ -72,12 +71,14 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   //     });
   // }, []);
 
-  if (state == 'pending') return <div className="spinner"></div>;
+  if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
 
   return (
-    <div>
-      <h2 className="match-row__title">{leagueName}</h2>
+    <div className="matches-row">
+      <h2 className="matches-row__title matches-row__title--leagues">
+        {leagueName}
+      </h2>
       <div className="scrollable-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
@@ -86,11 +87,11 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-      <LeftArrowBtn
+      <LeftArrowButton
         onClick={handleLeftButtonClick}
         className="matches__left-arrow"
       />
-      <RightArrowBtn
+      <RightArrowButton
         onClick={handleRightButtonClick}
         className="matches__right-arrow"
       />

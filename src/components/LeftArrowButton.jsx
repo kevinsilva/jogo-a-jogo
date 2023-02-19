@@ -1,4 +1,4 @@
-export default function LeftArrowBtn({ onClick, className }) {
+export default function LeftArrowButton({ onClick, className }) {
   return (
     <button onClick={onClick} className={className}>
       &#8249;

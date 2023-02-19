@@ -50,13 +50,7 @@
   margin: 15rem 6rem 10rem 0;
 }
 
-.matches__title-container {
-  text-align: right;
-  margin: 0rem 6rem 10rem 0;
-}
-
-.featured__title,
-.matches__title {
+.featured__title {
   font-weight: 900;
   font-size: 9.6rem;
   text-transform: uppercase;
@@ -101,12 +95,6 @@
   // }
 }
 
-.emphasis {
-  display: block;
-  text-shadow: none;
-  color: variables.$color-white;
-}
-
 #featured-row {
   margin-left: 0;
   scroll-snap-align: start;
@@ -127,23 +115,7 @@
   }
 }
 
-.scrollable-row {
-  padding: 6rem;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  // overflow: scroll;
-  width: auto;
-  position: relative;
-  cursor: default;
-  scroll-behavior: smooth;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.matches__section .scrollable-row,
+.matches-rows__container .scrollable-row,
 #user-row {
   &:hover + .matches__left-arrow,
   &:hover ~ .matches__right-arrow {
@@ -159,6 +131,7 @@
     background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
   }
 }
+
 .matches__left-arrow {
   position: relative;
   color: transparent;
@@ -209,105 +182,23 @@
   padding-right: 0;
 }
 
-.user-row__title {
-  padding-left: 6rem;
-}
-
-// .arrow {
-//   content: '';
-//   position: relative;
-
-//   &::before {
-//     content: '\276E\00a0resultados';
-//     color: variables.$color-gray_dark;
-//     font-size: 1.4rem;
-//     text-transform: uppercase;
-//     transition: 1s;
-
-//     bottom: 23rem;
-//     left: 8rem;
-//     position: absolute;
-//     opacity: 0;
-//   }
-
-//   &::after {
-//     content: 'previsões\00a0\276F';
-//     color: variables.$color-gray_dark;
-//     font-size: 1.4rem;
-//     text-transform: uppercase;
-
-//     bottom: 23rem;
-//     left: 91vw;
-//     position: absolute;
-//     opacity: 0;
-//     transition: 1s;
-//   }
-// }
-
-.user-matches__container {
-  padding-top: 5rem;
-  overflow-x: hidden;
-}
-.matches-container {
-  padding-top: 5rem;
-  overflow-x: hidden;
-}
-
-.match-row__title {
+.matches-row__title {
   display: inline-flex;
   align-items: center;
   padding-left: 9rem;
   position: relative;
-}
 
-.match-row__title::before {
-  content: '';
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 6rem;
-  background-color: variables.$color-blue;
-  border-radius: 50%;
-}
-
-.spinner {
-  content: '';
-  width: 2rem;
-  height: 2rem;
-  border: 0.3rem solid gray;
-  border-top-color: black;
-  border-right-color: black;
-  border-radius: 50%;
-  margin-bottom: 10rem;
-  position: relative;
-  left: 50vw;
-  animation: loading 1s linear infinite;
-  transition: loading 0.2s;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0);
+  &--user {
+    padding-left: 6rem;
   }
 
-  100% {
-    transform: rotate(360deg);
+  &--leagues::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 6rem;
+    background-color: variables.$color-blue;
+    border-radius: 50%;
   }
-}
-
-.error-msg-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.error-msg {
-  display: inline-flex;
-  margin: 6rem;
-}
-
-.alert-icon {
-  margin-right: 0.5rem;
-  height: 2rem;
-  filter: invert(98%) sepia(0%) saturate(2%) hue-rotate(89deg) brightness(107%)
-    contrast(101%);
 }

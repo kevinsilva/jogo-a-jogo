@@ -137,4 +137,5 @@ EXTRA:
 - centrar rows
 - rever Error.jsx
 
+-leagues ✔
 -footer ✔

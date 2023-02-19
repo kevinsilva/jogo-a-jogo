@@ -1,5 +1,36 @@
 @use 'variables';
 
+/* Box Model
+------------------------------------------ */
+
+@mixin w-screen_h-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Layout
+------------------------------------------ */
+@mixin absolute_zero {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin gradient-border {
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-width: 0.5rem;
+
+  border-image-source: linear-gradient(
+    to right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
+}
+
+/* Flexbox
+------------------------------------------ */
+
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
@@ -40,30 +71,18 @@
   align-items: center;
 }
 
+/* Visual
+------------------------------------------ */
+
 @mixin hide-scrollbar-ms {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-@mixin w-screen_h-screen {
-  width: 100vw;
-  height: 100vh;
-}
-
-@mixin absolute_zero {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-@mixin gradient-border {
-  border-top: 1px solid;
-  border-image-slice: 1;
-  border-width: 0.5rem;
-
-  border-image-source: linear-gradient(
-    to right,
-    variables.$color-blue_lighter,
-    variables.$color-blue
-  );
+/* Typographical
+------------------------------------------ */
+@mixin bordered-title {
+  text-shadow: 0 0 1.5px variables.$color-white,
+    0 0 1.5px variables.$color-white, 0 0 1.5px variables.$color-white,
+    0 0 1.5px variables.$color-white;
 }

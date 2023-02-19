@@ -3,8 +3,9 @@ import { getMockData, mockFetchData } from '../mocks/services';
 import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
-import RightArrowBtn from './RightArrowBtn';
-import LeftArrowBtn from './LeftArrowBtn';
+import Error from './Error';
+import RightArrowButton from './RightArrowButton';
+import LeftArrowButton from './LeftArrowButton';
 import { getTeamLabel } from '../utils/utilities';
 import { fetchTeamMatches } from '../utils/services';
 
@@ -68,18 +69,23 @@ export default function UserRow({ team }) {
       });
   }, []);
 
-  if (state == 'pending') return <div className="spinner"></div>;
-  if (state == 'rejected') return <h1>Error, try again later</h1>;
+  if (state == 'pending') return <div className="spinner">&nbsp;</div>;
+  if (state == 'rejected') return <Error />;
+  // if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
-    <div className="user-matches__container">
-      <div className="matches__title-container">
-        <h2 className="matches__title">
+    <section className="section">
+      <div className="section__title-container">
+        <h2 className="section__title">
           o meu clube
-          <span className="emphasis">{getTeamLabel(team)}</span>
+          <span className="section__title section__title--emphasis">
+            {getTeamLabel(team)}
+          </span>
         </h2>
       </div>
-      <h2 className="user-row__title">❤️ Todas as competições</h2>
+      <h2 className="matches-row__title matches-row__title--user">
+        ❤️ Todas as competições
+      </h2>
       <div className="scrollable-row" id="user-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
@@ -88,14 +94,14 @@ export default function UserRow({ team }) {
           <PreviewCard key={index} previewData={data} />
         ))}
       </div>
-      <LeftArrowBtn
+      <LeftArrowButton
         onClick={handleLeftButtonClick}
         className="matches__left-arrow"
       />
-      <RightArrowBtn
+      <RightArrowButton
         onClick={handleRightButtonClick}
         className="matches__right-arrow"
       />
-    </div>
+    </section>
   );
 }

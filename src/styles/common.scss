@@ -1,0 +1,87 @@
+@use 'variables';
+@use 'mixins';
+
+/* Sections
+------------------------------------------ */
+.section {
+  padding-top: 5rem;
+  overflow-x: hidden;
+  // &--leagues {
+  //   padding-top: 5rem;
+  //   overflow-x: hidden;
+  // }
+}
+
+.section__container {
+  // &--leagues {
+  //   padding-top: 5rem;
+  //   overflow-x: hidden;
+  // }
+}
+
+.section__title-container {
+  margin: 0rem 6rem 10rem 0;
+  text-align: right;
+}
+
+.section__title {
+  font-size: 9.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 8rem;
+  color: variables.$color-black;
+  @include mixins.bordered-title;
+
+  &--emphasis {
+    display: block;
+    color: variables.$color-white;
+    text-shadow: none;
+  }
+}
+
+/* Scrollable-row
+------------------------------------------ */
+
+.scrollable-row {
+  padding: 6rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  // overflow: scroll;
+  width: auto;
+  position: relative;
+  cursor: default;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Loading
+------------------------------------------ */
+
+.loading-spinner {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid gray;
+  border-top-color: black;
+  border-right-color: black;
+  border-radius: 50%;
+  margin-bottom: 10rem;
+  position: relative;
+  left: 50vw;
+  animation: spin 1s linear infinite;
+  transition: spin 0.2s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

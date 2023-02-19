@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
-import Matches from './components/Matches';
+import Leagues from './components/Leagues';
 import Footer from './components/Footer';
 import {
   isValid,
@@ -18,12 +18,12 @@ const baseUsers = [
   {
     email: 'kevin@gmail.com',
     password: 'abc',
-    team: 'benfica',
+    team: 211,
   },
   {
     email: 'william@gmail.com',
     password: '123',
-    team: 'benfica',
+    team: 211,
   },
 ];
 
@@ -102,7 +102,7 @@ function App() {
       {isUserOnline() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
-      <Matches />
+      <Leagues />
       <Footer />
     </div>
   );
