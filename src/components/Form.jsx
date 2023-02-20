@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Error from './Error';
@@ -6,13 +6,6 @@ import Error from './Error';
 export default function Form() {
   const [mode, setMode] = useState('sign in');
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    console.log('form mounted');
-    return () => {
-      console.log('form unmounted');
-    };
-  }, []);
 
   return (
     <div className="form">

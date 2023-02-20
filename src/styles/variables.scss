@@ -1,5 +1,7 @@
+/* Colors
+------------------------------------------ */
+
 $color-white: rgb(255, 255, 255);
-// $color-black: rgb(20, 20, 20);
 $color-black: rgb(0, 0, 0);
 $color-black_light: rgb(28, 28, 30);
 $color-black_lighter: rgb(54, 54, 54);
@@ -10,16 +12,14 @@ $color-green: rgb(23, 240, 210);
 $color-blue: rgb(83, 127, 231);
 $color-blue_light: rgb(192, 238, 242);
 $color-blue_lighter: rgb(233, 248, 249);
-
 $color-background: rgba(0, 0, 0, 1);
 
-// $bp-large: 68.75em; //1100px:16
-// $bp-medium: 768px; //900px:16
-// $bp-small: 31.25em; //600px:16
-$bp-small: 648px; //600px:16
+/* Breakpoints
+------------------------------------------ */
+$bp-small: 40.5em; //648px:16
 
-$spacing-sm: 1.8rem;
-
+/* Fonts
+------------------------------------------ */
 $weight-light: 300;
 $weight-regular: 400;
 $weight-bold: 700;
@@ -27,6 +27,8 @@ $weight-black: 900;
 
 $font-sm: 1.4rem;
 
+/* SVG
+------------------------------------------ */
 $svg-white: invert(98%) sepia(0%) saturate(2%) hue-rotate(89deg)
   brightness(107%) contrast(101%);
 
@@ -38,6 +40,9 @@ $svg-blue: invert(52%) sepia(12%) saturate(2792%) hue-rotate(185deg)
 
 $svg-red: invert(23%) sepia(94%) saturate(2007%) hue-rotate(345deg)
   brightness(115%) contrast(103%);
+
+/* Visuals
+------------------------------------------ */
 
 $card-shadow: 0rem 0.5rem 1rem rgba($color-black, 0.15);
 
@@ -56,3 +61,8 @@ $right-arrow_strong-shadow: linear-gradient(
   transparent,
   rgba(0, 0, 0, 0.9)
 );
+
+/* Layout
+------------------------------------------ */
+
+$spacing-sm: 1.8rem;

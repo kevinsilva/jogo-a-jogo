@@ -71,7 +71,6 @@ export default function UserRow({ team }) {
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
-  // if (state == 'rejected') return <h1>Error, try again later</h1>;
 
   return (
     <section className="user">

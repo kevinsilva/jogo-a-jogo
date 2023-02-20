@@ -81,6 +81,13 @@ problem: passing the state to local changes signin / signup implementation since
     // context.setUserSigned(!Boolean(error));
     onError(error);
 
+useEffect(() => {
+console.log('form mounted');
+return () => {
+console.log('form unmounted');
+};
+}, []);
+
 ### fetchFeatured
 
 loop CLUBS

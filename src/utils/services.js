@@ -92,7 +92,7 @@ export async function getFeaturedMatches(sortedTeams, lastOrNext) {
   const matches = [];
 
   for (const teamID of sortedTeams) {
-    if (matches.length >= 6) break;
+    if (matches.length >= 4) break;
     const match = await fetchTeamMatch(teamID, lastOrNext);
     if (!matches.includes(match.response)) matches.push(match.response);
   }

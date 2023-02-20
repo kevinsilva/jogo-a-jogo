@@ -19,7 +19,7 @@ export default function SignUp({ onSignInClick, onError }) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <h5 className="form__title">Acompanha a tua equipa!</h5>
+      <h5 className="form__title">Acompanha o teu clube!</h5>
       <div className="form__input-container">
         <TextInput label="Email" value={email} onChange={setEmail} />
       </div>
@@ -33,7 +33,7 @@ export default function SignUp({ onSignInClick, onError }) {
       </div>
       <div className="form__input-container">
         <SelectInput
-          label="Seleccione o seu clube"
+          label="Selecciona o teu clube"
           value={favoriteTeam}
           onChange={setFavoriteTeam}
           options={favoriteTeamOptions}
