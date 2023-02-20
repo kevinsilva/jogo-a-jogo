@@ -5,6 +5,54 @@
   display: flex;
   position: relative;
   overflow-x: hidden;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    flex-direction: column;
+  }
+}
+
+.featured__title-container {
+  position: absolute;
+  margin: 15rem 6rem 10rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 5rem 4rem 3rem;
+  }
+}
+
+.featured__title-container .section__title {
+  animation: show 3s forwards;
+  opacity: 0;
+}
+
+.featured__subtitle {
+  margin-top: 3rem;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-left: 1rem;
+  transition: all 0.2s;
+  background-image: linear-gradient(
+    to bottom right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: show-bright 3s forwards;
+  animation-delay: 0.5s;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    position: relative;
+    top: 2rem;
+    font-size: 2.5rem;
+  }
 }
 
 .left-arrow--featured,
@@ -16,6 +64,10 @@
 
   &:hover {
     font-size: 7rem;
+  }
+
+  @media only screen and (max-width: variables.$bp-small) {
+    top: 47rem;
   }
 }
 
@@ -35,15 +87,6 @@
   }
 }
 
-.featured__title-container {
-  position: absolute;
-  margin: 15rem 6rem 10rem;
-}
-.featured__title-container .section__title {
-  animation: show 3s forwards;
-  opacity: 0;
-}
-
 // .featured__title {
 //   font-weight: 900;
 //   font-size: 9.6rem;
@@ -52,25 +95,6 @@
 //   @include mixins.bordered-title;
 //   line-height: 8rem;
 // }
-
-.featured__subtitle {
-  margin-top: 3rem;
-  font-weight: 400;
-  font-size: 2rem;
-  margin-left: 1rem;
-  transition: all 0.2s;
-  background-image: linear-gradient(
-    to bottom right,
-    variables.$color-blue_lighter,
-    variables.$color-blue
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0;
-  animation: show-bright 3s forwards;
-  animation-delay: 0.5s;
-}
 
 #featured-row {
   margin-left: 0;
@@ -91,10 +115,8 @@
     background-image: variables.$right-arrow_strong-shadow;
   }
 
-  // &:hover > .featured-card:first-child::before,
-  // &:hover > .featured-card:last-child::after {
-  //   opacity: 1;
-  // }
+  @media only screen and (max-width: variables.$bp-small) {
+  }
 }
 
 @keyframes show {

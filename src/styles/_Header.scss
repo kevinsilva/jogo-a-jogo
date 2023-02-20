@@ -13,6 +13,10 @@
     variables.$color-blue
   );
   @include mixins.flex-between_align-center;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    padding: 2rem 4rem;
+  }
 }
 
 .logo-container {

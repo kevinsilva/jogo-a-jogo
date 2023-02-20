@@ -4,10 +4,31 @@
 .user {
   position: relative;
   margin-top: 12rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    margin-top: 6rem;
+  }
+}
+
+.user .section__title-container {
+  @media only screen and (max-width: variables.$bp-small) {
+    margin-bottom: 6rem;
+  }
 }
 
 .leagues {
   margin-top: 12rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    margin-top: 6rem;
+  }
+}
+
+.leagues .section__title {
+  @media only screen and (max-width: variables.$bp-small) {
+    font-size: 8rem;
+    line-height: 6rem;
+  }
 }
 
 .matches-row {
@@ -29,11 +50,19 @@
 .left-arrow--matches-row,
 .left-arrow--user-row {
   left: -1rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    left: -3rem;
+  }
 }
 
 .right-arrow--matches-row,
 .right-arrow--user-row {
   right: -1rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    right: -3rem;
+  }
 }
 
 .left-arrow--user-row,
@@ -42,6 +71,10 @@
   height: 15rem;
   width: 11rem;
   top: 34.5rem;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    top: 27.5rem;
+  }
 }
 
 .matches-row__title {
@@ -52,6 +85,10 @@
 
   &--user {
     padding-left: 6rem;
+
+    @media only screen and (max-width: variables.$bp-small) {
+      padding-left: 4rem;
+    }
   }
 
   &--leagues::before {
@@ -62,6 +99,16 @@
     left: 6rem;
     background-color: variables.$color-blue;
     border-radius: 50%;
+
+    @media only screen and (max-width: variables.$bp-small) {
+      left: 4rem;
+    }
+  }
+}
+
+.matches-row__title--leagues {
+  @media only screen and (max-width: variables.$bp-small) {
+    padding-left: 7rem;
   }
 }
 

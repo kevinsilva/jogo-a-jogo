@@ -6,12 +6,24 @@
   @include mixins.gradient-border;
   margin-top: 12rem;
   @include mixins.flex-around_align-center;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    margin-top: 6rem;
+    width: 100%;
+    justify-content: space-around;
+  }
 }
 
 .footer__copy {
   font-size: variables.$font-sm;
   font-weight: variables.$weight-light;
   color: variables.$color-gray;
+
+  @media only screen and (max-width: variables.$bp-small) {
+    position: relative;
+    left: 8rem;
+    font-size: 1.8rem;
+  }
 }
 
 .github-logo {
@@ -26,5 +38,9 @@
 
   &:hover {
     filter: variables.$svg-gray;
+  }
+
+  @media only screen and (max-width: variables.$bp-small) {
+    height: 4rem;
   }
 }

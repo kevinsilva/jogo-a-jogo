@@ -19,14 +19,7 @@ export default function Footer() {
       </div>
       <div className="footer__copy">
         <p className="copyright">
-          &#169;{new Date().getFullYear()} Kevin Silva 🔵 special thanks to
-          &nbsp;
-          <a
-            href="https://www.linkedin.com/in/williamrjribeiro/"
-            target="_blank"
-          >
-            William R. J. Ribeiro
-          </a>
+          &#169;{new Date().getFullYear()} Kevin Silva
         </p>
       </div>
       <div className="logo-container">
