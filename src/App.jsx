@@ -36,7 +36,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(users);
     if (users !== baseUsers)
       localStorage.setItem('data', JSON.stringify(users));
   }, [users]);

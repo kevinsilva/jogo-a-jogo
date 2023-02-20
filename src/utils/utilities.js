@@ -283,18 +283,6 @@ export function sortTeamsByForm(teamsForm) {
   return sortedTeams;
 }
 
-// export const handleLeftButtonClick = () => {
-//   if (scrollableRef.current) {
-//     scrollableRef.current.scrollLeft -= 200;
-//   }
-// };
-
-// export const handleRightButtonClick = () => {
-//   if (scrollableRef.current) {
-//     scrollableRef.current.scrollLeft += 200;
-//   }
-// };
-
 export const handleLeftButtonClick = (target) => {
   if (target.current) {
     target.current.scrollLeft -= 200;

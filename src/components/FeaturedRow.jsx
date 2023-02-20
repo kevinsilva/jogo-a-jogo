@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import {
+  FEATURED_TEAMS,
   handleLeftButtonClick,
   handleRightButtonClick,
 } from '../utils/utilities';
 import { getFeaturedMatches } from '../utils/services';
-import { mockFetchData } from '../mocks/services';
+import { mockFetchData, getMockData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 import FeaturedScoreCard from './FeaturedScoreCard';
 import FeaturedPreviewCard from './FeaturedPreviewCard';
@@ -18,56 +19,30 @@ export default function FeaturedRow() {
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
-  function getMockFeatured() {
-    return Promise.all([
-      mockFetchData(mockFeaturedScores),
-      mockFetchData(mockFeaturedPreviews),
-    ])
-      .then(([scores, previews]) => {
-        console.log(scores, previews);
-        setScoreData(scores);
-        setPreviewData(previews);
-        setState('fulfilled');
-      })
-      .catch((error) => {
-        console.log(error);
-        setState('rejected');
-      });
-  }
-
   useEffect(() => {
     Promise.all([
-      mockFetchData(mockFeaturedScores),
-      mockFetchData(mockFeaturedPreviews),
+      getFeaturedMatches(FEATURED_TEAMS, 'last'),
+      getFeaturedMatches(FEATURED_TEAMS, 'next'),
     ])
       .then(([scores, previews]) => {
-        console.log(scores, previews);
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');
       })
       .catch((error) => {
         console.log(error);
-        setState('rejected');
+        getMockData(mockFeaturedScores, mockFeaturedPreviews)
+          .then(([scores, previews]) => {
+            setScoreData(scores);
+            setPreviewData(previews);
+            setState('fulfilled');
+          })
+          .catch((error) => {
+            console.log(error);
+            setState('rejected');
+          });
       });
   }, []);
-
-  // useEffect(() => {
-  //   Promise.all([
-  //     getFeaturedMatches(FEATURED_TEAMS, 'last'),
-  //     getFeaturedMatches(FEATURED_TEAMS, 'next'),
-  //   ])
-  //     .then(([scores, previews]) => {
-  //       console.log('DATA: ', scores, previews);
-  //       setScoreData(scores);
-  //       setPreviewData(previews);
-  //       setState('fulfilled');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       getMockFeatured();
-  //     });
-  // }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;

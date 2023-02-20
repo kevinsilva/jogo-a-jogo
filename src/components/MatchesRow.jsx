@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { fetchLeagueMatches } from '../utils/services';
-import { mockFetchData } from '../mocks/services';
+import { getMockData, mockFetchData } from '../mocks/services';
 import {
   handleLeftButtonClick,
   handleRightButtonClick,
@@ -18,53 +18,30 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
-  function getMockMatches() {
-    return Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
-      .then(([scores, previews]) => {
-        console.log(scores, previews);
-        setScoreData(scores);
-        setPreviewData(previews);
-        setState('fulfilled');
-      })
-      .catch((error) => {
-        console.log(error);
-        setState('rejected');
-      });
-  }
-
   useEffect(() => {
     Promise.all([
-      mockFetchData(mockScores[leagueName]),
-      mockFetchData(mockPreviews[leagueName]),
+      fetchLeagueMatches(leagueID, totalMatches, 'last'),
+      fetchLeagueMatches(leagueID, totalMatches, 'next'),
     ])
       .then(([scores, previews]) => {
-        console.log(scores, previews);
-        setScoreData(scores);
-        setPreviewData(previews);
+        setScoreData(scores.response);
+        setPreviewData(previews.response);
         setState('fulfilled');
       })
       .catch((error) => {
         console.log(error);
-        setState('rejected');
+        getMockData(mockScores[leagueName], mockPreviews[leagueName])
+          .then(([scores, previews]) => {
+            setScoreData(scores);
+            setPreviewData(previews);
+            setState('fulfilled');
+          })
+          .catch((error) => {
+            console.log(error);
+            setState('rejected');
+          });
       });
   }, []);
-
-  // useEffect(() => {
-  //   Promise.all([
-  //     fetchLeagueMatches(leagueID, totalMatches, 'last'),
-  //     fetchLeagueMatches(leagueID, totalMatches, 'next'),
-  //   ])
-  //     .then(([scores, previews]) => {
-  //       console.log('MATCHES: ', scores, previews);
-  //       setScoreData(scores.response);
-  //       setPreviewData(previews.response);
-  //       setState('fulfilled');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       getMockMatches();
-  //     });
-  // }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;

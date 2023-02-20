@@ -19,47 +19,47 @@ export default function UserRow({ team }) {
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     fetchTeamMatches(team, 10, 'last'),
-  //     fetchTeamMatches(team, 3, 'next'),
-  //   ])
-  //     .then(([scores, previews]) => {
-  //       setScoreData(scores.response);
-  //       setPreviewData(previews.response);
-  //       setState('fulfilled');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       getMockData(mockUserScores, mockUserPreviews)
-  //         .then(([scores, previews]) => {
-  //           setScoreData(scores);
-  //           setPreviewData(previews);
-  //           setState('fulfilled');
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //           setState('rejected');
-  //         });
-  //     });
-  // }, []);
-
   useEffect(() => {
     Promise.all([
-      mockFetchData(mockUserScores),
-      mockFetchData(mockUserPreviews),
+      fetchTeamMatches(team, 10, 'last'),
+      fetchTeamMatches(team, 5, 'next'),
     ])
       .then(([scores, previews]) => {
-        console.log(scores, previews);
-        setScoreData(scores);
-        setPreviewData(previews);
+        setScoreData(scores.response);
+        setPreviewData(previews.response);
         setState('fulfilled');
       })
       .catch((error) => {
         console.log(error);
-        setState('rejected');
+        getMockData(mockUserScores, mockUserPreviews)
+          .then(([scores, previews]) => {
+            setScoreData(scores);
+            setPreviewData(previews);
+            setState('fulfilled');
+          })
+          .catch((error) => {
+            console.log(error);
+            setState('rejected');
+          });
       });
   }, []);
+
+  // useEffect(() => {
+  //   Promise.all([
+  //     mockFetchData(mockUserScores),
+  //     mockFetchData(mockUserPreviews),
+  //   ])
+  //     .then(([scores, previews]) => {
+  //       console.log(scores, previews);
+  //       setScoreData(scores);
+  //       setPreviewData(previews);
+  //       setState('fulfilled');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setState('rejected');
+  //     });
+  // }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;

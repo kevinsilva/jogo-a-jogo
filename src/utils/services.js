@@ -64,21 +64,6 @@ export async function fetchTeamMatches(teamID, totalMatches = 1, lastOrNext) {
   return result;
 }
 
-// export async function fetchTeamMatches(teamID) {
-//   const season = getCurrentSeason();
-
-//   const promise = fetch(
-//     `https://v3.football.api-sports.io/fixtures?team=${teamID}&season=${season}`,
-//     getRequestOptions()
-//   );
-//   const response = await promise;
-//   const result = await response.json();
-
-//   if (result.errors) throw new Error('Error fetching data');
-
-//   return result;
-// }
-
 export async function getTeamsForm(teamsObj) {
   return Promise.all(
     Object.values(teamsObj).map(async (team) => {
