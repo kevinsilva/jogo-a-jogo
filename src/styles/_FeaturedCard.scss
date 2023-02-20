@@ -147,7 +147,7 @@
 
   &__stadium {
     width: 80%;
-    height: 24rem;
+    height: 20rem;
     margin: 0 auto;
     @include mixins.flex-center_align-center;
   }
@@ -170,6 +170,7 @@
   }
 
   &__city-name {
+    text-align: center;
     font-size: 3.4rem;
     font-weight: 900;
     color: variables.$color-white;
