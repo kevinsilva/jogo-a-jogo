@@ -35,17 +35,6 @@ export default function FeaturedRow() {
       });
   }
 
-  // function center() {
-  //   const container = document.getElementById('#scrollable-row');
-  //   const items = document.querySelectorAll('.featured-card');
-  //   const middleIndex = Math.floor(items.length / 2);
-  //   const middleItem = items[middleIndex];
-
-  //   container.scrollLeft =
-  //     middleItem.offsetLeft -
-  //     (container.offsetWidth - middleItem.offsetWidth) / 2;
-  // }
-
   useEffect(() => {
     Promise.all([
       mockFetchData(mockFeaturedScores),

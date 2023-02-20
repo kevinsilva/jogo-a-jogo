@@ -19,18 +19,6 @@ export default function UserRow({ team }) {
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
-  // const handleLeftButtonClick = () => {
-  //   if (scrollableRef.current) {
-  //     scrollableRef.current.scrollLeft -= 200;
-  //   }
-  // };
-
-  // const handleRightButtonClick = () => {
-  //   if (scrollableRef.current) {
-  //     scrollableRef.current.scrollLeft += 200;
-  //   }
-  // };
-
   // useEffect(() => {
   //   Promise.all([
   //     fetchTeamMatches(team, 10, 'last'),
@@ -90,7 +78,7 @@ export default function UserRow({ team }) {
         ❤️ Todas as competições
       </h4>
       <div className="scrollable-row" id="user-row" ref={scrollableRef}>
-        {scoreData.map((data, index) => (
+        {[...scoreData].reverse().map((data, index) => (
           <ScoreCard key={index} scoreData={data} />
         ))}
         {previewData.map((data, index) => (
