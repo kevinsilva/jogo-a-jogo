@@ -1,6 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { fetchLeagueMatches } from '../utils/services';
 import { mockFetchData } from '../mocks/services';
+import {
+  handleLeftButtonClick,
+  handleRightButtonClick,
+} from '../utils/utilities';
 import { mockScores, mockPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
@@ -13,18 +17,6 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
-
-  const handleLeftButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft -= 200;
-    }
-  };
-
-  const handleRightButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft += 200;
-    }
-  };
 
   function getMockMatches() {
     return Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
@@ -41,7 +33,10 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   }
 
   useEffect(() => {
-    Promise.all([mockFetchData(mockScores), mockFetchData(mockPreviews)])
+    Promise.all([
+      mockFetchData(mockScores[leagueName]),
+      mockFetchData(mockPreviews[leagueName]),
+    ])
       .then(([scores, previews]) => {
         console.log(scores, previews);
         setScoreData(scores);

@@ -36,7 +36,7 @@ export default function FeaturedPreviewCard({ previewData }) {
           <hr className="line" />
           <div className="featured-card__tv">
             <h5 className="featured-card__tv-name">
-              {LEAGUES[previewData.league.name].tvChannel[0]}
+              {LEAGUES[previewData.league.name]?.tvChannel[0] ?? 'Por definir'}
             </h5>
           </div>
         </div>

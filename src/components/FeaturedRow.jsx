@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
-import { FEATURED_TEAMS } from '../utils/utilities';
+import {
+  handleLeftButtonClick,
+  handleRightButtonClick,
+} from '../utils/utilities';
 import { getFeaturedMatches } from '../utils/services';
 import { mockFetchData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
@@ -14,18 +17,6 @@ export default function FeaturedRow() {
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
-
-  const handleLeftButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft -= 200;
-    }
-  };
-
-  const handleRightButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft += 200;
-    }
-  };
 
   function getMockFeatured() {
     return Promise.all([

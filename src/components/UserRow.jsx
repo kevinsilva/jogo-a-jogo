@@ -6,7 +6,11 @@ import PreviewCard from './PreviewCard';
 import Error from './Error';
 import RightArrowButton from './RightArrowButton';
 import LeftArrowButton from './LeftArrowButton';
-import { getTeamLabel } from '../utils/utilities';
+import {
+  getTeamLabel,
+  handleLeftButtonClick,
+  handleRightButtonClick,
+} from '../utils/utilities';
 import { fetchTeamMatches } from '../utils/services';
 
 export default function UserRow({ team }) {
@@ -15,17 +19,17 @@ export default function UserRow({ team }) {
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
-  const handleLeftButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft -= 200;
-    }
-  };
+  // const handleLeftButtonClick = () => {
+  //   if (scrollableRef.current) {
+  //     scrollableRef.current.scrollLeft -= 200;
+  //   }
+  // };
 
-  const handleRightButtonClick = () => {
-    if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft += 200;
-    }
-  };
+  // const handleRightButtonClick = () => {
+  //   if (scrollableRef.current) {
+  //     scrollableRef.current.scrollLeft += 200;
+  //   }
+  // };
 
   // useEffect(() => {
   //   Promise.all([

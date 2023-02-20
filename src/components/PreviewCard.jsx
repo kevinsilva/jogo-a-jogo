@@ -34,7 +34,7 @@ export default function PreviewCard({ previewData }) {
         </div>
         <div className="match-card__tv">
           <h4 className="match-card__tv-name">
-            {LEAGUES[previewData.league.name]?.tvChannel[0] ?? 'Not defined'}
+            {LEAGUES[previewData.league.name]?.tvChannel[0] ?? 'Por definir'}
           </h4>
         </div>
       </div>

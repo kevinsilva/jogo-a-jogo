@@ -282,3 +282,15 @@ export function sortTeamsByForm(teamsForm) {
   const sortedTeams = sortedTeamsForm.map(([teamID, _]) => teamID);
   return sortedTeams;
 }
+
+export const handleLeftButtonClick = () => {
+  if (scrollableRef.current) {
+    scrollableRef.current.scrollLeft -= 200;
+  }
+};
+
+export const handleRightButtonClick = () => {
+  if (scrollableRef.current) {
+    scrollableRef.current.scrollLeft += 200;
+  }
+};
