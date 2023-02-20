@@ -76,9 +76,9 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
 
   return (
     <div className="matches-row">
-      <h2 className="matches-row__title matches-row__title--leagues">
+      <h4 className="matches-row__title matches-row__title--leagues">
         {leagueName}
-      </h2>
+      </h4>
       <div className="scrollable-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />

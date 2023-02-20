@@ -95,19 +95,19 @@ export default function FeaturedRow() {
   return (
     <section className="featured">
       <div className="featured__title-container">
-        <h2 className="section__title">
+        <h1 className="section__title">
           jogos
           <br />
           em
           <span className="section__title section__title--emphasis">
             destaque
           </span>
-        </h2>
-        <h4 className="featured__subtitle">
+        </h1>
+        <h2 className="featured__subtitle">
           &#8594; deslize para previsões
           <br />
           &#8592; deslize para resultados
-        </h4>
+        </h2>
       </div>
       <div className="scrollable-row" id="featured-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (

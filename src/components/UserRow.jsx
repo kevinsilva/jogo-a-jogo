@@ -76,16 +76,16 @@ export default function UserRow({ team }) {
   return (
     <section className="user">
       <div className="section__title-container">
-        <h2 className="section__title">
+        <h3 className="section__title">
           o meu clube
           <span className="section__title section__title--emphasis">
             {getTeamLabel(team)}
           </span>
-        </h2>
+        </h3>
       </div>
-      <h2 className="matches-row__title matches-row__title--user">
+      <h4 className="matches-row__title matches-row__title--user">
         ❤️ Todas as competições
-      </h2>
+      </h4>
       <div className="scrollable-row" id="user-row" ref={scrollableRef}>
         {scoreData.map((data, index) => (
           <ScoreCard key={index} scoreData={data} />

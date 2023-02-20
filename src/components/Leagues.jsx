@@ -5,12 +5,12 @@ export default function Leagues() {
   return (
     <section className="leagues">
       <div className="section__title-container">
-        <h2 className="section__title">
+        <h3 className="section__title">
           as melhores
           <span className="section__title section__title--emphasis">
             competições
           </span>
-        </h2>
+        </h3>
       </div>
       <div className="section__container section__container--leagues">
         <MatchesRow
