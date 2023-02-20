@@ -10,9 +10,11 @@
 
   &--visible {
     visibility: visible;
+    opacity: 1;
   }
   &--hidden {
     visibility: hidden;
+    opacity: 0;
   }
 
   &__close {
