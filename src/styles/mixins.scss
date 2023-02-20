@@ -74,3 +74,14 @@
     0 0 1.5px variables.$color-white, 0 0 1.5px variables.$color-white,
     0 0 1.5px variables.$color-white;
 }
+
+@mixin gradient-title {
+  background-image: linear-gradient(
+    to bottom right,
+    variables.$color-blue_lighter,
+    variables.$color-blue
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

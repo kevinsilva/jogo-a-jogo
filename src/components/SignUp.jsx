@@ -19,6 +19,7 @@ export default function SignUp({ onSignInClick, onError }) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
+      <h5 className="form__title">Acompanha a tua equipa!</h5>
       <div className="form__input-container">
         <TextInput label="Email" value={email} onChange={setEmail} />
       </div>

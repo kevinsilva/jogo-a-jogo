@@ -36,14 +36,7 @@
   font-size: 2rem;
   margin-left: 1rem;
   transition: all 0.2s;
-  background-image: linear-gradient(
-    to bottom right,
-    variables.$color-blue_lighter,
-    variables.$color-blue
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include mixins.gradient-title;
   opacity: 0;
   animation: show-bright 3s forwards;
   animation-delay: 0.5s;

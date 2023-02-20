@@ -5,7 +5,7 @@
   @include mixins.w-screen_h-screen;
   @include mixins.absolute_zero;
   background-color: variables.$color-background;
-  z-index: 5;
+  z-index: 25;
   @include mixins.flex-center_align-center;
 
   &--visible {

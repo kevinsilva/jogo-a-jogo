@@ -17,13 +17,13 @@ export default function FeaturedRow() {
 
   const handleLeftButtonClick = () => {
     if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft += 200;
+      scrollableRef.current.scrollLeft -= 200;
     }
   };
 
   const handleRightButtonClick = () => {
     if (scrollableRef.current) {
-      scrollableRef.current.scrollLeft -= 200;
+      scrollableRef.current.scrollLeft += 200;
     }
   };
 

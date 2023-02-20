@@ -17,6 +17,7 @@ export default function SignIn({ onSignUpClick, onError }) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
+      <h5 className="form__title">Bem-vindo de volta!</h5>
       <div className="form__input-container">
         <TextInput label="Email" value={email} onChange={setEmail} />
       </div>
