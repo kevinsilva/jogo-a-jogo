@@ -66,6 +66,16 @@
     text-align: center;
   }
 
+  &__main:has(.featured-card__score) .line {
+    position: relative;
+    top: 1rem;
+  }
+
+  &__main:has(.featured-card__tv) .line {
+    position: relative;
+    top: 2rem;
+  }
+
   &__info {
     color: variables.$color-gray;
     font-size: 2rem;
@@ -107,6 +117,8 @@
   &__score {
     margin-top: -0.5rem;
     @include mixins.flex-center_align-center;
+    position: relative;
+    top: 1rem;
   }
 
   &__score-home,
@@ -117,6 +129,8 @@
 
   &__tv {
     @include mixins.flex-center_align-center;
+    position: relative;
+    top: 2rem;
   }
 
   &__tv-name {
@@ -128,7 +142,7 @@
 
   &__stadium {
     width: 80%;
-    height: 20rem;
+    height: 24rem;
     margin: 0 auto;
     @include mixins.flex-center_align-center;
   }
