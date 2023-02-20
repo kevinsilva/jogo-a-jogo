@@ -1,1026 +1,6 @@
 import { rest } from 'msw';
 import { API_KEY } from '../utils/utilities';
 
-// export const mockScores = [
-//   {
-//     fixture: {
-//       id: 898719,
-//       referee: 'André Narciso',
-//       timezone: 'UTC',
-//       date: '2022-11-14T20:15:00+00:00',
-//       timestamp: 1668456900,
-//       periods: {
-//         first: 1668456900,
-//         second: 1668460500,
-//       },
-//       venue: {
-//         id: 1289,
-//         name: 'Estádio de São Miguel',
-//         city: 'Ponta Delgada, Ilha de São Miguel, Açores',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 227,
-//         name: 'Santa Clara',
-//         logo: 'https://media-2.api-sports.io/football/teams/227.png',
-//         winner: true,
-//       },
-//       away: {
-//         id: 230,
-//         name: 'Estoril',
-//         logo: 'https://media-2.api-sports.io/football/teams/230.png',
-//         winner: false,
-//       },
-//     },
-//     goals: {
-//       home: 3,
-//       away: 1,
-//     },
-//     score: {
-//       halftime: {
-//         home: 2,
-//         away: 1,
-//       },
-//       fulltime: {
-//         home: 3,
-//         away: 1,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898716,
-//       referee: 'Artur Soares Dias',
-//       timezone: 'UTC',
-//       date: '2022-11-13T20:30:00+00:00',
-//       timestamp: 1668371400,
-//       periods: {
-//         first: 1668371400,
-//         second: 1668375000,
-//       },
-//       venue: {
-//         id: 1276,
-//         name: 'Estádio Municipal 22 de Junho',
-//         city: 'Vila Nova de Famalicão',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 242,
-//         name: 'Famalicao',
-//         logo: 'https://media-2.api-sports.io/football/teams/242.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 228,
-//         name: 'Sporting CP',
-//         logo: 'https://media-2.api-sports.io/football/teams/228.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 1,
-//       away: 2,
-//     },
-//     score: {
-//       halftime: {
-//         home: 0,
-//         away: 2,
-//       },
-//       fulltime: {
-//         home: 1,
-//         away: 2,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898713,
-//       referee: 'Tiago Martins',
-//       timezone: 'UTC',
-//       date: '2022-11-13T18:00:00+00:00',
-//       timestamp: 1668362400,
-//       periods: {
-//         first: 1668362400,
-//         second: 1668366000,
-//       },
-//       venue: {
-//         id: 1285,
-//         name: 'Estádio Municipal de Portimão',
-//         city: 'Portimão',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 216,
-//         name: 'Portimonense',
-//         logo: 'https://media-2.api-sports.io/football/teams/216.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 217,
-//         name: 'SC Braga',
-//         logo: 'https://media-2.api-sports.io/football/teams/217.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 1,
-//       away: 2,
-//     },
-//     score: {
-//       halftime: {
-//         home: 1,
-//         away: 0,
-//       },
-//       fulltime: {
-//         home: 1,
-//         away: 2,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898717,
-//       referee: 'Manuel Oliveira',
-//       timezone: 'UTC',
-//       date: '2022-11-13T18:00:00+00:00',
-//       timestamp: 1668362400,
-//       periods: {
-//         first: 1668362400,
-//         second: 1668366000,
-//       },
-//       venue: {
-//         id: null,
-//         name: 'Estádio do Sport Lisboa e Benfica',
-//         city: 'Lisboa',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 211,
-//         name: 'Benfica',
-//         logo: 'https://media-2.api-sports.io/football/teams/211.png',
-//         winner: true,
-//       },
-//       away: {
-//         id: 762,
-//         name: 'GIL Vicente',
-//         logo: 'https://media-2.api-sports.io/football/teams/762.png',
-//         winner: false,
-//       },
-//     },
-//     goals: {
-//       home: 3,
-//       away: 1,
-//     },
-//     score: {
-//       halftime: {
-//         home: 2,
-//         away: 1,
-//       },
-//       fulltime: {
-//         home: 3,
-//         away: 1,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898714,
-//       referee: 'Hélder Carvalho',
-//       timezone: 'UTC',
-//       date: '2022-11-13T18:00:00+00:00',
-//       timestamp: 1668362400,
-//       periods: {
-//         first: 1668362400,
-//         second: 1668366000,
-//       },
-//       venue: {
-//         id: 1262,
-//         name: 'Estádio Nacional',
-//         city: 'Jamor, Oeiras',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 4716,
-//         name: 'Casa Pia',
-//         logo: 'https://media-2.api-sports.io/football/teams/4716.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 223,
-//         name: 'Chaves',
-//         logo: 'https://media-1.api-sports.io/football/teams/223.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 1,
-//       away: 2,
-//     },
-//     score: {
-//       halftime: {
-//         home: 1,
-//         away: 0,
-//       },
-//       fulltime: {
-//         home: 1,
-//         away: 2,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898712,
-//       referee: 'B. Dechepy',
-//       timezone: 'UTC',
-//       date: '2022-11-13T15:30:00+00:00',
-//       timestamp: 1668353400,
-//       periods: {
-//         first: 1668353400,
-//         second: 1668357000,
-//       },
-//       venue: {
-//         id: 1295,
-//         name: 'Estádio Dom Afonso Henriques',
-//         city: 'Guimarães',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 224,
-//         name: 'Guimaraes',
-//         logo: 'https://media-6.api-sports.io/football/teams/224.png',
-//         winner: true,
-//       },
-//       away: {
-//         id: 214,
-//         name: 'Maritimo',
-//         logo: 'https://media-2.api-sports.io/football/teams/214.png',
-//         winner: false,
-//       },
-//     },
-//     goals: {
-//       home: 1,
-//       away: 0,
-//     },
-//     score: {
-//       halftime: {
-//         home: 0,
-//         away: 0,
-//       },
-//       fulltime: {
-//         home: 1,
-//         away: 0,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898715,
-//       referee: 'Nuno Miguel Serrano Almeida',
-//       timezone: 'UTC',
-//       date: '2022-11-13T15:30:00+00:00',
-//       timestamp: 1668353400,
-//       periods: {
-//         first: 1668353400,
-//         second: 1668357000,
-//       },
-//       venue: {
-//         id: 1283,
-//         name: 'Estádio da Capital do Móvel',
-//         city: 'Paços de Ferreira',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 234,
-//         name: 'Pacos Ferreira',
-//         logo: 'https://media-6.api-sports.io/football/teams/234.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 810,
-//         name: 'Vizela',
-//         logo: 'https://media-2.api-sports.io/football/teams/810.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 0,
-//       away: 2,
-//     },
-//     score: {
-//       halftime: {
-//         home: 0,
-//         away: 0,
-//       },
-//       fulltime: {
-//         home: 0,
-//         away: 2,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898718,
-//       referee: 'Luis Godinho',
-//       timezone: 'UTC',
-//       date: '2022-11-12T20:30:00+00:00',
-//       timestamp: 1668285000,
-//       periods: {
-//         first: 1668285000,
-//         second: 1668288600,
-//       },
-//       venue: {
-//         id: 1267,
-//         name: 'Estádio do Bessa Século XXI',
-//         city: 'Porto',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 222,
-//         name: 'Boavista',
-//         logo: 'https://media-6.api-sports.io/football/teams/222.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 212,
-//         name: 'FC Porto',
-//         logo: 'https://media-6.api-sports.io/football/teams/212.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 1,
-//       away: 4,
-//     },
-//     score: {
-//       halftime: {
-//         home: 0,
-//         away: 1,
-//       },
-//       fulltime: {
-//         home: 1,
-//         away: 4,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898720,
-//       referee: 'João Pedro Pinheiro',
-//       timezone: 'UTC',
-//       date: '2022-11-12T18:00:00+00:00',
-//       timestamp: 1668276000,
-//       periods: {
-//         first: 1668276000,
-//         second: 1668279600,
-//       },
-//       venue: {
-//         id: 1275,
-//         name: 'Estádio Municipal de Arouca',
-//         city: 'Arouca',
-//       },
-//       status: {
-//         long: 'Match Finished',
-//         short: 'FT',
-//         elapsed: 90,
-//       },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-1.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-2.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 13',
-//     },
-//     teams: {
-//       home: {
-//         id: 240,
-//         name: 'Arouca',
-//         logo: 'https://media-6.api-sports.io/football/teams/240.png',
-//         winner: false,
-//       },
-//       away: {
-//         id: 226,
-//         name: 'Rio Ave',
-//         logo: 'https://media-1.api-sports.io/football/teams/226.png',
-//         winner: true,
-//       },
-//     },
-//     goals: {
-//       home: 0,
-//       away: 1,
-//     },
-//     score: {
-//       halftime: {
-//         home: 0,
-//         away: 0,
-//       },
-//       fulltime: {
-//         home: 0,
-//         away: 1,
-//       },
-//       extratime: {
-//         home: null,
-//         away: null,
-//       },
-//       penalty: {
-//         home: null,
-//         away: null,
-//       },
-//     },
-//   },
-// ];
-
-// export const mockPreviews = [
-//   {
-//     fixture: {
-//       id: 898735,
-//       referee: 'Vitor Ferreira',
-//       timezone: 'UTC',
-//       date: '2023-01-06T19:00:00+00:00',
-//       timestamp: 1673031600,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: null,
-//         name: 'Estádio do Sport Lisboa e Benfica',
-//         city: 'Lisboa',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 211,
-//         name: 'Benfica',
-//         logo: 'https://media-1.api-sports.io/football/teams/211.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 216,
-//         name: 'Portimonense',
-//         logo: 'https://media-2.api-sports.io/football/teams/216.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898734,
-//       referee: 'Tiago Martins',
-//       timezone: 'UTC',
-//       date: '2023-01-06T21:15:00+00:00',
-//       timestamp: 1673039700,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: 1276,
-//         name: 'Estádio Municipal 22 de Junho',
-//         city: 'Vila Nova de Famalicão',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 242,
-//         name: 'Famalicao',
-//         logo: 'https://media-2.api-sports.io/football/teams/242.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 810,
-//         name: 'Vizela',
-//         logo: 'https://media-1.api-sports.io/football/teams/810.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898738,
-//       referee: 'João Pedro Pinheiro',
-//       timezone: 'UTC',
-//       date: '2023-01-07T15:30:00+00:00',
-//       timestamp: 1673105400,
-//       periods: { first: null, second: null },
-//       venue: { id: 1275, name: 'Estádio Municipal de Arouca', city: 'Arouca' },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 240,
-//         name: 'Arouca',
-//         logo: 'https://media-2.api-sports.io/football/teams/240.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 230,
-//         name: 'Estoril',
-//         logo: 'https://media-3.api-sports.io/football/teams/230.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898730,
-//       referee: 'André Narciso',
-//       timezone: 'UTC',
-//       date: '2023-01-07T18:00:00+00:00',
-//       timestamp: 1673114400,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: 1295,
-//         name: 'Estádio Dom Afonso Henriques',
-//         city: 'Guimarães',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 224,
-//         name: 'Guimaraes',
-//         logo: 'https://media-1.api-sports.io/football/teams/224.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 226,
-//         name: 'Rio Ave',
-//         logo: 'https://media-2.api-sports.io/football/teams/226.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898737,
-//       referee: 'Nuno Miguel Serrano Almeida',
-//       timezone: 'UTC',
-//       date: '2023-01-07T20:30:00+00:00',
-//       timestamp: 1673123400,
-//       periods: { first: null, second: null },
-//       venue: { id: 1262, name: 'Estádio Nacional', city: 'Jamor, Oeiras' },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 4716,
-//         name: 'Casa Pia',
-//         logo: 'https://media-3.api-sports.io/football/teams/4716.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 212,
-//         name: 'FC Porto',
-//         logo: 'https://media-2.api-sports.io/football/teams/212.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898732,
-//       referee: 'Fábio Veríssimo',
-//       timezone: 'UTC',
-//       date: '2023-01-08T15:30:00+00:00',
-//       timestamp: 1673191800,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: 1283,
-//         name: 'Estádio da Capital do Móvel',
-//         city: 'Paços de Ferreira',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 234,
-//         name: 'Pacos Ferreira',
-//         logo: 'https://media-3.api-sports.io/football/teams/234.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 223,
-//         name: 'Chaves',
-//         logo: 'https://media-3.api-sports.io/football/teams/223.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898733,
-//       referee: 'Hélder Malheiro',
-//       timezone: 'UTC',
-//       date: '2023-01-08T18:00:00+00:00',
-//       timestamp: 1673200800,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: 1279,
-//         name: 'Estádio dos Barreiros',
-//         city: 'Ilha da Madeira',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 214,
-//         name: 'Maritimo',
-//         logo: 'https://media-3.api-sports.io/football/teams/214.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 228,
-//         name: 'Sporting CP',
-//         logo: 'https://media-3.api-sports.io/football/teams/228.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898736,
-//       referee: 'Manuel Mota',
-//       timezone: 'UTC',
-//       date: '2023-01-08T20:30:00+00:00',
-//       timestamp: 1673209800,
-//       periods: { first: null, second: null },
-//       venue: { id: 1267, name: 'Estádio do Bessa Século XXI', city: 'Porto' },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 15',
-//     },
-//     teams: {
-//       home: {
-//         id: 222,
-//         name: 'Boavista',
-//         logo: 'https://media-3.api-sports.io/football/teams/222.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 762,
-//         name: 'GIL Vicente',
-//         logo: 'https://media-3.api-sports.io/football/teams/762.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-//   {
-//     fixture: {
-//       id: 898746,
-//       referee: null,
-//       timezone: 'UTC',
-//       date: '2023-01-13T20:15:00+00:00',
-//       timestamp: 1673640900,
-//       periods: { first: null, second: null },
-//       venue: {
-//         id: 1285,
-//         name: 'Estádio Municipal de Portimão',
-//         city: 'Portimão',
-//       },
-//       status: { long: 'Not Started', short: 'NS', elapsed: null },
-//     },
-//     league: {
-//       id: 94,
-//       name: 'Primeira Liga',
-//       country: 'Portugal',
-//       logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-//       flag: 'https://media-3.api-sports.io/flags/pt.svg',
-//       season: 2022,
-//       round: 'Regular Season - 16',
-//     },
-//     teams: {
-//       home: {
-//         id: 216,
-//         name: 'Portimonense',
-//         logo: 'https://media-1.api-sports.io/football/teams/216.png',
-//         winner: null,
-//       },
-//       away: {
-//         id: 227,
-//         name: 'Santa Clara',
-//         logo: 'https://media-1.api-sports.io/football/teams/227.png',
-//         winner: null,
-//       },
-//     },
-//     goals: { home: null, away: null },
-//     score: {
-//       halftime: { home: null, away: null },
-//       fulltime: { home: null, away: null },
-//       extratime: { home: null, away: null },
-//       penalty: { home: null, away: null },
-//     },
-//   },
-// ];
-
 export const mockStatistics = [
   {
     league: {
@@ -2557,2728 +1537,2741 @@ export const mockFeaturedPreviews = [
 export const mockPreviews = {
   'UEFA Champions League': [
     {
-      "fixture":{
-        "id":971801,
-        "referee":"I. Kovacs",
-        "timezone":"UTC",
-        "date":"2023-02-21T20:00:00+00:00",
-        "timestamp":1677009600,
-        "periods":{
-          "first":null,
-          "second":null
+      fixture: {
+        id: 971801,
+        referee: 'I. Kovacs',
+        timezone: 'UTC',
+        date: '2023-02-21T20:00:00+00:00',
+        timestamp: 1677009600,
+        periods: {
+          first: null,
+          second: null,
         },
-        "venue":{
-          "id":550,
-          "name":"Anfield",
-          "city":"Liverpool"
+        venue: {
+          id: 550,
+          name: 'Anfield',
+          city: 'Liverpool',
         },
-        "status":{
-          "long":"Not Started",
-          "short":"NS",
-          "elapsed":null
-        }
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "league":{
-        "id":2,
-        "name":"UEFA Champions League",
-        "country":"World",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/2.png",
-        "flag":null,
-        "season":2022,
-        "round":"Round of 16"
+      league: {
+        id: 2,
+        name: 'UEFA Champions League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/2.png',
+        flag: null,
+        season: 2022,
+        round: 'Round of 16',
       },
-      "teams":{
-        "home":{
-          "id":40,
-          "name":"Liverpool",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/40.png",
-          "winner":null
+      teams: {
+        home: {
+          id: 40,
+          name: 'Liverpool',
+          logo: 'https://media.api-sports.io/football/teams/40.png',
+          winner: null,
         },
-        "away":{
-          "id":541,
-          "name":"Real Madrid",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/541.png",
-          "winner":null
-        }
+        away: {
+          id: 541,
+          name: 'Real Madrid',
+          logo: 'https://media.api-sports.io/football/teams/541.png',
+          winner: null,
+        },
       },
-      "goals":{
-        "home":null,
-        "away":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "score":{
-        "halftime":{
-          "home":null,
-          "away":null
+      score: {
+        halftime: {
+          home: null,
+          away: null,
         },
-        "fulltime":{
-          "home":null,
-          "away":null
+        fulltime: {
+          home: null,
+          away: null,
         },
-        "extratime":{
-          "home":null,
-          "away":null
+        extratime: {
+          home: null,
+          away: null,
         },
-        "penalty":{
-          "home":null,
-          "away":null
-        }
-      }
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
     {
-      "fixture":{
-        "id":971803,
-        "referee":"Artur Soares Dias",
-        "timezone":"UTC",
-        "date":"2023-02-21T20:00:00+00:00",
-        "timestamp":1677009600,
-        "periods":{
-          "first":null,
-          "second":null
+      fixture: {
+        id: 971803,
+        referee: 'Artur Soares Dias',
+        timezone: 'UTC',
+        date: '2023-02-21T20:00:00+00:00',
+        timestamp: 1677009600,
+        periods: {
+          first: null,
+          second: null,
         },
-        "venue":{
-          "id":10491,
-          "name":"Deutsche Bank Park",
-          "city":"Frankfurt am Main"
+        venue: {
+          id: 10491,
+          name: 'Deutsche Bank Park',
+          city: 'Frankfurt am Main',
         },
-        "status":{
-          "long":"Not Started",
-          "short":"NS",
-          "elapsed":null
-        }
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "league":{
-        "id":2,
-        "name":"UEFA Champions League",
-        "country":"World",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/2.png",
-        "flag":null,
-        "season":2022,
-        "round":"Round of 16"
+      league: {
+        id: 2,
+        name: 'UEFA Champions League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/2.png',
+        flag: null,
+        season: 2022,
+        round: 'Round of 16',
       },
-      "teams":{
-        "home":{
-          "id":169,
-          "name":"Eintracht Frankfurt",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/169.png",
-          "winner":null
+      teams: {
+        home: {
+          id: 169,
+          name: 'Eintracht Frankfurt',
+          logo: 'https://media.api-sports.io/football/teams/169.png',
+          winner: null,
         },
-        "away":{
-          "id":492,
-          "name":"Napoli",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/492.png",
-          "winner":null
-        }
+        away: {
+          id: 492,
+          name: 'Napoli',
+          logo: 'https://media.api-sports.io/football/teams/492.png',
+          winner: null,
+        },
       },
-      "goals":{
-        "home":null,
-        "away":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "score":{
-        "halftime":{
-          "home":null,
-          "away":null
+      score: {
+        halftime: {
+          home: null,
+          away: null,
         },
-        "fulltime":{
-          "home":null,
-          "away":null
+        fulltime: {
+          home: null,
+          away: null,
         },
-        "extratime":{
-          "home":null,
-          "away":null
+        extratime: {
+          home: null,
+          away: null,
         },
-        "penalty":{
-          "home":null,
-          "away":null
-        }
-      }
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
     {
-      "fixture":{
-        "id":971805,
-        "referee":null,
-        "timezone":"UTC",
-        "date":"2023-02-22T20:00:00+00:00",
-        "timestamp":1677096000,
-        "periods":{
-          "first":null,
-          "second":null
+      fixture: {
+        id: 971805,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-22T20:00:00+00:00',
+        timestamp: 1677096000,
+        periods: {
+          first: null,
+          second: null,
         },
-        "venue":{
-          "id":738,
-          "name":"Red Bull Arena",
-          "city":"Leipzig"
+        venue: {
+          id: 738,
+          name: 'Red Bull Arena',
+          city: 'Leipzig',
         },
-        "status":{
-          "long":"Not Started",
-          "short":"NS",
-          "elapsed":null
-        }
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "league":{
-        "id":2,
-        "name":"UEFA Champions League",
-        "country":"World",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/2.png",
-        "flag":null,
-        "season":2022,
-        "round":"Round of 16"
+      league: {
+        id: 2,
+        name: 'UEFA Champions League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/2.png',
+        flag: null,
+        season: 2022,
+        round: 'Round of 16',
       },
-      "teams":{
-        "home":{
-          "id":173,
-          "name":"RB Leipzig",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/173.png",
-          "winner":null
+      teams: {
+        home: {
+          id: 173,
+          name: 'RB Leipzig',
+          logo: 'https://media.api-sports.io/football/teams/173.png',
+          winner: null,
         },
-        "away":{
-          "id":50,
-          "name":"Manchester City",
-          "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/50.png",
-          "winner":null
-        }
+        away: {
+          id: 50,
+          name: 'Manchester City',
+          logo: 'https://media-3.api-sports.io/football/teams/50.png',
+          winner: null,
+        },
       },
-      "goals":{
-        "home":null,
-        "away":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "score":{
-        "halftime":{
-          "home":null,
-          "away":null
+      score: {
+        halftime: {
+          home: null,
+          away: null,
         },
-        "fulltime":{
-          "home":null,
-          "away":null
+        fulltime: {
+          home: null,
+          away: null,
         },
-        "extratime":{
-          "home":null,
-          "away":null
+        extratime: {
+          home: null,
+          away: null,
         },
-        "penalty":{
-          "home":null,
-          "away":null
-        }
-      }
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
     {
-      "fixture":{
-        "id":971807,
-        "referee":null,
-        "timezone":"UTC",
-        "date":"2023-02-22T20:00:00+00:00",
-        "timestamp":1677096000,
-        "periods":{
-          "first":null,
-          "second":null
+      fixture: {
+        id: 971807,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-22T20:00:00+00:00',
+        timestamp: 1677096000,
+        periods: {
+          first: null,
+          second: null,
         },
-        "venue":{
-          "id":907,
-          "name":"Stadio Giuseppe Meazza",
-          "city":"Milano"
+        venue: {
+          id: 907,
+          name: 'Stadio Giuseppe Meazza',
+          city: 'Milano',
         },
-        "status":{
-          "long":"Not Started",
-          "short":"NS",
-          "elapsed":null
-        }
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "league":{
-        "id":2,
-        "name":"UEFA Champions League",
-        "country":"World",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/2.png",
-        "flag":null,
-        "season":2022,
-        "round":"Round of 16"
+      league: {
+        id: 2,
+        name: 'UEFA Champions League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/2.png',
+        flag: null,
+        season: 2022,
+        round: 'Round of 16',
       },
-      "teams":{
-        "home":{
-          "id":505,
-          "name":"Inter",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/505.png",
-          "winner":null
+      teams: {
+        home: {
+          id: 505,
+          name: 'Inter',
+          logo: 'https://media.api-sports.io/football/teams/505.png',
+          winner: null,
         },
-        "away":{
-          "id":212,
-          "name":"FC Porto",
-          "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/212.png",
-          "winner":null
-        }
+        away: {
+          id: 212,
+          name: 'FC Porto',
+          logo: 'https://media-3.api-sports.io/football/teams/212.png',
+          winner: null,
+        },
       },
-      "goals":{
-        "home":null,
-        "away":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "score":{
-        "halftime":{
-          "home":null,
-          "away":null
+      score: {
+        halftime: {
+          home: null,
+          away: null,
         },
-        "fulltime":{
-          "home":null,
-          "away":null
+        fulltime: {
+          home: null,
+          away: null,
         },
-        "extratime":{
-          "home":null,
-          "away":null
+        extratime: {
+          home: null,
+          away: null,
         },
-        "penalty":{
-          "home":null,
-          "away":null
-        }
-      }
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
     {
-      "fixture":{
-        "id":971798,
-        "referee":null,
-        "timezone":"UTC",
-        "date":"2023-03-07T20:00:00+00:00",
-        "timestamp":1678219200,
-        "periods":{
-          "first":null,
-          "second":null
+      fixture: {
+        id: 971798,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-03-07T20:00:00+00:00',
+        timestamp: 1678219200,
+        periods: {
+          first: null,
+          second: null,
         },
-        "venue":{
-          "id":null,
-          "name":"Est\u00e1dio do Sport Lisboa e Benfica",
-          "city":"Lisboa"
+        venue: {
+          id: null,
+          name: 'Est\u00e1dio do Sport Lisboa e Benfica',
+          city: 'Lisboa',
         },
-        "status":{
-          "long":"Not Started",
-          "short":"NS",
-          "elapsed":null
-        }
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "league":{
-        "id":2,
-        "name":"UEFA Champions League",
-        "country":"World",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/2.png",
-        "flag":null,
-        "season":2022,
-        "round":"Round of 16"
+      league: {
+        id: 2,
+        name: 'UEFA Champions League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/2.png',
+        flag: null,
+        season: 2022,
+        round: 'Round of 16',
       },
-      "teams":{
-        "home":{
-          "id":211,
-          "name":"Benfica",
-          "logo":"https:\/\/media.api-sports.io\/football\/teams\/211.png",
-          "winner":null
+      teams: {
+        home: {
+          id: 211,
+          name: 'Benfica',
+          logo: 'https://media.api-sports.io/football/teams/211.png',
+          winner: null,
         },
-        "away":{
-          "id":569,
-          "name":"Club Brugge KV",
-          "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/569.png",
-          "winner":null
-        }
+        away: {
+          id: 569,
+          name: 'Club Brugge KV',
+          logo: 'https://media-3.api-sports.io/football/teams/569.png',
+          winner: null,
+        },
       },
-      "goals":{
-        "home":null,
-        "away":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "score":{
-        "halftime":{
-          "home":null,
-          "away":null
+      score: {
+        halftime: {
+          home: null,
+          away: null,
         },
-        "fulltime":{
-          "home":null,
-          "away":null
+        fulltime: {
+          home: null,
+          away: null,
         },
-        "extratime":{
-          "home":null,
-          "away":null
+        extratime: {
+          home: null,
+          away: null,
         },
-        "penalty":{
-          "home":null,
-          "away":null
-        }
-      }
-    },    
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
   ],
-  'Primeira Liga': [{
-    "fixture":{
-      "id":898790,
-      "referee":"H\u00e9lder Malheiro",
-      "timezone":"UTC",
-      "date":"2023-02-20T21:15:00+00:00",
-      "timestamp":1676927700,
-      "periods":{
-        "first":null,
-        "second":null
+  'Primeira Liga': [
+    {
+      fixture: {
+        id: 898790,
+        referee: 'H\u00e9lder Malheiro',
+        timezone: 'UTC',
+        date: '2023-02-20T21:15:00+00:00',
+        timestamp: 1676927700,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: null,
+          name: 'Est\u00e1dio do Sport Lisboa e Benfica',
+          city: 'Lisboa',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "venue":{
-        "id":null,
-        "name":"Est\u00e1dio do Sport Lisboa e Benfica",
-        "city":"Lisboa"
+      league: {
+        id: 94,
+        name: 'Primeira Liga',
+        country: 'Portugal',
+        logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+        flag: 'https://media.api-sports.io/flags/pt.svg',
+        season: 2022,
+        round: 'Regular Season - 21',
       },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
+      teams: {
+        home: {
+          id: 211,
+          name: 'Benfica',
+          logo: 'https://media-3.api-sports.io/football/teams/211.png',
+          winner: null,
+        },
+        away: {
+          id: 222,
+          name: 'Boavista',
+          logo: 'https://media-3.api-sports.io/football/teams/222.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
-    "league":{
-      "id":94,
-      "name":"Primeira Liga",
-      "country":"Portugal",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/94.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/pt.svg",
-      "season":2022,
-      "round":"Regular Season - 21"
+    {
+      fixture: {
+        id: 898795,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-24T20:15:00+00:00',
+        timestamp: 1677269700,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1276,
+          name: 'Est\u00e1dio Municipal 22 de Junho',
+          city: 'Vila Nova de Famalic\u00e3o',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 94,
+        name: 'Primeira Liga',
+        country: 'Portugal',
+        logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+        flag: 'https://media.api-sports.io/flags/pt.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 242,
+          name: 'Famalicao',
+          logo: 'https://media-3.api-sports.io/football/teams/242.png',
+          winner: null,
+        },
+        away: {
+          id: 216,
+          name: 'Portimonense',
+          logo: 'https://media-3.api-sports.io/football/teams/216.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
-    "teams":{
-      "home":{
-        "id":211,
-        "name":"Benfica",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/211.png",
-        "winner":null
+    {
+      fixture: {
+        id: 898794,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T15:30:00+00:00',
+        timestamp: 1677339000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1275,
+          name: 'Est\u00e1dio Municipal de Arouca',
+          city: 'Arouca',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "away":{
-        "id":222,
-        "name":"Boavista",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/222.png",
-        "winner":null
-      }
+      league: {
+        id: 94,
+        name: 'Primeira Liga',
+        country: 'Portugal',
+        logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+        flag: 'https://media.api-sports.io/flags/pt.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 240,
+          name: 'Arouca',
+          logo: 'https://media-3.api-sports.io/football/teams/240.png',
+          winner: null,
+        },
+        away: {
+          id: 4716,
+          name: 'Casa Pia',
+          logo: 'https://media.api-sports.io/football/teams/4716.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
-    "goals":{
-      "home":null,
-      "away":null
+    {
+      fixture: {
+        id: 898800,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T18:00:00+00:00',
+        timestamp: 1677348000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1279,
+          name: 'Est\u00e1dio dos Barreiros',
+          city: 'Ilha da Madeira',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 94,
+        name: 'Primeira Liga',
+        country: 'Portugal',
+        logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+        flag: 'https://media.api-sports.io/flags/pt.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 214,
+          name: 'Maritimo',
+          logo: 'https://media.api-sports.io/football/teams/214.png',
+          winner: null,
+        },
+        away: {
+          id: 227,
+          name: 'Santa Clara',
+          logo: 'https://media.api-sports.io/football/teams/227.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
     },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
+    {
+      fixture: {
+        id: 898801,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T20:30:00+00:00',
+        timestamp: 1677357000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 2817,
+          name: 'Est\u00e1dio Do Vizela',
+          city: 'Caldas de Vizela',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
       },
-      "fulltime":{
-        "home":null,
-        "away":null
+      league: {
+        id: 94,
+        name: 'Primeira Liga',
+        country: 'Portugal',
+        logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+        flag: 'https://media.api-sports.io/flags/pt.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
       },
-      "extratime":{
-        "home":null,
-        "away":null
+      teams: {
+        home: {
+          id: 810,
+          name: 'Vizela',
+          logo: 'https://media-3.api-sports.io/football/teams/810.png',
+          winner: null,
+        },
+        away: {
+          id: 211,
+          name: 'Benfica',
+          logo: 'https://media.api-sports.io/football/teams/211.png',
+          winner: null,
+        },
       },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":898795,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-24T20:15:00+00:00",
-      "timestamp":1677269700,
-      "periods":{
-        "first":null,
-        "second":null
+      goals: {
+        home: null,
+        away: null,
       },
-      "venue":{
-        "id":1276,
-        "name":"Est\u00e1dio Municipal 22 de Junho",
-        "city":"Vila Nova de Famalic\u00e3o"
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
       },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
     },
-    "league":{
-      "id":94,
-      "name":"Primeira Liga",
-      "country":"Portugal",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/94.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/pt.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":242,
-        "name":"Famalicao",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/242.png",
-        "winner":null
-      },
-      "away":{
-        "id":216,
-        "name":"Portimonense",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/216.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":898794,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T15:30:00+00:00",
-      "timestamp":1677339000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1275,
-        "name":"Est\u00e1dio Municipal de Arouca",
-        "city":"Arouca"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":94,
-      "name":"Primeira Liga",
-      "country":"Portugal",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/94.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/pt.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":240,
-        "name":"Arouca",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/240.png",
-        "winner":null
-      },
-      "away":{
-        "id":4716,
-        "name":"Casa Pia",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/4716.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":898800,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T18:00:00+00:00",
-      "timestamp":1677348000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1279,
-        "name":"Est\u00e1dio dos Barreiros",
-        "city":"Ilha da Madeira"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":94,
-      "name":"Primeira Liga",
-      "country":"Portugal",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/94.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/pt.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":214,
-        "name":"Maritimo",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/214.png",
-        "winner":null
-      },
-      "away":{
-        "id":227,
-        "name":"Santa Clara",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/227.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":898801,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T20:30:00+00:00",
-      "timestamp":1677357000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":2817,
-        "name":"Est\u00e1dio Do Vizela",
-        "city":"Caldas de Vizela"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":94,
-      "name":"Primeira Liga",
-      "country":"Portugal",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/94.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/pt.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":810,
-        "name":"Vizela",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/810.png",
-        "winner":null
-      },
-      "away":{
-        "id":211,
-        "name":"Benfica",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/211.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
   ],
-  'Premier League': [{
-    "fixture":{
-      "id":868189,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-24T20:00:00+00:00",
-      "timestamp":1677268800,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":535,
-        "name":"Craven Cottage",
-        "city":"London"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":39,
-      "name":"Premier League",
-      "country":"England",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/39.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/gb.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":36,
-        "name":"Fulham",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/36.png",
-        "winner":null
-      },
-      "away":{
-        "id":39,
-        "name":"Wolves",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/39.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":868193,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T12:30:00+00:00",
-      "timestamp":1677328200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":562,
-        "name":"St. James' Park",
-        "city":"Newcastle upon Tyne"
-      },
-      "status":{
-        "long":"Match Postponed",
-        "short":"PST",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":39,
-      "name":"Premier League",
-      "country":"England",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/39.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/gb.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":34,
-        "name":"Newcastle",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/34.png",
-        "winner":null
-      },
-      "away":{
-        "id":51,
-        "name":"Brighton",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/51.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":868188,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T15:00:00+00:00",
-      "timestamp":1677337200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":8560,
-        "name":"Goodison Park",
-        "city":"Liverpool"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":39,
-      "name":"Premier League",
-      "country":"England",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/39.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/gb.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":45,
-        "name":"Everton",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/45.png",
-        "winner":null
-      },
-      "away":{
-        "id":66,
-        "name":"Aston Villa",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/66.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":868190,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T15:00:00+00:00",
-      "timestamp":1677337200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":546,
-        "name":"Elland Road",
-        "city":"Leeds, West Yorkshire"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":39,
-      "name":"Premier League",
-      "country":"England",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/39.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/gb.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":63,
-        "name":"Leeds",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/63.png",
-        "winner":null
-      },
-      "away":{
-        "id":41,
-        "name":"Southampton",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/41.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":868191,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T15:00:00+00:00",
-      "timestamp":1677337200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":547,
-        "name":"King Power Stadium",
-        "city":"Leicester, Leicestershire"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":39,
-      "name":"Premier League",
-      "country":"England",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/39.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/gb.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":46,
-        "name":"Leicester",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/46.png",
-        "winner":null
-      },
-      "away":{
-        "id":42,
-        "name":"Arsenal",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/42.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-  'La Liga': [{
-    "fixture":{
-      "id":878156,
-      "referee":"Mario Melero Lopez, Spain",
-      "timezone":"UTC",
-      "date":"2023-02-20T20:00:00+00:00",
-      "timestamp":1676923200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1476,
-        "name":"Coliseum Alfonso P\u00e9rez",
-        "city":"Getafe"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":140,
-      "name":"La Liga",
-      "country":"Spain",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/140.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/es.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":546,
-        "name":"Getafe",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/546.png",
-        "winner":null
-      },
-      "away":{
-        "id":532,
-        "name":"Valencia",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/532.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":878168,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-24T20:00:00+00:00",
-      "timestamp":1677268800,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1473,
-        "name":"Estadio Manuel Mart\u00ednez Valero",
-        "city":"Elche"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":140,
-      "name":"La Liga",
-      "country":"Spain",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/140.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/es.svg",
-      "season":2022,
-      "round":"Regular Season - 23"
-    },
-    "teams":{
-      "home":{
-        "id":797,
-        "name":"Elche",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/797.png",
-        "winner":null
-      },
-      "away":{
-        "id":543,
-        "name":"Real Betis",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/543.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":878165,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T13:00:00+00:00",
-      "timestamp":1677330000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1474,
-        "name":"RCDE Stadium",
-        "city":"Cornella de Llobregat"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":140,
-      "name":"La Liga",
-      "country":"Spain",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/140.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/es.svg",
-      "season":2022,
-      "round":"Regular Season - 23"
-    },
-    "teams":{
-      "home":{
-        "id":540,
-        "name":"Espanyol",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/540.png",
-        "winner":null
-      },
-      "away":{
-        "id":798,
-        "name":"Mallorca",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/798.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":878164,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T15:15:00+00:00",
-      "timestamp":1677338100,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":11915,
-        "name":"Estadio Nuevo Mirandilla",
-        "city":"C\u00e1diz"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":140,
-      "name":"La Liga",
-      "country":"Spain",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/140.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/es.svg",
-      "season":2022,
-      "round":"Regular Season - 23"
-    },
-    "teams":{
-      "home":{
-        "id":724,
-        "name":"Cadiz",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/724.png",
-        "winner":null
-      },
-      "away":{
-        "id":728,
-        "name":"Rayo Vallecano",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/728.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":878167,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T17:30:00+00:00",
-      "timestamp":1677346200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1456,
-        "name":"Estadio Santiago Bernab\u00e9u",
-        "city":"Madrid"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":140,
-      "name":"La Liga",
-      "country":"Spain",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/140.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/es.svg",
-      "season":2022,
-      "round":"Regular Season - 23"
-    },
-    "teams":{
-      "home":{
-        "id":541,
-        "name":"Real Madrid",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/541.png",
-        "winner":null
-      },
-      "away":{
-        "id":530,
-        "name":"Atletico Madrid",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/530.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-  'Serie A': [{
-    "fixture":{
-      "id":882009,
-      "referee":"Giacomo Camplone, Italy",
-      "timezone":"UTC",
-      "date":"2023-02-20T19:45:00+00:00",
-      "timestamp":1676922300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":943,
-        "name":"Stadio Olimpico Grande Torino",
-        "city":"Torino"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":135,
-      "name":"Serie A",
-      "country":"Italy",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/135.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/it.svg",
-      "season":2022,
-      "round":"Regular Season - 23"
-    },
-    "teams":{
-      "home":{
-        "id":503,
-        "name":"Torino",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/503.png",
-        "winner":null
-      },
-      "away":{
-        "id":520,
-        "name":"Cremonese",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/520.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":882012,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T17:00:00+00:00",
-      "timestamp":1677344400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":896,
-        "name":"Stadio Carlo Castellani",
-        "city":"Empoli"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":135,
-      "name":"Serie A",
-      "country":"Italy",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/135.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/it.svg",
-      "season":2022,
-      "round":"Regular Season - 24"
-    },
-    "teams":{
-      "home":{
-        "id":511,
-        "name":"Empoli",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/511.png",
-        "winner":null
-      },
-      "away":{
-        "id":492,
-        "name":"Napoli",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/492.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":882015,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T19:45:00+00:00",
-      "timestamp":1677354300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":911,
-        "name":"Stadio Comunale Via del Mare",
-        "city":"Lecce"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":135,
-      "name":"Serie A",
-      "country":"Italy",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/135.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/it.svg",
-      "season":2022,
-      "round":"Regular Season - 24"
-    },
-    "teams":{
-      "home":{
-        "id":867,
-        "name":"Lecce",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/867.png",
-        "winner":null
-      },
-      "away":{
-        "id":488,
-        "name":"Sassuolo",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/488.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":882010,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-26T11:30:00+00:00",
-      "timestamp":1677411000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":881,
-        "name":"Stadio Renato Dall'Ara",
-        "city":"Bologna"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":135,
-      "name":"Serie A",
-      "country":"Italy",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/135.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/it.svg",
-      "season":2022,
-      "round":"Regular Season - 24"
-    },
-    "teams":{
-      "home":{
-        "id":500,
-        "name":"Bologna",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/500.png",
-        "winner":null
-      },
-      "away":{
-        "id":505,
-        "name":"Inter",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/505.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":882018,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-26T14:00:00+00:00",
-      "timestamp":1677420000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":933,
-        "name":"Stadio Arechi",
-        "city":"Salerno"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":135,
-      "name":"Serie A",
-      "country":"Italy",
-      "logo":"https:\/\/media.api-sports.io\/football\/leagues\/135.png",
-      "flag":"https:\/\/media-3.api-sports.io\/flags\/it.svg",
-      "season":2022,
-      "round":"Regular Season - 24"
-    },
-    "teams":{
-      "home":{
-        "id":514,
-        "name":"Salernitana",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/514.png",
-        "winner":null
-      },
-      "away":{
-        "id":1579,
-        "name":"Monza",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/1579.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-  Bundesliga: [{
-    "fixture":{
-      "id":871357,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-24T19:30:00+00:00",
-      "timestamp":1677267000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":11899,
-        "name":"MEWA ARENA",
-        "city":"Mainz"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":78,
-      "name":"Bundesliga",
-      "country":"Germany",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/78.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/de.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":164,
-        "name":"FSV Mainz 05",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/164.png",
-        "winner":null
-      },
-      "away":{
-        "id":163,
-        "name":"Borussia Monchengladbach",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/163.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871354,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T14:30:00+00:00",
-      "timestamp":1677335400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":738,
-        "name":"Red Bull Arena",
-        "city":"Leipzig"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":78,
-      "name":"Bundesliga",
-      "country":"Germany",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/78.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/de.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":173,
-        "name":"RB Leipzig",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/173.png",
-        "winner":null
-      },
-      "away":{
-        "id":169,
-        "name":"Eintracht Frankfurt",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/169.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871356,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T14:30:00+00:00",
-      "timestamp":1677335400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":731,
-        "name":"RheinEnergieStadion",
-        "city":"K\u00f6ln"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":78,
-      "name":"Bundesliga",
-      "country":"Germany",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/78.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/de.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":192,
-        "name":"FC Koln",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/192.png",
-        "winner":null
-      },
-      "away":{
-        "id":161,
-        "name":"VfL Wolfsburg",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/161.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871358,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T14:30:00+00:00",
-      "timestamp":1677335400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":724,
-        "name":"PreZero Arena",
-        "city":"Sinsheim"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":78,
-      "name":"Bundesliga",
-      "country":"Germany",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/78.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/de.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":167,
-        "name":"1899 Hoffenheim",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/167.png",
-        "winner":null
-      },
-      "away":{
-        "id":165,
-        "name":"Borussia Dortmund",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/165.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871359,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T14:30:00+00:00",
-      "timestamp":1677335400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":694,
-        "name":"Olympiastadion Berlin",
-        "city":"Berlin"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":78,
-      "name":"Bundesliga",
-      "country":"Germany",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/78.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/de.svg",
-      "season":2022,
-      "round":"Regular Season - 22"
-    },
-    "teams":{
-      "home":{
-        "id":159,
-        "name":"Hertha Berlin",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/159.png",
-        "winner":null
-      },
-      "away":{
-        "id":170,
-        "name":"FC Augsburg",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/170.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-  'League 1': [{
-    "fixture":{
-      "id":871716,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-24T20:00:00+00:00",
-      "timestamp":1677268800,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":19207,
-        "name":"Decathlon Arena \u2013 Stade Pierre-Mauroy",
-        "city":"Villeneuve d'Ascq"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":61,
-      "name":"Ligue 1",
-      "country":"France",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/61.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/fr.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":79,
-        "name":"Lille",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/79.png",
-        "winner":null
-      },
-      "away":{
-        "id":106,
-        "name":"Stade Brestois 29",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/106.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871712,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T16:00:00+00:00",
-      "timestamp":1677340800,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":634,
-        "name":"Stade Raymond-Kopa",
-        "city":"Angers"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":61,
-      "name":"Ligue 1",
-      "country":"France",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/61.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/fr.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":77,
-        "name":"Angers",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/77.png",
-        "winner":null
-      },
-      "away":{
-        "id":80,
-        "name":"Lyon",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/80.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871717,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-25T20:00:00+00:00",
-      "timestamp":1677355200,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":660,
-        "name":"Stade de la Mosson",
-        "city":"Montpellier"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":61,
-      "name":"Ligue 1",
-      "country":"France",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/61.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/fr.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":82,
-        "name":"Montpellier",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/82.png",
-        "winner":null
-      },
-      "away":{
-        "id":116,
-        "name":"Lens",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/116.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871714,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-26T12:00:00+00:00",
-      "timestamp":1677412800,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":656,
-        "name":"Stade Yves Allainmat - Le Moustoir",
-        "city":"Lorient"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":61,
-      "name":"Ligue 1",
-      "country":"France",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/61.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/fr.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":97,
-        "name":"Lorient",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/97.png",
-        "winner":null
-      },
-      "away":{
-        "id":108,
-        "name":"Auxerre",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/108.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":871710,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-26T14:00:00+00:00",
-      "timestamp":1677420000,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":632,
-        "name":"Stade Fran\u00e7ois Coty",
-        "city":"Ajaccio"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":61,
-      "name":"Ligue 1",
-      "country":"France",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/61.png",
-      "flag":"https:\/\/media.api-sports.io\/flags\/fr.svg",
-      "season":2022,
-      "round":"Regular Season - 25"
-    },
-    "teams":{
-      "home":{
-        "id":98,
-        "name":"Ajaccio",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/98.png",
-        "winner":null
-      },
-      "away":{
-        "id":110,
-        "name":"Estac Troyes",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/110.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-  'UEFA Europa League': [{
-    "fixture":{
-      "id":971770,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-23T17:45:00+00:00",
-      "timestamp":1677174300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":662,
-        "name":"Stade de la Beaujoire - Louis Fonteneau",
-        "city":"Nantes"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":3,
-      "name":"UEFA Europa League",
-      "country":"World",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/3.png",
-      "flag":null,
-      "season":2022,
-      "round":"Knockout Round Play-offs"
-    },
-    "teams":{
-      "home":{
-        "id":83,
-        "name":"Nantes",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/83.png",
-        "winner":null
-      },
-      "away":{
-        "id":496,
-        "name":"Juventus",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/496.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":971772,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-23T17:45:00+00:00",
-      "timestamp":1677174300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":453,
-        "name":"MCH Arena",
-        "city":"Herning"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":3,
-      "name":"UEFA Europa League",
-      "country":"World",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/3.png",
-      "flag":null,
-      "season":2022,
-      "round":"Knockout Round Play-offs"
-    },
-    "teams":{
-      "home":{
-        "id":397,
-        "name":"FC Midtjylland",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/397.png",
-        "winner":null
-      },
-      "away":{
-        "id":228,
-        "name":"Sporting CP",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/228.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":971774,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-23T17:45:00+00:00",
-      "timestamp":1677174300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":659,
-        "name":"Stade Louis II",
-        "city":"Monaco"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":3,
-      "name":"UEFA Europa League",
-      "country":"World",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/3.png",
-      "flag":null,
-      "season":2022,
-      "round":"Knockout Round Play-offs"
-    },
-    "teams":{
-      "home":{
-        "id":91,
-        "name":"Monaco",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/91.png",
-        "winner":null
-      },
-      "away":{
-        "id":168,
-        "name":"Bayer Leverkusen",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/168.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":971776,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-23T17:45:00+00:00",
-      "timestamp":1677174300,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":1143,
-        "name":"Philips Stadion",
-        "city":"Eindhoven"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":3,
-      "name":"UEFA Europa League",
-      "country":"World",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/3.png",
-      "flag":null,
-      "season":2022,
-      "round":"Knockout Round Play-offs"
-    },
-    "teams":{
-      "home":{
-        "id":197,
-        "name":"PSV Eindhoven",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/197.png",
-        "winner":null
-      },
-      "away":{
-        "id":536,
-        "name":"Sevilla",
-        "logo":"https:\/\/media.api-sports.io\/football\/teams\/536.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  },
-  {
-    "fixture":{
-      "id":971762,
-      "referee":null,
-      "timezone":"UTC",
-      "date":"2023-02-23T20:00:00+00:00",
-      "timestamp":1677182400,
-      "periods":{
-        "first":null,
-        "second":null
-      },
-      "venue":{
-        "id":556,
-        "name":"Old Trafford",
-        "city":"Manchester"
-      },
-      "status":{
-        "long":"Not Started",
-        "short":"NS",
-        "elapsed":null
-      }
-    },
-    "league":{
-      "id":3,
-      "name":"UEFA Europa League",
-      "country":"World",
-      "logo":"https:\/\/media-3.api-sports.io\/football\/leagues\/3.png",
-      "flag":null,
-      "season":2022,
-      "round":"Knockout Round Play-offs"
-    },
-    "teams":{
-      "home":{
-        "id":33,
-        "name":"Manchester United",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/33.png",
-        "winner":null
-      },
-      "away":{
-        "id":529,
-        "name":"Barcelona",
-        "logo":"https:\/\/media-3.api-sports.io\/football\/teams\/529.png",
-        "winner":null
-      }
-    },
-    "goals":{
-      "home":null,
-      "away":null
-    },
-    "score":{
-      "halftime":{
-        "home":null,
-        "away":null
-      },
-      "fulltime":{
-        "home":null,
-        "away":null
-      },
-      "extratime":{
-        "home":null,
-        "away":null
-      },
-      "penalty":{
-        "home":null,
-        "away":null
-      }
-    }
-  }],
-}
+  'Premier League': [
+    {
+      fixture: {
+        id: 868189,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-24T20:00:00+00:00',
+        timestamp: 1677268800,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 535,
+          name: 'Craven Cottage',
+          city: 'London',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 39,
+        name: 'Premier League',
+        country: 'England',
+        logo: 'https://media.api-sports.io/football/leagues/39.png',
+        flag: 'https://media-3.api-sports.io/flags/gb.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 36,
+          name: 'Fulham',
+          logo: 'https://media-3.api-sports.io/football/teams/36.png',
+          winner: null,
+        },
+        away: {
+          id: 39,
+          name: 'Wolves',
+          logo: 'https://media.api-sports.io/football/teams/39.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 868193,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T12:30:00+00:00',
+        timestamp: 1677328200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 562,
+          name: "St. James' Park",
+          city: 'Newcastle upon Tyne',
+        },
+        status: {
+          long: 'Match Postponed',
+          short: 'PST',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 39,
+        name: 'Premier League',
+        country: 'England',
+        logo: 'https://media.api-sports.io/football/leagues/39.png',
+        flag: 'https://media-3.api-sports.io/flags/gb.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 34,
+          name: 'Newcastle',
+          logo: 'https://media-3.api-sports.io/football/teams/34.png',
+          winner: null,
+        },
+        away: {
+          id: 51,
+          name: 'Brighton',
+          logo: 'https://media-3.api-sports.io/football/teams/51.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 868188,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T15:00:00+00:00',
+        timestamp: 1677337200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 8560,
+          name: 'Goodison Park',
+          city: 'Liverpool',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 39,
+        name: 'Premier League',
+        country: 'England',
+        logo: 'https://media.api-sports.io/football/leagues/39.png',
+        flag: 'https://media-3.api-sports.io/flags/gb.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 45,
+          name: 'Everton',
+          logo: 'https://media-3.api-sports.io/football/teams/45.png',
+          winner: null,
+        },
+        away: {
+          id: 66,
+          name: 'Aston Villa',
+          logo: 'https://media.api-sports.io/football/teams/66.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 868190,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T15:00:00+00:00',
+        timestamp: 1677337200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 546,
+          name: 'Elland Road',
+          city: 'Leeds, West Yorkshire',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 39,
+        name: 'Premier League',
+        country: 'England',
+        logo: 'https://media.api-sports.io/football/leagues/39.png',
+        flag: 'https://media-3.api-sports.io/flags/gb.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 63,
+          name: 'Leeds',
+          logo: 'https://media-3.api-sports.io/football/teams/63.png',
+          winner: null,
+        },
+        away: {
+          id: 41,
+          name: 'Southampton',
+          logo: 'https://media.api-sports.io/football/teams/41.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 868191,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T15:00:00+00:00',
+        timestamp: 1677337200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 547,
+          name: 'King Power Stadium',
+          city: 'Leicester, Leicestershire',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 39,
+        name: 'Premier League',
+        country: 'England',
+        logo: 'https://media.api-sports.io/football/leagues/39.png',
+        flag: 'https://media-3.api-sports.io/flags/gb.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 46,
+          name: 'Leicester',
+          logo: 'https://media.api-sports.io/football/teams/46.png',
+          winner: null,
+        },
+        away: {
+          id: 42,
+          name: 'Arsenal',
+          logo: 'https://media.api-sports.io/football/teams/42.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+  'La Liga': [
+    {
+      fixture: {
+        id: 878156,
+        referee: 'Mario Melero Lopez, Spain',
+        timezone: 'UTC',
+        date: '2023-02-20T20:00:00+00:00',
+        timestamp: 1676923200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1476,
+          name: 'Coliseum Alfonso P\u00e9rez',
+          city: 'Getafe',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 140,
+        name: 'La Liga',
+        country: 'Spain',
+        logo: 'https://media.api-sports.io/football/leagues/140.png',
+        flag: 'https://media.api-sports.io/flags/es.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 546,
+          name: 'Getafe',
+          logo: 'https://media-3.api-sports.io/football/teams/546.png',
+          winner: null,
+        },
+        away: {
+          id: 532,
+          name: 'Valencia',
+          logo: 'https://media.api-sports.io/football/teams/532.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 878168,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-24T20:00:00+00:00',
+        timestamp: 1677268800,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1473,
+          name: 'Estadio Manuel Mart\u00ednez Valero',
+          city: 'Elche',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 140,
+        name: 'La Liga',
+        country: 'Spain',
+        logo: 'https://media.api-sports.io/football/leagues/140.png',
+        flag: 'https://media.api-sports.io/flags/es.svg',
+        season: 2022,
+        round: 'Regular Season - 23',
+      },
+      teams: {
+        home: {
+          id: 797,
+          name: 'Elche',
+          logo: 'https://media-3.api-sports.io/football/teams/797.png',
+          winner: null,
+        },
+        away: {
+          id: 543,
+          name: 'Real Betis',
+          logo: 'https://media.api-sports.io/football/teams/543.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 878165,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T13:00:00+00:00',
+        timestamp: 1677330000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1474,
+          name: 'RCDE Stadium',
+          city: 'Cornella de Llobregat',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 140,
+        name: 'La Liga',
+        country: 'Spain',
+        logo: 'https://media.api-sports.io/football/leagues/140.png',
+        flag: 'https://media.api-sports.io/flags/es.svg',
+        season: 2022,
+        round: 'Regular Season - 23',
+      },
+      teams: {
+        home: {
+          id: 540,
+          name: 'Espanyol',
+          logo: 'https://media.api-sports.io/football/teams/540.png',
+          winner: null,
+        },
+        away: {
+          id: 798,
+          name: 'Mallorca',
+          logo: 'https://media.api-sports.io/football/teams/798.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 878164,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T15:15:00+00:00',
+        timestamp: 1677338100,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 11915,
+          name: 'Estadio Nuevo Mirandilla',
+          city: 'C\u00e1diz',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 140,
+        name: 'La Liga',
+        country: 'Spain',
+        logo: 'https://media.api-sports.io/football/leagues/140.png',
+        flag: 'https://media.api-sports.io/flags/es.svg',
+        season: 2022,
+        round: 'Regular Season - 23',
+      },
+      teams: {
+        home: {
+          id: 724,
+          name: 'Cadiz',
+          logo: 'https://media-3.api-sports.io/football/teams/724.png',
+          winner: null,
+        },
+        away: {
+          id: 728,
+          name: 'Rayo Vallecano',
+          logo: 'https://media-3.api-sports.io/football/teams/728.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 878167,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T17:30:00+00:00',
+        timestamp: 1677346200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1456,
+          name: 'Estadio Santiago Bernab\u00e9u',
+          city: 'Madrid',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 140,
+        name: 'La Liga',
+        country: 'Spain',
+        logo: 'https://media.api-sports.io/football/leagues/140.png',
+        flag: 'https://media.api-sports.io/flags/es.svg',
+        season: 2022,
+        round: 'Regular Season - 23',
+      },
+      teams: {
+        home: {
+          id: 541,
+          name: 'Real Madrid',
+          logo: 'https://media.api-sports.io/football/teams/541.png',
+          winner: null,
+        },
+        away: {
+          id: 530,
+          name: 'Atletico Madrid',
+          logo: 'https://media.api-sports.io/football/teams/530.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+  'Serie A': [
+    {
+      fixture: {
+        id: 882009,
+        referee: 'Giacomo Camplone, Italy',
+        timezone: 'UTC',
+        date: '2023-02-20T19:45:00+00:00',
+        timestamp: 1676922300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 943,
+          name: 'Stadio Olimpico Grande Torino',
+          city: 'Torino',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 135,
+        name: 'Serie A',
+        country: 'Italy',
+        logo: 'https://media.api-sports.io/football/leagues/135.png',
+        flag: 'https://media-3.api-sports.io/flags/it.svg',
+        season: 2022,
+        round: 'Regular Season - 23',
+      },
+      teams: {
+        home: {
+          id: 503,
+          name: 'Torino',
+          logo: 'https://media-3.api-sports.io/football/teams/503.png',
+          winner: null,
+        },
+        away: {
+          id: 520,
+          name: 'Cremonese',
+          logo: 'https://media-3.api-sports.io/football/teams/520.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 882012,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T17:00:00+00:00',
+        timestamp: 1677344400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 896,
+          name: 'Stadio Carlo Castellani',
+          city: 'Empoli',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 135,
+        name: 'Serie A',
+        country: 'Italy',
+        logo: 'https://media.api-sports.io/football/leagues/135.png',
+        flag: 'https://media-3.api-sports.io/flags/it.svg',
+        season: 2022,
+        round: 'Regular Season - 24',
+      },
+      teams: {
+        home: {
+          id: 511,
+          name: 'Empoli',
+          logo: 'https://media.api-sports.io/football/teams/511.png',
+          winner: null,
+        },
+        away: {
+          id: 492,
+          name: 'Napoli',
+          logo: 'https://media-3.api-sports.io/football/teams/492.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 882015,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T19:45:00+00:00',
+        timestamp: 1677354300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 911,
+          name: 'Stadio Comunale Via del Mare',
+          city: 'Lecce',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 135,
+        name: 'Serie A',
+        country: 'Italy',
+        logo: 'https://media.api-sports.io/football/leagues/135.png',
+        flag: 'https://media-3.api-sports.io/flags/it.svg',
+        season: 2022,
+        round: 'Regular Season - 24',
+      },
+      teams: {
+        home: {
+          id: 867,
+          name: 'Lecce',
+          logo: 'https://media.api-sports.io/football/teams/867.png',
+          winner: null,
+        },
+        away: {
+          id: 488,
+          name: 'Sassuolo',
+          logo: 'https://media-3.api-sports.io/football/teams/488.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 882010,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-26T11:30:00+00:00',
+        timestamp: 1677411000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 881,
+          name: "Stadio Renato Dall'Ara",
+          city: 'Bologna',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 135,
+        name: 'Serie A',
+        country: 'Italy',
+        logo: 'https://media.api-sports.io/football/leagues/135.png',
+        flag: 'https://media-3.api-sports.io/flags/it.svg',
+        season: 2022,
+        round: 'Regular Season - 24',
+      },
+      teams: {
+        home: {
+          id: 500,
+          name: 'Bologna',
+          logo: 'https://media-3.api-sports.io/football/teams/500.png',
+          winner: null,
+        },
+        away: {
+          id: 505,
+          name: 'Inter',
+          logo: 'https://media.api-sports.io/football/teams/505.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 882018,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-26T14:00:00+00:00',
+        timestamp: 1677420000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 933,
+          name: 'Stadio Arechi',
+          city: 'Salerno',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 135,
+        name: 'Serie A',
+        country: 'Italy',
+        logo: 'https://media.api-sports.io/football/leagues/135.png',
+        flag: 'https://media-3.api-sports.io/flags/it.svg',
+        season: 2022,
+        round: 'Regular Season - 24',
+      },
+      teams: {
+        home: {
+          id: 514,
+          name: 'Salernitana',
+          logo: 'https://media-3.api-sports.io/football/teams/514.png',
+          winner: null,
+        },
+        away: {
+          id: 1579,
+          name: 'Monza',
+          logo: 'https://media-3.api-sports.io/football/teams/1579.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+  Bundesliga: [
+    {
+      fixture: {
+        id: 871357,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-24T19:30:00+00:00',
+        timestamp: 1677267000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 11899,
+          name: 'MEWA ARENA',
+          city: 'Mainz',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 78,
+        name: 'Bundesliga',
+        country: 'Germany',
+        logo: 'https://media-3.api-sports.io/football/leagues/78.png',
+        flag: 'https://media.api-sports.io/flags/de.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 164,
+          name: 'FSV Mainz 05',
+          logo: 'https://media-3.api-sports.io/football/teams/164.png',
+          winner: null,
+        },
+        away: {
+          id: 163,
+          name: 'Borussia Monchengladbach',
+          logo: 'https://media.api-sports.io/football/teams/163.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871354,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T14:30:00+00:00',
+        timestamp: 1677335400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 738,
+          name: 'Red Bull Arena',
+          city: 'Leipzig',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 78,
+        name: 'Bundesliga',
+        country: 'Germany',
+        logo: 'https://media-3.api-sports.io/football/leagues/78.png',
+        flag: 'https://media.api-sports.io/flags/de.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 173,
+          name: 'RB Leipzig',
+          logo: 'https://media.api-sports.io/football/teams/173.png',
+          winner: null,
+        },
+        away: {
+          id: 169,
+          name: 'Eintracht Frankfurt',
+          logo: 'https://media.api-sports.io/football/teams/169.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871356,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T14:30:00+00:00',
+        timestamp: 1677335400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 731,
+          name: 'RheinEnergieStadion',
+          city: 'K\u00f6ln',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 78,
+        name: 'Bundesliga',
+        country: 'Germany',
+        logo: 'https://media-3.api-sports.io/football/leagues/78.png',
+        flag: 'https://media.api-sports.io/flags/de.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 192,
+          name: 'FC Koln',
+          logo: 'https://media.api-sports.io/football/teams/192.png',
+          winner: null,
+        },
+        away: {
+          id: 161,
+          name: 'VfL Wolfsburg',
+          logo: 'https://media-3.api-sports.io/football/teams/161.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871358,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T14:30:00+00:00',
+        timestamp: 1677335400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 724,
+          name: 'PreZero Arena',
+          city: 'Sinsheim',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 78,
+        name: 'Bundesliga',
+        country: 'Germany',
+        logo: 'https://media-3.api-sports.io/football/leagues/78.png',
+        flag: 'https://media.api-sports.io/flags/de.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 167,
+          name: '1899 Hoffenheim',
+          logo: 'https://media-3.api-sports.io/football/teams/167.png',
+          winner: null,
+        },
+        away: {
+          id: 165,
+          name: 'Borussia Dortmund',
+          logo: 'https://media-3.api-sports.io/football/teams/165.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871359,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T14:30:00+00:00',
+        timestamp: 1677335400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 694,
+          name: 'Olympiastadion Berlin',
+          city: 'Berlin',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 78,
+        name: 'Bundesliga',
+        country: 'Germany',
+        logo: 'https://media-3.api-sports.io/football/leagues/78.png',
+        flag: 'https://media.api-sports.io/flags/de.svg',
+        season: 2022,
+        round: 'Regular Season - 22',
+      },
+      teams: {
+        home: {
+          id: 159,
+          name: 'Hertha Berlin',
+          logo: 'https://media.api-sports.io/football/teams/159.png',
+          winner: null,
+        },
+        away: {
+          id: 170,
+          name: 'FC Augsburg',
+          logo: 'https://media.api-sports.io/football/teams/170.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+  'League 1': [
+    {
+      fixture: {
+        id: 871716,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-24T20:00:00+00:00',
+        timestamp: 1677268800,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 19207,
+          name: 'Decathlon Arena \u2013 Stade Pierre-Mauroy',
+          city: "Villeneuve d'Ascq",
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 61,
+        name: 'Ligue 1',
+        country: 'France',
+        logo: 'https://media-3.api-sports.io/football/leagues/61.png',
+        flag: 'https://media.api-sports.io/flags/fr.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 79,
+          name: 'Lille',
+          logo: 'https://media.api-sports.io/football/teams/79.png',
+          winner: null,
+        },
+        away: {
+          id: 106,
+          name: 'Stade Brestois 29',
+          logo: 'https://media-3.api-sports.io/football/teams/106.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871712,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T16:00:00+00:00',
+        timestamp: 1677340800,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 634,
+          name: 'Stade Raymond-Kopa',
+          city: 'Angers',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 61,
+        name: 'Ligue 1',
+        country: 'France',
+        logo: 'https://media-3.api-sports.io/football/leagues/61.png',
+        flag: 'https://media.api-sports.io/flags/fr.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 77,
+          name: 'Angers',
+          logo: 'https://media.api-sports.io/football/teams/77.png',
+          winner: null,
+        },
+        away: {
+          id: 80,
+          name: 'Lyon',
+          logo: 'https://media.api-sports.io/football/teams/80.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871717,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-25T20:00:00+00:00',
+        timestamp: 1677355200,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 660,
+          name: 'Stade de la Mosson',
+          city: 'Montpellier',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 61,
+        name: 'Ligue 1',
+        country: 'France',
+        logo: 'https://media-3.api-sports.io/football/leagues/61.png',
+        flag: 'https://media.api-sports.io/flags/fr.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 82,
+          name: 'Montpellier',
+          logo: 'https://media.api-sports.io/football/teams/82.png',
+          winner: null,
+        },
+        away: {
+          id: 116,
+          name: 'Lens',
+          logo: 'https://media-3.api-sports.io/football/teams/116.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871714,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-26T12:00:00+00:00',
+        timestamp: 1677412800,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 656,
+          name: 'Stade Yves Allainmat - Le Moustoir',
+          city: 'Lorient',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 61,
+        name: 'Ligue 1',
+        country: 'France',
+        logo: 'https://media-3.api-sports.io/football/leagues/61.png',
+        flag: 'https://media.api-sports.io/flags/fr.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 97,
+          name: 'Lorient',
+          logo: 'https://media.api-sports.io/football/teams/97.png',
+          winner: null,
+        },
+        away: {
+          id: 108,
+          name: 'Auxerre',
+          logo: 'https://media.api-sports.io/football/teams/108.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 871710,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-26T14:00:00+00:00',
+        timestamp: 1677420000,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 632,
+          name: 'Stade Fran\u00e7ois Coty',
+          city: 'Ajaccio',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 61,
+        name: 'Ligue 1',
+        country: 'France',
+        logo: 'https://media-3.api-sports.io/football/leagues/61.png',
+        flag: 'https://media.api-sports.io/flags/fr.svg',
+        season: 2022,
+        round: 'Regular Season - 25',
+      },
+      teams: {
+        home: {
+          id: 98,
+          name: 'Ajaccio',
+          logo: 'https://media-3.api-sports.io/football/teams/98.png',
+          winner: null,
+        },
+        away: {
+          id: 110,
+          name: 'Estac Troyes',
+          logo: 'https://media-3.api-sports.io/football/teams/110.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+  'UEFA Europa League': [
+    {
+      fixture: {
+        id: 971770,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-23T17:45:00+00:00',
+        timestamp: 1677174300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 662,
+          name: 'Stade de la Beaujoire - Louis Fonteneau',
+          city: 'Nantes',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 3,
+        name: 'UEFA Europa League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/3.png',
+        flag: null,
+        season: 2022,
+        round: 'Knockout Round Play-offs',
+      },
+      teams: {
+        home: {
+          id: 83,
+          name: 'Nantes',
+          logo: 'https://media.api-sports.io/football/teams/83.png',
+          winner: null,
+        },
+        away: {
+          id: 496,
+          name: 'Juventus',
+          logo: 'https://media-3.api-sports.io/football/teams/496.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 971772,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-23T17:45:00+00:00',
+        timestamp: 1677174300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 453,
+          name: 'MCH Arena',
+          city: 'Herning',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 3,
+        name: 'UEFA Europa League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/3.png',
+        flag: null,
+        season: 2022,
+        round: 'Knockout Round Play-offs',
+      },
+      teams: {
+        home: {
+          id: 397,
+          name: 'FC Midtjylland',
+          logo: 'https://media.api-sports.io/football/teams/397.png',
+          winner: null,
+        },
+        away: {
+          id: 228,
+          name: 'Sporting CP',
+          logo: 'https://media-3.api-sports.io/football/teams/228.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 971774,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-23T17:45:00+00:00',
+        timestamp: 1677174300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 659,
+          name: 'Stade Louis II',
+          city: 'Monaco',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 3,
+        name: 'UEFA Europa League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/3.png',
+        flag: null,
+        season: 2022,
+        round: 'Knockout Round Play-offs',
+      },
+      teams: {
+        home: {
+          id: 91,
+          name: 'Monaco',
+          logo: 'https://media-3.api-sports.io/football/teams/91.png',
+          winner: null,
+        },
+        away: {
+          id: 168,
+          name: 'Bayer Leverkusen',
+          logo: 'https://media-3.api-sports.io/football/teams/168.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 971776,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-23T17:45:00+00:00',
+        timestamp: 1677174300,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 1143,
+          name: 'Philips Stadion',
+          city: 'Eindhoven',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 3,
+        name: 'UEFA Europa League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/3.png',
+        flag: null,
+        season: 2022,
+        round: 'Knockout Round Play-offs',
+      },
+      teams: {
+        home: {
+          id: 197,
+          name: 'PSV Eindhoven',
+          logo: 'https://media-3.api-sports.io/football/teams/197.png',
+          winner: null,
+        },
+        away: {
+          id: 536,
+          name: 'Sevilla',
+          logo: 'https://media.api-sports.io/football/teams/536.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+    {
+      fixture: {
+        id: 971762,
+        referee: null,
+        timezone: 'UTC',
+        date: '2023-02-23T20:00:00+00:00',
+        timestamp: 1677182400,
+        periods: {
+          first: null,
+          second: null,
+        },
+        venue: {
+          id: 556,
+          name: 'Old Trafford',
+          city: 'Manchester',
+        },
+        status: {
+          long: 'Not Started',
+          short: 'NS',
+          elapsed: null,
+        },
+      },
+      league: {
+        id: 3,
+        name: 'UEFA Europa League',
+        country: 'World',
+        logo: 'https://media-3.api-sports.io/football/leagues/3.png',
+        flag: null,
+        season: 2022,
+        round: 'Knockout Round Play-offs',
+      },
+      teams: {
+        home: {
+          id: 33,
+          name: 'Manchester United',
+          logo: 'https://media-3.api-sports.io/football/teams/33.png',
+          winner: null,
+        },
+        away: {
+          id: 529,
+          name: 'Barcelona',
+          logo: 'https://media-3.api-sports.io/football/teams/529.png',
+          winner: null,
+        },
+      },
+      goals: {
+        home: null,
+        away: null,
+      },
+      score: {
+        halftime: {
+          home: null,
+          away: null,
+        },
+        fulltime: {
+          home: null,
+          away: null,
+        },
+        extratime: {
+          home: null,
+          away: null,
+        },
+        penalty: {
+          home: null,
+          away: null,
+        },
+      },
+    },
+  ],
+};
 
 export const mockScores = {
   'UEFA Champions League': [

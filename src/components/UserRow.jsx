@@ -98,11 +98,11 @@ export default function UserRow({ team }) {
         ))}
       </div>
       <LeftArrowButton
-        onClick={handleLeftButtonClick}
+        onClick={() => handleLeftButtonClick(scrollableRef)}
         className="left-arrow left-arrow--user-row"
       />
       <RightArrowButton
-        onClick={handleRightButtonClick}
+        onClick={() => handleRightButtonClick(scrollableRef)}
         className="right-arrow right-arrow--user-row"
       />
     </section>

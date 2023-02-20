@@ -83,11 +83,11 @@ export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
         ))}
       </div>
       <LeftArrowButton
-        onClick={handleLeftButtonClick}
+        onClick={() => handleLeftButtonClick(scrollableRef)}
         className="left-arrow left-arrow--matches-row"
       />
       <RightArrowButton
-        onClick={handleRightButtonClick}
+        onClick={() => handleRightButtonClick(scrollableRef)}
         className="right-arrow right-arrow--matches-row"
       />
     </div>

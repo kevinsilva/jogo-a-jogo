@@ -109,11 +109,11 @@ export default function FeaturedRow() {
         ))}
       </div>
       <LeftArrowButton
-        onClick={handleLeftButtonClick}
+        onClick={() => handleLeftButtonClick(scrollableRef)}
         className="left-arrow left-arrow--featured"
       />
       <RightArrowButton
-        onClick={handleRightButtonClick}
+        onClick={() => handleRightButtonClick(scrollableRef)}
         className="right-arrow right-arrow--featured"
       />
     </section>
