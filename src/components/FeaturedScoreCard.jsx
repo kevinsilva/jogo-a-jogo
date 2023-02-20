@@ -5,13 +5,13 @@ export default function FeaturedScoreCard({ scoreData }) {
     <div className="featured-card">
       <div className="featured-card__side featured-card__side--front">
         <div className="featured-card__header">
-          <h4 className="featured-card__info">{scoreData.league.name}</h4>
+          <h6 className="featured-card__info">{scoreData.league.name}</h6>
         </div>
         <div className="featured-card__main">
           <div className="featured-card__home">
-            <h3 className="featured-card__home-name">
+            <h5 className="featured-card__home-name">
               {scoreData.teams.home.name.slice(0, 3)}
-            </h3>
+            </h5>
             <img
               className="featured-card__home-img"
               src={scoreData.teams.home.logo}
@@ -24,45 +24,45 @@ export default function FeaturedScoreCard({ scoreData }) {
               src={scoreData.teams.away.logo}
               alt=""
             />
-            <h3 className="featured-card__away-name">
+            <h5 className="featured-card__away-name">
               {scoreData.teams.away.name.slice(0, 3)}
-            </h3>
+            </h5>
           </div>
           <hr className="line" />
           <div className="featured-card__score">
-            <h3 className="featured-card__score-home">
+            <h5 className="featured-card__score-home">
               {scoreData.goals.home}&nbsp;-
-            </h3>
-            <h3 className="featured-card__score-away">
+            </h5>
+            <h5 className="featured-card__score-away">
               &nbsp;{scoreData.goals.away}
-            </h3>
+            </h5>
           </div>
         </div>
         <div className="featured-card__footer">
-          <h4 className="featured-card__info">
+          <h6 className="featured-card__info">
             {formatDate(scoreData.fixture.date)}
-          </h4>
+          </h6>
         </div>
       </div>
       <div className="featured-card__side featured-card__side--back">
         <div className="featured-card__header">
-          <h4 className="featured-card__info">Recinto</h4>
+          <h6 className="featured-card__info">Recinto</h6>
         </div>
         <div className="featured-card__main">
           <div className="featured-card__stadium">
-            <h4 className="featured-card__stadium-name">
+            <h5 className="featured-card__stadium-name">
               {scoreData.fixture.venue.name}
-            </h4>
+            </h5>
           </div>
           <hr className="line" />
           <div className="featured-card__city">
-            <h4 className="featured-card__city-name">
+            <h5 className="featured-card__city-name">
               {scoreData.fixture.venue.city}
-            </h4>
+            </h5>
           </div>
         </div>
         <div className="featured-card__footer">
-          <h4 className="featured-card__info">Local</h4>
+          <h6 className="featured-card__info">Local</h6>
         </div>
       </div>
     </div>

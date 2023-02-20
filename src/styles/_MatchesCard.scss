@@ -23,12 +23,20 @@
   &__league,
   &__date {
     font-weight: 400;
+    font-size: 1.6rem;
   }
 
   &__main {
     &--preview {
       @include mixins.flex-between;
     }
+  }
+
+  &__home-name,
+  &__away-name,
+  &__home-goals,
+  &__away-goals {
+    font-size: 1.8rem;
   }
 
   &__home {
@@ -60,6 +68,7 @@
   }
 
   &__tv-name {
+    font-size: 1.6rem;
     inline-size: 5rem;
   }
 }
