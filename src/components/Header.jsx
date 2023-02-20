@@ -12,7 +12,15 @@ export default function Header() {
   return (
     <header className="header">
       <div className="logo-container">
-        <img className="logo-main" src="src/assets/logo.svg" alt="" />
+        <img
+          className="logo-main"
+          src="src/assets/logo.svg"
+          alt="logo"
+          onClick={() => {
+            setPopupOpen(false);
+            restoreScroll();
+          }}
+        />
       </div>
 
       {!context.isUserOnline() ? (

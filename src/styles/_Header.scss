@@ -14,3 +14,9 @@
   );
   @include mixins.flex-between_align-center;
 }
+
+.logo-container {
+  position: relative;
+  z-index: 6;
+  cursor: pointer;
+}

@@ -38,16 +38,16 @@ $card-shadow: 0rem 0.5rem 1rem rgba($color-black, 0.15);
 
 $left-arrow_shadow: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.6));
 
-$right-arrow_shadow: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+$right-arrow_shadow: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.6));
 
 $left-arrow_strong-shadow: linear-gradient(
   to left,
   transparent,
-  rgba(0, 0, 0, 0.6)
+  rgba(0, 0, 0, 0.9)
 );
 
 $right-arrow_strong-shadow: linear-gradient(
   to right,
   transparent,
-  rgba(0, 0, 0, 1)
+  rgba(0, 0, 0, 0.9)
 );

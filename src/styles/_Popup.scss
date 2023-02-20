@@ -15,7 +15,7 @@
     visibility: hidden;
   }
 
-  &__button-close {
+  &__close {
     @include mixins.w-screen_h-screen;
     @include mixins.absolute_zero;
     border: none;
