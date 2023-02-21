@@ -5,6 +5,10 @@
   perspective: 150rem;
   position: relative;
 
+  @media (hover: none) {
+    cursor: pointer;
+  }
+
   &:first-child {
     padding-left: 40%;
     padding-left: 44rem;
@@ -61,6 +65,18 @@
 
   &:hover &__side--back {
     transform: rotateY(0deg);
+  }
+
+  @media (hover: none) {
+    &:hover &__side--front,
+    &:active &__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back,
+    &:active &__side--back {
+      transform: rotateY(0deg);
+    }
   }
 
   &:not(:last-child) {
