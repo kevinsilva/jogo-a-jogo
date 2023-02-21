@@ -1,15 +1,25 @@
+import React from 'react';
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__social">
-        <a href="https://github.com/kevinsilva" target="_blank">
+        <a
+          href="https://github.com/kevinsilva"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img
             className="github-logo"
             src="src/assets/logo-github.svg"
             alt="github-logo"
           />
         </a>
-        <a href="https://www.linkedin.com/in/kevinsilva-j/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/kevinsilva-j/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img
             className="linkedin-logo"
             src="src/assets/logo-linkedin.svg"

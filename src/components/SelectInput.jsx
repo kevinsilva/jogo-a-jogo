@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function SelectInput({ label, value, onChange, options }) {
   return (
     <>

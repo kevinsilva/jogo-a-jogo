@@ -136,69 +136,65 @@ Others: list-style, table-layout, animation, etc.
 5- clean
 6- doc
 
-
 // USER MOCK
 // useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockUserScores),
-//     mockFetchData(mockUserPreviews),
-//   ])
-//     .then(([scores, previews]) => {
-//       console.log(scores, previews);
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
+// Promise.all([
+// mockFetchData(mockUserScores),
+// mockFetchData(mockUserPreviews),
+// ])
+// .then(([scores, previews]) => {
+// console.log(scores, previews);
+// setScoreData(scores);
+// setPreviewData(previews);
+// setState('fulfilled');
+// })
+// .catch((error) => {
+// console.log(error);
+// setState('rejected');
+// });
 // }, []);
 
 // MATCHES MOCK
 // useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockScores[leagueName]),
-//     mockFetchData(mockPreviews[leagueName]),
-//   ])
-//     .then(([scores, previews]) => {
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
+// Promise.all([
+// mockFetchData(mockScores[leagueName]),
+// mockFetchData(mockPreviews[leagueName]),
+// ])
+// .then(([scores, previews]) => {
+// setScoreData(scores);
+// setPreviewData(previews);
+// setState('fulfilled');
+// })
+// .catch((error) => {
+// console.log(error);
+// setState('rejected');
+// });
 // }, []);
 
 // FEATURED MOCK
 
 // useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockFeaturedScores),
-//     mockFetchData(mockFeaturedPreviews),
-//   ])
-//     .then(([scores, previews]) => {
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
+// Promise.all([
+// mockFetchData(mockFeaturedScores),
+// mockFetchData(mockFeaturedPreviews),
+// ])
+// .then(([scores, previews]) => {
+// setScoreData(scores);
+// setPreviewData(previews);
+// setState('fulfilled');
+// })
+// .catch((error) => {
+// console.log(error);
+// setState('rejected');
+// });
 // }, []);
 
-
-
-
 // export const favoriteTeamOptions = [
-//   { label: '', value: '' },
-//   { label: 'Benfica', value: 'benfica' },
-//   { label: 'Real Madrid', value: 'realMadrid' },
+// { label: '', value: '' },
+// { label: 'Benfica', value: 'benfica' },
+// { label: 'Real Madrid', value: 'realMadrid' },
 // ];
 
 // export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
-//   return { label: team.label, value: team.id };
+// return { label: team.label, value: team.id };
 // });

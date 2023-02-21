@@ -11,9 +11,15 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  ignorePatterns: ['node_modules', '*.test.js', './dist/'],
+  ignorePatterns: ['node_modules', '*.test.js', './dist/', './dist/assets/*'],
   rules: {
     semi: [2, 'always'],
-    'no-unused-vars': ['error', { 'argsIgnorePattern':'^_' }]
+    'react/prop-types': 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

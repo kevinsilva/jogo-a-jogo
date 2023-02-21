@@ -10,4 +10,3 @@ export function mockFetchData(data) {
 export async function getMockData(scoreData, previewData) {
   return Promise.all([mockFetchData(scoreData), mockFetchData(previewData)]);
 }
-

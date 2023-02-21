@@ -1,11 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   FEATURED_TEAMS,
   handleLeftButtonClick,
   handleRightButtonClick,
 } from '../utils/utilities';
 import { getFeaturedMatches } from '../utils/services';
-import { mockFetchData, getMockData } from '../mocks/services';
+import { getMockData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 import FeaturedScoreCard from './FeaturedScoreCard';
 import FeaturedPreviewCard from './FeaturedPreviewCard';

@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Error({
   type = 'generic',
   children = 'Ocorreu um erro. Por favor, tente novamente.',

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Error from './Error';
@@ -20,7 +20,7 @@ export default function Form() {
           onError={(msg) => setError(msg)}
         />
       )}
-      {error && <Error type="form" children={error} />}
+      {error && <Error type="form">{error}</Error>}
     </div>
   );
 }

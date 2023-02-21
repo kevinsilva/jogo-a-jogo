@@ -1,9 +1,5 @@
-import {
-  formatDate,
-  LEAGUES,
-  TEAMS,
-  calcRemainingTime,
-} from '../utils/utilities';
+import React from 'react';
+import { formatDate, LEAGUES, calcRemainingTime } from '../utils/utilities';
 
 export default function FeaturedPreviewCard({ previewData }) {
   return (

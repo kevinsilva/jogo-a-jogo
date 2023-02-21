@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { formatDate, LEAGUES } from '../utils/utilities';
 
 export default function PreviewCard({ previewData }) {

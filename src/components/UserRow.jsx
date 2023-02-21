@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import { getMockData, mockFetchData } from '../mocks/services';
+import React, { useEffect, useState, useRef } from 'react';
+import { getMockData } from '../mocks/services';
 import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';

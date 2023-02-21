@@ -7784,4 +7784,3 @@ export const mockScores = {
     },
   ],
 };
-

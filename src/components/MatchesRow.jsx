@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { fetchLeagueMatches } from '../utils/services';
-import { getMockData, mockFetchData } from '../mocks/services';
+import { getMockData } from '../mocks/services';
 import {
   handleLeftButtonClick,
   handleRightButtonClick,

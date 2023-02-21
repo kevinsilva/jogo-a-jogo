@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function TextInput({ label, value, onChange, type = 'text' }) {
   return (
     <>

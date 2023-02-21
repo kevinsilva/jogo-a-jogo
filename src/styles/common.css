@@ -1,0 +1,203 @@
+/* Colors
+------------------------------------------ */
+/* Breakpoints
+------------------------------------------ */
+/* Fonts
+------------------------------------------ */
+/* SVG
+------------------------------------------ */
+/* Visuals
+------------------------------------------ */
+/* Layout
+------------------------------------------ */
+/* Box Model
+------------------------------------------ */
+/* Layout
+------------------------------------------ */
+/* Flexbox
+------------------------------------------ */
+/* Visuals
+------------------------------------------ */
+/* Typographical
+------------------------------------------ */
+/* Sections
+------------------------------------------ */
+.section {
+  padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+.section__title-container {
+  margin: 0rem 6rem 10rem 0;
+  text-align: right;
+}
+@media only screen and (max-width: 40.5em) {
+  .section__title-container {
+    margin: 0rem 0rem 10rem 0;
+    text-align: center;
+  }
+}
+
+.section__title {
+  font-size: 9.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 8rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 1.5px rgb(255, 255, 255), 0 0 1.5px rgb(255, 255, 255),
+    0 0 1.5px rgb(255, 255, 255), 0 0 1.5px rgb(255, 255, 255);
+}
+.section__title--emphasis {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-shadow: none;
+}
+
+/* Scrollable-row
+------------------------------------------ */
+.scrollable-row {
+  padding: 6rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: auto;
+  position: relative;
+  cursor: default;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.scrollable-row::-webkit-scrollbar {
+  display: none;
+}
+@media only screen and (max-width: 40.5em) {
+  .scrollable-row {
+    padding: 6rem 4rem;
+  }
+}
+
+/* Logo
+------------------------------------------ */
+.logo-main {
+  width: 12rem;
+  height: 12rem;
+}
+
+.logo-secondary {
+  height: 4rem;
+}
+@media only screen and (max-width: 40.5em) {
+  .logo-secondary {
+    display: none;
+  }
+}
+
+/* Buttons
+------------------------------------------ */
+.primary-button {
+  height: 4rem;
+  padding: 1rem 2rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-image-slice: 1;
+  border-width: 1px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.primary-button:hover {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgb(192, 238, 242),
+    rgb(83, 127, 231)
+  );
+  border-image-source: linear-gradient(
+    to right,
+    rgb(192, 238, 242),
+    rgb(83, 127, 231)
+  );
+}
+
+.secondary-button {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgb(173, 173, 173);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+.secondary-button:hover {
+  color: rgb(192, 238, 242);
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+@media only screen and (max-width: 40.5em) {
+  .secondary-button {
+    font-size: 2rem;
+  }
+}
+
+.right-arrow,
+.left-arrow {
+  font-weight: 100;
+  position: absolute;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.right-arrow:hover,
+.left-arrow:hover {
+  font-size: 5rem;
+  color: rgb(173, 173, 173);
+}
+
+.right-arrow:hover {
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.6));
+}
+
+.left-arrow:hover {
+  background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.6));
+}
+
+/* Loading
+------------------------------------------ */
+.loading-spinner {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid gray;
+  border-top-color: black;
+  border-right-color: black;
+  border-radius: 50%;
+  margin-bottom: 10rem;
+  position: relative;
+  left: 50vw;
+  animation: spin 1s linear infinite;
+  transition: spin 0.2s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Visuals
+------------------------------------------ */
+.line {
+  width: calc(100% - 3.6rem);
+  height: 1px;
+  border: none;
+  margin: 0 auto;
+  background-color: rgb(173, 173, 173);
+} /*# sourceMappingURL=common.css.map */

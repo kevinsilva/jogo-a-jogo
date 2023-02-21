@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Popup({ trigger, open, onClose, children }) {
   return (
     <>
