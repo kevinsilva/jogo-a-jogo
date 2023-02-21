@@ -1,9 +1,8 @@
 import { API_KEY, getCurrentSeason } from './utilities';
-// API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
 
 const getRequestOptions = () => {
   const myHeaders = new Headers();
-  myHeaders.append('x-apisports-key', 'ccc6e9ccf15214149d1e671f5a8c116e');
+  myHeaders.append('x-apisports-key', API_KEY);
 
   return {
     method: 'GET',

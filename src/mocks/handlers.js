@@ -1,6 +1,3 @@
-import { rest } from 'msw';
-import { API_KEY } from '../utils/utilities';
-
 export const mockStatistics = [
   {
     league: {
@@ -7788,34 +7785,3 @@ export const mockScores = {
   ],
 };
 
-const getRequestOptions = () => {
-  const myHeaders = new Headers();
-  myHeaders.append('x-apisports-key', API_KEY);
-
-  return {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow',
-  };
-};
-
-const url =
-  'https://v3.football.api-sports.io/fixtures?league=94&season=2022&last=9';
-
-// const url2 = `https://v3.football.api-sports.io/fixtures?league=${leagueID}&season=${season}&last=${totalMatches}`;
-
-export const handlers = [
-  rest.get('/crazy', (req, res, ctx) => {
-    return res(ctx.status(200), '100%');
-  }),
-  // rest.get(url, (req, res, ctx) => {
-  //   // req.method = getRequestOptions().method;
-  //   // req.headers = getRequestOptions().headers;
-  //   // req.redirect = getRequestOptions().redirect;
-
-  //   // req.url.searchParams.get('league');
-
-  //   // return res(ctx.status(200), ctx.json(mockScores));
-  //   return res(ctx.status(200), 'directo');
-  // }),
-];

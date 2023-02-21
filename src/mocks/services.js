@@ -1,5 +1,3 @@
-import { mockFeaturedScores, mockFeaturedPreviews } from './handlers';
-
 export function mockFetchData(data) {
   return new Promise((thenCB, catchCB) => {
     setTimeout(() => {
@@ -9,75 +7,7 @@ export function mockFetchData(data) {
   });
 }
 
-export async function getFeaturedMockData() {
-  return Promise.all([
-    mockFetchData(mockFeaturedScores),
-    mockFetchData(mockFeaturedPreviews),
-  ])
-    .then(([scores, previews]) => {
-      console.log(scores, previews);
-      setScoreData(scores);
-      setPreviewData(previews);
-      setState('fulfilled');
-    })
-    .catch((error) => {
-      console.log(error);
-      setState('rejected');
-    });
-}
-
 export async function getMockData(scoreData, previewData) {
   return Promise.all([mockFetchData(scoreData), mockFetchData(previewData)]);
 }
-// USER MOCK
-// useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockUserScores),
-//     mockFetchData(mockUserPreviews),
-//   ])
-//     .then(([scores, previews]) => {
-//       console.log(scores, previews);
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
-// }, []);
 
-// MATCHES MOCK
-// useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockScores[leagueName]),
-//     mockFetchData(mockPreviews[leagueName]),
-//   ])
-//     .then(([scores, previews]) => {
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
-// }, []);
-
-// FEATURED MOCK
-
-// useEffect(() => {
-//   Promise.all([
-//     mockFetchData(mockFeaturedScores),
-//     mockFetchData(mockFeaturedPreviews),
-//   ])
-//     .then(([scores, previews]) => {
-//       setScoreData(scores);
-//       setPreviewData(previews);
-//       setState('fulfilled');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       setState('rejected');
-//     });
-// }, []);

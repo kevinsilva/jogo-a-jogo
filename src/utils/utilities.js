@@ -1,6 +1,4 @@
-import { fetchTeamStats } from './services';
-
-export const API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
+export const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const LEAGUES = {
   'Primeira Liga': {
