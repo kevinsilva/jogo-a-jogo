@@ -1,42 +1,81 @@
 # Jogo a Jogo
 
-A single-page [React](https://reactjs.org/) application that displays the results of past world football matches and the preview information of upcoming matches.
+<p align="center"><img src="./src/assets/logo.jpg" width="300"></p>
+
+<div align="center">
+
+<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/guitarWC/csb-guitarWC?file=%2FREADME.md)</a>
+
+</div>
+
+A responsive single-page [React](https://reactjs.org/) application that displays scores and previews information about world football matches.
 
 ## Implementation Details
 
-definição do projecto: scores e preview - ui em scroll
-descrição das features: login, featured, match
-tradução dos componentes: como estão organizados, context, estado, responsabilidades, use effect, local storage.
+This project allows users to view information about past and upcoming world football matches. It displays content in a left-to-right representation of time (from past to future) to provide a clear and concise user experience. The past matches show the final score whereas the future matches show the tv channel that will broadcast them.
 
-The project started by defining how to visually represent both the results and the preview info of the matches with a different approach. The solution was to resort to the left to right representation of time: a row of grouped cards ordered from left to right in time, so the results are left of the previews.
+### Features
 
-The page has three main features: a login/user registration, a featured section at the top, and various championship sections at the bottom.
+- **User Account**: allows the user to select his favourite team, which will then display a section of past and future matches for that team.
+- **Featured Matches**: displays matches of pre-determined teams. When a user hovers a card, it flips them, showing additional information for that match (the venue and how much time left for the game).
+- **Competition Matches**: displays past and upcoming matches for various European competitions, grouped by round.
 
-The login/user registration adds another row to the UI with all past and future matches of selected team at registration. The featured section fetches one past game and one next game from the most important teams. The championship sections fetches matches from previous championship round and next round.
+### User Account
 
-The main component is the App component.
+The user account feature adds another row to the UI, showing matches of the selected user team at the time of registration. The Header component displays a button responsible for the handling of the sign-in/sign-out functionality. If there is a user signed in, a sign-out button is shown. If, on the other hand, there is no user signed in, a button that triggers a popup with a sign form is shown instead. The Form component holds the state for the sign mode and the form validation errors. The user session data is stored in localStorage. 
 
-The Header component is responsible for returning the trigger of the sign feature. It resorts to the useContext hook to call the function isUserOnline, which determines if there is an user with the property isOnline set to true. If there is no user online, the Header component returns the button trigger for the sign Form component, a child of a Popup component. If there is a user online, then the Header component returns a button that calls the sign out function of the context.
+This structure avoids prop drilling by resorting to the useContext hook. It reinforces the separation of concerns of the components by maintaining the user’s state on the main App component, passing functions like isUserSignedIn, addUser, SignUser and SignOut. 
 
-The Form component holds the state for the sign mode and the form validation errors. It returns the SignIn Component by default, but a button or the SignUp Component. The Sig
+### Featured Matches 
 
-is the parent of the Form component. It either displays a trigger button for the popup that returns the sign form or a sign out button.
+The featured section uses CSS animations with [SCSS](https://sass-lang.com/), to display a scrollable row of grouped UI cards for matches of pre-determined teams. The cards show additional information when flipped by a hover event. 
 
-App
-Header with context for users data base, localstorage, functions: sign, signout, add, isonline.
-has popup with a button trigger and a form as a child
+The component uses an async/await function that iterates through an array of featured teams, fetching the most recent completed match, and the next scheduled match  for each team. It returns up to four unique team matches from the RESTful [API-Football](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
 
-Featured Row
-User Row
-Matches Row
 
-This project started by determining the rules for this game, naming the constituent elements and defining the separation of concerns. After designing the interface, the game was developed with both a functional approach, and a object oriented (oop) class approach.
+### Competition Matches
 
-Since the main concept takes inspiration from guitar colors, the monochromatic interface was designed on [Figma](https://www.figma.com/) with the clear intention as to make the guitar color pop. I resorted to HTML and [Tailwind](https://tailwindcss.com/) to program the interface with static elements, making the usability as simple as possible.
+The competitions section show the past round of games and the next round for different competitions. 
 
-Both programming paradigms used, support a clear distinction between the rendering of the dynamic elements of the page, and the business logic of the game. The development environment of [Vite](https://vitejs.dev/), allowed me to easily add [jQuery](https://jquery.com/) in modules, testing the units with [Vitest](https://vitest.dev/). By taking the random generator of the guitar colors as the most basic functionality, it allowed for the formation of questions and the establishment of the color to be displayed. Essentially, there are four different screens: the start screen, the ask screen, the answer screen, and the end screen. Each screen renders the state to the elements. The click events update the state and compute the logic.
+To improve usability, clickable arrows were added to all scrollable rows, allowing users to navigate matches if they do not have a mouse or trackpad with horizontal scrolling. This was achieved using the useRef hook to access the scrollable HTML div without triggering a component re-render.
+
+### Final points
+
+The project was built using [React](https://reactjs.org/), [SCSS](https://sass-lang.com/), and CSS animations under the development environment of [Vite](https://vitejs.dev/). [Prettier](https://prettier.io/) and [Eslint](https://eslint.org/) were used for code formatting and style consistency. Since this is my first [React](https://reactjs.org/) portfolio project, unit tests were not included.
+
+I designed the UI on [Figma](https://www.figma.com/).
+
+> **! Note:**
+>
+> Mocked data is used in case there are errors fetching data. 
+>
+> The application is in Portuguese to be consistent and coherent with the available data. 
 
 ## Usage
+
+To change or add teams to the featured section, edit the FEATURED_TEAMS array on `./src/utils/utilities.js`, and add inherent ID from [API-Football Documentation](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
+
+```js
+const FEATURED_TEAMS = [
+  211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
+];
+```
+
+
+To fetch other competition data, read [API-Football Documentation](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account) to find other league names and IDs, and use them as arguments for the MatchRow component. 
+
+```js
+<MatchesRow
+  leagueName={'UEFA Champions League'}
+  leagueID={2}
+  totalMatches={LEAGUES['UEFA Champions League'].matchesByRound}
+/>
+```
+
+
+> **! Note**
+>
+> Production build on the dist folder.
 
 # Development
 
@@ -56,7 +95,11 @@ To run the application.
 
 ## Credits
 
-Big thanks to my mentor 🎓, [William R. J. Ribeiro](https://github.com/williamrjribeiro/).
+API data from [API-Football](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
+
+Flipping card animation inspired by Jonas Schmedtmann's [Advanced CSS & SASS course](https://www.udemy.com/course/advanced-css-and-sass/).
+
+Special thanks to my mentor 🎓, [William R. J. Ribeiro](https://github.com/williamrjribeiro/).
 
 ## Licence
 

@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
+
 import TextInput from './TextInput';
+
 import { AppContext } from '../App';
 
 export default function SignIn({ onSignUpClick, onError }) {

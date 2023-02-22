@@ -1,5 +1,7 @@
 import React from 'react';
+
 import MatchesRow from './MatchesRow';
+
 import { LEAGUES } from '../utils/utilities';
 
 export default function Leagues() {

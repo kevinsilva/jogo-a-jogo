@@ -23,32 +23,6 @@ export async function fetchLeagueMatches(leagueID, totalMatches, lastOrNext) {
   return result;
 }
 
-export async function fetchTeamStats(teamID, leagueID) {
-  const season = getCurrentSeason();
-
-  const promise = fetch(
-    `https://v3.football.api-sports.io/teams/statistics?season=${season}&team=${teamID}&league=${leagueID}`,
-    getRequestOptions()
-  );
-
-  const response = await promise;
-  const result = await response.json();
-  console.log(result);
-  return result;
-}
-
-export async function fetchTeamMatch(teamID, lastOrNext) {
-  const promise = fetch(
-    `https://v3.football.api-sports.io/fixtures?team=${teamID}&${lastOrNext}=1`,
-    getRequestOptions()
-  );
-  const response = await promise;
-  const result = await response.json();
-
-  if (result.errors) throw new Error('Error fetching data');
-
-  return result;
-}
 
 export async function fetchTeamMatches(teamID, totalMatches = 1, lastOrNext) {
   const promise = fetch(
@@ -63,6 +37,18 @@ export async function fetchTeamMatches(teamID, totalMatches = 1, lastOrNext) {
   return result;
 }
 
+export async function getFeaturedMatches(sortedTeams, lastOrNext) {
+  const matches = [];
+
+  for (const teamID of sortedTeams) {
+    if (matches.length >= 4) break;
+    const match = await fetchTeamMatches(teamID, lastOrNext);
+    if (!matches.includes(match.response)) matches.push(match.response);
+  }
+
+  return matches;
+}
+
 export async function getTeamsForm(teamsObj) {
   return Promise.all(
     Object.values(teamsObj).map(async (team) => {
@@ -72,14 +58,16 @@ export async function getTeamsForm(teamsObj) {
   );
 }
 
-export async function getFeaturedMatches(sortedTeams, lastOrNext) {
-  const matches = [];
+export async function fetchTeamStats(teamID, leagueID) {
+  const season = getCurrentSeason();
 
-  for (const teamID of sortedTeams) {
-    if (matches.length >= 4) break;
-    const match = await fetchTeamMatch(teamID, lastOrNext);
-    if (!matches.includes(match.response)) matches.push(match.response);
-  }
+  const promise = fetch(
+    `https://v3.football.api-sports.io/teams/statistics?season=${season}&team=${teamID}&league=${leagueID}`,
+    getRequestOptions()
+  );
 
-  return matches;
+  const response = await promise;
+  const result = await response.json();
+  console.log(result);
+  return result;
 }

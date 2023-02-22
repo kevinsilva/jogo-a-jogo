@@ -1,4 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
+
+import FeaturedScoreCard from './FeaturedScoreCard';
+import FeaturedPreviewCard from './FeaturedPreviewCard';
+import Error from './Error';
+import RightArrowButton from './RightArrowButton';
+import LeftArrowButton from './LeftArrowButton';
+
 import {
   FEATURED_TEAMS,
   handleLeftButtonClick,
@@ -7,11 +14,7 @@ import {
 import { getFeaturedMatches } from '../utils/services';
 import { getMockData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
-import FeaturedScoreCard from './FeaturedScoreCard';
-import FeaturedPreviewCard from './FeaturedPreviewCard';
-import Error from './Error';
-import RightArrowButton from './RightArrowButton';
-import LeftArrowButton from './LeftArrowButton';
+
 
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');

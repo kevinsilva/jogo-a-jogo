@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { formatDate } from '../utils/utilities';
 
 export default function FeaturedScoreCard({ scoreData }) {

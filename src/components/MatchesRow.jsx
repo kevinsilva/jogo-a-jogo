@@ -1,4 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
+
+import ScoreCard from './ScoreCard';
+import PreviewCard from './PreviewCard';
+import Error from './Error';
+import RightArrowButton from './RightArrowButton';
+import LeftArrowButton from './LeftArrowButton';
+
 import { fetchLeagueMatches } from '../utils/services';
 import { getMockData } from '../mocks/services';
 import {
@@ -6,11 +13,7 @@ import {
   handleRightButtonClick,
 } from '../utils/utilities';
 import { mockScores, mockPreviews } from '../mocks/handlers';
-import ScoreCard from './ScoreCard';
-import PreviewCard from './PreviewCard';
-import Error from './Error';
-import RightArrowButton from './RightArrowButton';
-import LeftArrowButton from './LeftArrowButton';
+
 
 export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [state, setState] = useState('pending');

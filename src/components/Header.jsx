@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
+
 import Popup from './Popup';
 import Form from './Form';
+
 import { AppContext } from '../App';
 import { preventScroll, restoreScroll } from '../utils/utilities';
 
@@ -23,7 +25,7 @@ export default function Header() {
         />
       </div>
 
-      {!context.isUserOnline() ? (
+      {!context.isUserSignedIn() ? (
         <Popup
           open={isPopupOpen}
           onClose={() => {

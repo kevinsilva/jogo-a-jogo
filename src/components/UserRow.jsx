@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { getMockData } from '../mocks/services';
-import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
+
 import ScoreCard from './ScoreCard';
 import PreviewCard from './PreviewCard';
 import Error from './Error';
 import RightArrowButton from './RightArrowButton';
 import LeftArrowButton from './LeftArrowButton';
+
+import { getMockData } from '../mocks/services';
+import { mockUserScores, mockUserPreviews } from '../mocks/handlers';
 import {
   getTeamLabel,
   handleLeftButtonClick,

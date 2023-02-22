@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { formatDate, LEAGUES, calcRemainingTime } from '../utils/utilities';
 
 export default function FeaturedPreviewCard({ previewData }) {

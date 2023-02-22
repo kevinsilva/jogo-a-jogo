@@ -5,6 +5,7 @@ import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import Leagues from './components/Leagues';
 import Footer from './components/Footer';
+
 import {
   isValid,
   isUserValid,
@@ -50,7 +51,7 @@ function App() {
       return 'Introduza um email válido!';
     if (!isValid.password.format(password))
       return 'A palavra-passe deve ter mais de 5 caracteres.';
-    const newUsers = [...users, { email, password, team, isOnline: true }];
+    const newUsers = [...users, { email, password, team, isSignedIn: true }];
     setUsers(newUsers);
     restoreScroll();
     return '';
@@ -62,7 +63,7 @@ function App() {
     if (isUserValid(context.users, email, password)) {
       const copyUsers = structuredClone(context.users);
       const foundUser = copyUsers.find((user) => user.email == email);
-      foundUser.isOnline = true;
+      foundUser.isSignedIn = true;
       setUsers(copyUsers);
       restoreScroll();
       return '';
@@ -74,13 +75,13 @@ function App() {
 
   const signOut = () => {
     const copyUsers = structuredClone(context.users);
-    const foundUser = copyUsers.find((user) => user.isOnline == true);
-    foundUser.isOnline = false;
+    const foundUser = copyUsers.find((user) => user.isSignedIn == true);
+    foundUser.isSignedIn = false;
     setUsers(copyUsers);
   };
 
-  const isUserOnline = () => {
-    return users.find((user) => user.isOnline) ? true : false;
+  const isUserSignedIn = () => {
+    return users.find((user) => user.isSignedIn) ? true : false;
   };
 
   const context = {
@@ -88,7 +89,7 @@ function App() {
     addUser,
     signUser,
     signOut,
-    isUserOnline,
+    isUserSignedIn,
   };
 
   return (
@@ -98,7 +99,7 @@ function App() {
       </AppContext.Provider>
       <FeaturedRow />
 
-      {isUserOnline() && getUserTeam(users) && (
+      {isUserSignedIn() && getUserTeam(users) && (
         <UserRow team={getUserTeam(users)} />
       )}
       <Leagues />

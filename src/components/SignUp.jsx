@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
+
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
+
 import { AppContext } from '../App';
 import { favoriteTeamOptions } from '../utils/utilities';
 

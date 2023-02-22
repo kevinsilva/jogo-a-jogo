@@ -1,4 +1,7 @@
-export const API_KEY = process.env.REACT_APP_API_KEY;
+/* DATA
+------------------------------------------ */
+export const API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
+// export const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const LEAGUES = {
   'Primeira Liga': {
@@ -158,6 +161,8 @@ export const FEATURED_TEAMS = [
   211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
 ];
 
+/* UI 
+------------------------------------------ */
 export function preventScroll() {
   document.body.style.overflow = 'hidden';
 }
@@ -166,28 +171,20 @@ export function restoreScroll() {
   document.body.style.overflow = 'auto';
 }
 
-export function formatDate(date) {
-  //date format: '2022-11-14T20:15:00+00:00'
-  const day = date.slice(5, 10).split('-').reverse().join('/');
-  const hour = date.slice(11, 16);
+export const handleLeftButtonClick = (target) => {
+  if (target.current) {
+    target.current.scrollLeft -= 200;
+  }
+};
 
-  return `${day} - ${hour}`;
-}
+export const handleRightButtonClick = (target) => {
+  if (target.current) {
+    target.current.scrollLeft += 200;
+  }
+};
 
-export function calcFormPoints(form) {
-  let total = 0;
-
-  form.split('').forEach((letter) => {
-    if (letter === 'W') total += 3;
-    if (letter === 'D') total += 1;
-  });
-
-  return total;
-}
-
-export function compareSecondIndex(a, b) {
-  return b[1] - a[1];
-}
+/* Validation 
+------------------------------------------ */
 
 export const isUserValid = (usersArr, email, password) => {
   if (usersArr.map((user) => user.email).includes(email)) {
@@ -210,15 +207,40 @@ export const isValid = {
   },
 };
 
-// export const favoriteTeamOptions = [
-//   { label: '', value: '' },
-//   { label: 'Benfica', value: 'benfica' },
-//   { label: 'Real Madrid', value: 'realMadrid' },
-// ];
+/* General Logic 
+------------------------------------------ */
 
-// export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
-//   return { label: team.label, value: team.id };
-// });
+export function getCurrentSeason() {
+  const month = new Date().getMonth();
+  const year = new Date().getFullYear();
+
+  if (month < 7) return year - 1;
+  return year;
+}
+
+export function formatDate(date) {
+  //date format: '2022-11-14T20:15:00+00:00'
+  const day = date.slice(5, 10).split('-').reverse().join('/');
+  const hour = date.slice(11, 16);
+
+  return `${day} - ${hour}`;
+}
+
+export function compareSecondIndex(a, b) {
+  return b[1] - a[1];
+}
+
+export function getTeamLabel(teamID) {
+  return Object.values(TEAMS).filter((team) => team.id == teamID)[0]?.label;
+}
+
+export const getUserTeam = (users) => {
+  return users.find((user) => user.isSignedIn == true)?.team;
+};
+
+
+/* Featured  
+------------------------------------------ */
 
 export const favoriteTeamOptions = Object.values(TEAMS).reduce(
   (acc, team) => {
@@ -226,6 +248,8 @@ export const favoriteTeamOptions = Object.values(TEAMS).reduce(
   },
   [{ label: '', value: '' }]
 );
+
+
 
 export function calcRemainingTime(matchTimestamp) {
   const matchTime = matchTimestamp * 1000;
@@ -254,20 +278,15 @@ export function calcRemainingTime(matchTimestamp) {
   return `${verb} ${adverb} ${Math.floor(value)} ${type}`;
 }
 
-export function getTeamLabel(teamID) {
-  return Object.values(TEAMS).filter((team) => team.id == teamID)[0]?.label;
-}
+export function calcFormPoints(form) {
+  let total = 0;
 
-export const getUserTeam = (users) => {
-  return users.find((user) => user.isOnline == true)?.team;
-};
+  form.split('').forEach((letter) => {
+    if (letter === 'W') total += 3;
+    if (letter === 'D') total += 1;
+  });
 
-export function getCurrentSeason() {
-  const month = new Date().getMonth();
-  const year = new Date().getFullYear();
-
-  if (month < 7) return year - 1;
-  return year;
+  return total;
 }
 
 export function sortTeamsByForm(teamsForm) {
@@ -281,14 +300,3 @@ export function sortTeamsByForm(teamsForm) {
   return sortedTeams;
 }
 
-export const handleLeftButtonClick = (target) => {
-  if (target.current) {
-    target.current.scrollLeft -= 200;
-  }
-};
-
-export const handleRightButtonClick = (target) => {
-  if (target.current) {
-    target.current.scrollLeft += 200;
-  }
-};

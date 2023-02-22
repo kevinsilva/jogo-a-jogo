@@ -1,264 +1,3 @@
-export const mockStatistics = [
-  {
-    league: {
-      id: 94,
-      name: 'Primeira Liga',
-      country: 'Portugal',
-      logo: 'https://media-3.api-sports.io/football/leagues/94.png',
-      flag: 'https://media-3.api-sports.io/flags/pt.svg',
-      season: 2022,
-    },
-    team: {
-      id: 211,
-      name: 'Benfica',
-      logo: 'https://media-1.api-sports.io/football/teams/211.png',
-    },
-    form: 'WWWWWWWDWWWWWL',
-    fixtures: {
-      played: {
-        home: 7,
-        away: 7,
-        total: 14,
-      },
-      wins: {
-        home: 7,
-        away: 5,
-        total: 12,
-      },
-      draws: {
-        home: 0,
-        away: 1,
-        total: 1,
-      },
-      loses: {
-        home: 0,
-        away: 1,
-        total: 1,
-      },
-    },
-    goals: {
-      for: {
-        total: {
-          home: 26,
-          away: 11,
-          total: 37,
-        },
-        average: {
-          home: '3.7',
-          away: '1.6',
-          total: '2.6',
-        },
-        minute: {
-          '0-15': {
-            total: 5,
-            percentage: '13.89%',
-          },
-          '16-30': {
-            total: 4,
-            percentage: '11.11%',
-          },
-          '31-45': {
-            total: 5,
-            percentage: '13.89%',
-          },
-          '46-60': {
-            total: 7,
-            percentage: '19.44%',
-          },
-          '61-75': {
-            total: 6,
-            percentage: '16.67%',
-          },
-          '76-90': {
-            total: 7,
-            percentage: '19.44%',
-          },
-          '91-105': {
-            total: 2,
-            percentage: '5.56%',
-          },
-          '106-120': {
-            total: null,
-            percentage: null,
-          },
-        },
-      },
-      against: {
-        total: {
-          home: 6,
-          away: 4,
-          total: 10,
-        },
-        average: {
-          home: '0.9',
-          away: '0.6',
-          total: '0.7',
-        },
-        minute: {
-          '0-15': {
-            total: 2,
-            percentage: '18.18%',
-          },
-          '16-30': {
-            total: 3,
-            percentage: '27.27%',
-          },
-          '31-45': {
-            total: 2,
-            percentage: '18.18%',
-          },
-          '46-60': {
-            total: null,
-            percentage: null,
-          },
-          '61-75': {
-            total: 1,
-            percentage: '9.09%',
-          },
-          '76-90': {
-            total: 2,
-            percentage: '18.18%',
-          },
-          '91-105': {
-            total: 1,
-            percentage: '9.09%',
-          },
-          '106-120': {
-            total: null,
-            percentage: null,
-          },
-        },
-      },
-    },
-    biggest: {
-      streak: {
-        wins: 7,
-        draws: 1,
-        loses: 0,
-      },
-      wins: {
-        home: '5-0',
-        away: '1-5',
-      },
-      loses: {
-        home: null,
-        away: '3-0',
-      },
-      goals: {
-        for: {
-          home: 5,
-          away: 5,
-        },
-        against: {
-          home: 2,
-          away: 3,
-        },
-      },
-    },
-    clean_sheet: {
-      home: 3,
-      away: 5,
-      total: 8,
-    },
-    failed_to_score: {
-      home: 0,
-      away: 2,
-      total: 2,
-    },
-    penalty: {
-      scored: {
-        total: 4,
-        percentage: '100.00%',
-      },
-      missed: {
-        total: 0,
-        percentage: '0%',
-      },
-      total: 4,
-    },
-    lineups: [
-      {
-        formation: '4-2-3-1',
-        played: 13,
-      },
-      {
-        formation: '4-4-2',
-        played: 1,
-      },
-    ],
-    cards: {
-      yellow: {
-        '0-15': {
-          total: 3,
-          percentage: '8.82%',
-        },
-        '16-30': {
-          total: 4,
-          percentage: '11.76%',
-        },
-        '31-45': {
-          total: 5,
-          percentage: '14.71%',
-        },
-        '46-60': {
-          total: 5,
-          percentage: '14.71%',
-        },
-        '61-75': {
-          total: 2,
-          percentage: '5.88%',
-        },
-        '76-90': {
-          total: 10,
-          percentage: '29.41%',
-        },
-        '91-105': {
-          total: 5,
-          percentage: '14.71%',
-        },
-        '106-120': {
-          total: null,
-          percentage: null,
-        },
-      },
-      red: {
-        '0-15': {
-          total: null,
-          percentage: null,
-        },
-        '16-30': {
-          total: null,
-          percentage: null,
-        },
-        '31-45': {
-          total: null,
-          percentage: null,
-        },
-        '46-60': {
-          total: null,
-          percentage: null,
-        },
-        '61-75': {
-          total: null,
-          percentage: null,
-        },
-        '76-90': {
-          total: null,
-          percentage: null,
-        },
-        '91-105': {
-          total: 3,
-          percentage: '100.00%',
-        },
-        '106-120': {
-          total: null,
-          percentage: null,
-        },
-      },
-    },
-  },
-];
-
 export const mockUserScores = [
   {
     fixture: {
@@ -7784,3 +7523,264 @@ export const mockScores = {
     },
   ],
 };
+
+export const mockStatistics = [
+  {
+    league: {
+      id: 94,
+      name: 'Primeira Liga',
+      country: 'Portugal',
+      logo: 'https://media-3.api-sports.io/football/leagues/94.png',
+      flag: 'https://media-3.api-sports.io/flags/pt.svg',
+      season: 2022,
+    },
+    team: {
+      id: 211,
+      name: 'Benfica',
+      logo: 'https://media-1.api-sports.io/football/teams/211.png',
+    },
+    form: 'WWWWWWWDWWWWWL',
+    fixtures: {
+      played: {
+        home: 7,
+        away: 7,
+        total: 14,
+      },
+      wins: {
+        home: 7,
+        away: 5,
+        total: 12,
+      },
+      draws: {
+        home: 0,
+        away: 1,
+        total: 1,
+      },
+      loses: {
+        home: 0,
+        away: 1,
+        total: 1,
+      },
+    },
+    goals: {
+      for: {
+        total: {
+          home: 26,
+          away: 11,
+          total: 37,
+        },
+        average: {
+          home: '3.7',
+          away: '1.6',
+          total: '2.6',
+        },
+        minute: {
+          '0-15': {
+            total: 5,
+            percentage: '13.89%',
+          },
+          '16-30': {
+            total: 4,
+            percentage: '11.11%',
+          },
+          '31-45': {
+            total: 5,
+            percentage: '13.89%',
+          },
+          '46-60': {
+            total: 7,
+            percentage: '19.44%',
+          },
+          '61-75': {
+            total: 6,
+            percentage: '16.67%',
+          },
+          '76-90': {
+            total: 7,
+            percentage: '19.44%',
+          },
+          '91-105': {
+            total: 2,
+            percentage: '5.56%',
+          },
+          '106-120': {
+            total: null,
+            percentage: null,
+          },
+        },
+      },
+      against: {
+        total: {
+          home: 6,
+          away: 4,
+          total: 10,
+        },
+        average: {
+          home: '0.9',
+          away: '0.6',
+          total: '0.7',
+        },
+        minute: {
+          '0-15': {
+            total: 2,
+            percentage: '18.18%',
+          },
+          '16-30': {
+            total: 3,
+            percentage: '27.27%',
+          },
+          '31-45': {
+            total: 2,
+            percentage: '18.18%',
+          },
+          '46-60': {
+            total: null,
+            percentage: null,
+          },
+          '61-75': {
+            total: 1,
+            percentage: '9.09%',
+          },
+          '76-90': {
+            total: 2,
+            percentage: '18.18%',
+          },
+          '91-105': {
+            total: 1,
+            percentage: '9.09%',
+          },
+          '106-120': {
+            total: null,
+            percentage: null,
+          },
+        },
+      },
+    },
+    biggest: {
+      streak: {
+        wins: 7,
+        draws: 1,
+        loses: 0,
+      },
+      wins: {
+        home: '5-0',
+        away: '1-5',
+      },
+      loses: {
+        home: null,
+        away: '3-0',
+      },
+      goals: {
+        for: {
+          home: 5,
+          away: 5,
+        },
+        against: {
+          home: 2,
+          away: 3,
+        },
+      },
+    },
+    clean_sheet: {
+      home: 3,
+      away: 5,
+      total: 8,
+    },
+    failed_to_score: {
+      home: 0,
+      away: 2,
+      total: 2,
+    },
+    penalty: {
+      scored: {
+        total: 4,
+        percentage: '100.00%',
+      },
+      missed: {
+        total: 0,
+        percentage: '0%',
+      },
+      total: 4,
+    },
+    lineups: [
+      {
+        formation: '4-2-3-1',
+        played: 13,
+      },
+      {
+        formation: '4-4-2',
+        played: 1,
+      },
+    ],
+    cards: {
+      yellow: {
+        '0-15': {
+          total: 3,
+          percentage: '8.82%',
+        },
+        '16-30': {
+          total: 4,
+          percentage: '11.76%',
+        },
+        '31-45': {
+          total: 5,
+          percentage: '14.71%',
+        },
+        '46-60': {
+          total: 5,
+          percentage: '14.71%',
+        },
+        '61-75': {
+          total: 2,
+          percentage: '5.88%',
+        },
+        '76-90': {
+          total: 10,
+          percentage: '29.41%',
+        },
+        '91-105': {
+          total: 5,
+          percentage: '14.71%',
+        },
+        '106-120': {
+          total: null,
+          percentage: null,
+        },
+      },
+      red: {
+        '0-15': {
+          total: null,
+          percentage: null,
+        },
+        '16-30': {
+          total: null,
+          percentage: null,
+        },
+        '31-45': {
+          total: null,
+          percentage: null,
+        },
+        '46-60': {
+          total: null,
+          percentage: null,
+        },
+        '61-75': {
+          total: null,
+          percentage: null,
+        },
+        '76-90': {
+          total: null,
+          percentage: null,
+        },
+        '91-105': {
+          total: 3,
+          percentage: '100.00%',
+        },
+        '106-120': {
+          total: null,
+          percentage: null,
+        },
+      },
+    },
+  },
+];
