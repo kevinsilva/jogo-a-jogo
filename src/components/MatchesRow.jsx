@@ -14,7 +14,6 @@ import {
 } from '../utils/utilities';
 import { mockScores, mockPreviews } from '../mocks/handlers';
 
-
 export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);

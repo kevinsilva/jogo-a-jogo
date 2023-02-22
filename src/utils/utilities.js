@@ -238,7 +238,6 @@ export const getUserTeam = (users) => {
   return users.find((user) => user.isSignedIn == true)?.team;
 };
 
-
 /* Featured  
 ------------------------------------------ */
 
@@ -248,8 +247,6 @@ export const favoriteTeamOptions = Object.values(TEAMS).reduce(
   },
   [{ label: '', value: '' }]
 );
-
-
 
 export function calcRemainingTime(matchTimestamp) {
   const matchTime = matchTimestamp * 1000;
@@ -299,4 +296,3 @@ export function sortTeamsByForm(teamsForm) {
   const sortedTeams = sortedTeamsForm.map(([teamID, _]) => teamID);
   return sortedTeams;
 }
-

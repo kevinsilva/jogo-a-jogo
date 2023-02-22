@@ -15,7 +15,6 @@ import { getFeaturedMatches } from '../utils/services';
 import { getMockData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
 
-
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);

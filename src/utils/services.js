@@ -23,7 +23,6 @@ export async function fetchLeagueMatches(leagueID, totalMatches, lastOrNext) {
   return result;
 }
 
-
 export async function fetchTeamMatches(teamID, totalMatches = 1, lastOrNext) {
   const promise = fetch(
     `https://v3.football.api-sports.io/fixtures?team=${teamID}&${lastOrNext}=${totalMatches}`,

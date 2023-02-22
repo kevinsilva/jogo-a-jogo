@@ -22,20 +22,19 @@ This project allows users to view information about past and upcoming world foot
 
 ### User Account
 
-The user account feature adds another row to the UI, showing matches of the selected user team at the time of registration. The Header component displays a button responsible for the handling of the sign-in/sign-out functionality. If there is a user signed in, a sign-out button is shown. If, on the other hand, there is no user signed in, a button that triggers a popup with a sign form is shown instead. The Form component holds the state for the sign mode and the form validation errors. The user session data is stored in localStorage. 
+The user account feature adds another row to the UI, showing matches of the selected user team at the time of registration. The Header component displays a button responsible for the handling of the sign-in/sign-out functionality. If there is a user signed in, a sign-out button is shown. If, on the other hand, there is no user signed in, a button that triggers a popup with a sign form is shown instead. The Form component holds the state for the sign mode and the form validation errors. The user session data is stored in localStorage.
 
-This structure avoids prop drilling by resorting to the useContext hook. It reinforces the separation of concerns of the components by maintaining the user’s state on the main App component, passing functions like isUserSignedIn, addUser, SignUser and SignOut. 
+This structure avoids prop drilling by resorting to the useContext hook. It reinforces the separation of concerns of the components by maintaining the user’s state on the main App component, passing functions like isUserSignedIn, addUser, SignUser and SignOut.
 
-### Featured Matches 
+### Featured Matches
 
-The featured section uses CSS animations with [SCSS](https://sass-lang.com/), to display a scrollable row of grouped UI cards for matches of pre-determined teams. The cards show additional information when flipped by a hover event. 
+The featured section uses CSS animations with [SCSS](https://sass-lang.com/), to display a scrollable row of grouped UI cards for matches of pre-determined teams. The cards show additional information when flipped by a hover event.
 
-The component uses an async/await function that iterates through an array of featured teams, fetching the most recent completed match, and the next scheduled match  for each team. It returns up to four unique team matches from the RESTful [API-Football](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
-
+The component uses an async/await function that iterates through an array of featured teams, fetching the most recent completed match, and the next scheduled match for each team. It returns up to four unique team matches from the RESTful [API-Football](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
 
 ### Competition Matches
 
-The competitions section show the past round of games and the next round for different competitions. 
+The competitions section show the past round of games and the next round for different competitions.
 
 To improve usability, clickable arrows were added to all scrollable rows, allowing users to navigate matches if they do not have a mouse or trackpad with horizontal scrolling. This was achieved using the useRef hook to access the scrollable HTML div without triggering a component re-render.
 
@@ -47,22 +46,19 @@ I designed the UI on [Figma](https://www.figma.com/).
 
 > **! Note:**
 >
-> Mocked data is used in case there are errors fetching data. 
+> Mocked data is used in case there are errors fetching data.
 >
-> The application is in Portuguese to be consistent and coherent with the available data. 
+> The application is in Portuguese to be consistent and coherent with the available data.
 
 ## Usage
 
 To change or add teams to the featured section, edit the FEATURED_TEAMS array on `./src/utils/utilities.js`, and add inherent ID from [API-Football Documentation](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
 
 ```js
-const FEATURED_TEAMS = [
-  211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
-];
+const FEATURED_TEAMS = [211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80];
 ```
 
-
-To fetch other competition data, read [API-Football Documentation](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account) to find other league names and IDs, and use them as arguments for the MatchRow component. 
+To fetch other competition data, read [API-Football Documentation](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account) to find other league names and IDs, and use them as arguments for the MatchRow component.
 
 ```js
 <MatchesRow
@@ -71,7 +67,6 @@ To fetch other competition data, read [API-Football Documentation](https://www.a
   totalMatches={LEAGUES['UEFA Champions League'].matchesByRound}
 />
 ```
-
 
 > **! Note**
 >

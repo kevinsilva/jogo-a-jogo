@@ -101,10 +101,7 @@ Else
 
 fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
 
-
 ## outros
-
-
 
 // USER MOCK
 // useEffect(() => {
