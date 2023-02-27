@@ -50,7 +50,7 @@ function App() {
     )
       return 'Introduza um email válido!';
     if (!isValid.password.format(password))
-      return 'A palavra-passe deve ter mais de 5 caracteres.';
+      return 'A palavra-passe deve ter mais de cinco caracteres.';
     const newUsers = [...users, { email, password, team, isSignedIn: true }];
     setUsers(newUsers);
     restoreScroll();
