@@ -46,23 +46,6 @@ export default function UserRow({ team }) {
       });
   }, []);
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     mockFetchData(mockUserScores),
-  //     mockFetchData(mockUserPreviews),
-  //   ])
-  //     .then(([scores, previews]) => {
-  //       console.log(scores, previews);
-  //       setScoreData(scores);
-  //       setPreviewData(previews);
-  //       setState('fulfilled');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setState('rejected');
-  //     });
-  // }, []);
-
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
 

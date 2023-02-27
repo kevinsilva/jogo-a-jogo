@@ -68,7 +68,6 @@ function App() {
       restoreScroll();
       return '';
     } else {
-      // setPassword('');
       return 'As informações não correspondem. Por favor, tente novamente.';
     }
   };
