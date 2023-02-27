@@ -85,7 +85,7 @@ npm install
 To run the application.
 
 ```bash
-  npm run start
+  npm run dev
 ```
 
 ## Credits
