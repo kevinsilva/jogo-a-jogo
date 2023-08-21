@@ -4,7 +4,7 @@
 
 <div align="center">
 
-<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/jogo-a-jogo/main?workspaceId=1f184592-fa38-402f-b23c-0307de96618d&file=%2FREADME.md)</a>
+<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/github/kevinsilva/jogo-a-jogo/main?file=%2FREADME.md&workspace=%257B%2522activeFilepath%2522%253A%2522%252FREADME.md%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clgf1sobb000x3b6id5uxtcth%2522%253A%257B%2522key%2522%253A%2522clgf1sobb000x3b6id5uxtcth%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522key%2522%253A%2522clgf1sobb000y3b6i5385me0g%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clgf1sobb000x3b6id5uxtcth%2522%252C%2522spacesOrder%2522%253A%255B%2522clgf1sobb000x3b6id5uxtcth%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)</a>
 
 </div>
 
@@ -90,11 +90,11 @@ To run the application.
 
 ## Credits
 
+Special thanks to my mentor 🎓, [William R. J. Ribeiro](https://github.com/williamrjribeiro/).
+
 API data from [API-Football](https://www.api-football.com/documentation-v3#section/Authentication/RAPIDAPI-Account).
 
 Flipping card animation inspired by Jonas Schmedtmann's [Advanced CSS & SASS course](https://www.udemy.com/course/advanced-css-and-sass/).
-
-Special thanks to my mentor 🎓, [William R. J. Ribeiro](https://github.com/williamrjribeiro/).
 
 ## Licence
 

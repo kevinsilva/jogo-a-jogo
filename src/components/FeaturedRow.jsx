@@ -14,6 +14,7 @@ import {
 import { getFeaturedMatches } from '../utils/services';
 import { getMockData } from '../mocks/services';
 import { mockFeaturedScores, mockFeaturedPreviews } from '../mocks/handlers';
+import { sortFeaturedTeams } from '../utils/utilities';
 
 export default function FeaturedRow() {
   const [state, setState] = useState('pending');
@@ -22,28 +23,28 @@ export default function FeaturedRow() {
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    Promise.all([
-      getFeaturedMatches(FEATURED_TEAMS, 'last'),
-      getFeaturedMatches(FEATURED_TEAMS, 'next'),
-    ])
-      .then(([scores, previews]) => {
-        setScoreData(scores);
-        setPreviewData(previews);
-        setState('fulfilled');
-      })
-      .catch((error) => {
-        console.log(error);
-        getMockData(mockFeaturedScores, mockFeaturedPreviews)
-          .then(([scores, previews]) => {
-            setScoreData(scores);
-            setPreviewData(previews);
-            setState('fulfilled');
-          })
-          .catch((error) => {
-            console.log(error);
-            setState('rejected');
-          });
-      });
+    if (!scoreData && !previewData) {
+      getFeaturedMatches(sortFeaturedTeams(FEATURED_TEAMS))
+        .then(({ last: scores, next: previews }) => {
+          console.log(scores, previews);
+          setScoreData(scores);
+          setPreviewData(previews);
+          setState('fulfilled');
+        })
+        .catch((error) => {
+          console.log(error);
+          getMockData(mockFeaturedScores, mockFeaturedPreviews)
+            .then(([scores, previews]) => {
+              setScoreData(scores);
+              setPreviewData(previews);
+              setState('fulfilled');
+            })
+            .catch((error) => {
+              console.log(error);
+              setState('rejected');
+            });
+        });
+    }
   }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;

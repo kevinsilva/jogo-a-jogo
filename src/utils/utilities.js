@@ -1,7 +1,5 @@
 /* DATA
 ------------------------------------------ */
-export const API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
-// export const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const LEAGUES = {
   'Primeira Liga': {
@@ -161,7 +159,7 @@ export const FEATURED_TEAMS = [
   211, 40, 541, 496, 157, 85, 50, 529, 492, 165, 80,
 ];
 
-/* UI 
+/* UI
 ------------------------------------------ */
 export function preventScroll() {
   document.body.style.overflow = 'hidden';
@@ -183,7 +181,7 @@ export const handleRightButtonClick = (target) => {
   }
 };
 
-/* Validation 
+/* Validation
 ------------------------------------------ */
 
 export const isUserValid = (usersArr, email, password) => {
@@ -207,7 +205,7 @@ export const isValid = {
   },
 };
 
-/* General Logic 
+/* General Logic
 ------------------------------------------ */
 
 export function getCurrentSeason() {
@@ -238,7 +236,7 @@ export const getUserTeam = (users) => {
   return users.find((user) => user.isSignedIn == true)?.team;
 };
 
-/* Featured  
+/* Featured
 ------------------------------------------ */
 
 export const favoriteTeamOptions = Object.values(TEAMS).reduce(
@@ -294,5 +292,19 @@ export function sortTeamsByForm(teamsForm) {
 
   const sortedTeamsForm = formPoints.sort(compareSecondIndex);
   const sortedTeams = sortedTeamsForm.map(([teamID, _]) => teamID);
+  return sortedTeams;
+}
+
+export function sortFeaturedTeams(featuredTeams) {
+  const sortedTeams = [];
+
+  while (sortedTeams.length < featuredTeams.length) {
+    const randomIndex = Math.floor(Math.random() * featuredTeams.length);
+    const randomTeam = featuredTeams[randomIndex];
+
+    if (!sortedTeams.includes(randomTeam)) {
+      sortedTeams.push(randomTeam);
+    }
+  }
   return sortedTeams;
 }

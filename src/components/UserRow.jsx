@@ -23,7 +23,7 @@ export default function UserRow({ team }) {
 
   useEffect(() => {
     Promise.all([
-      fetchTeamMatches(team, 10, 'last'),
+      fetchTeamMatches(team, 1, 'last'),
       fetchTeamMatches(team, 5, 'next'),
     ])
       .then(([scores, previews]) => {

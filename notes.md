@@ -165,3 +165,8 @@ fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
 // export const favoriteTeamOptions = Object.values(TEAMS).map((team) => {
 // return { label: team.label, value: team.id };
 // });
+
+## Bug
+
+I am fetching repeated games. why?
+Tenho de rever api calls

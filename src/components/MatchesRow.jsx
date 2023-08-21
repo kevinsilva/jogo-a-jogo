@@ -14,35 +14,46 @@ import {
 } from '../utils/utilities';
 import { mockScores, mockPreviews } from '../mocks/handlers';
 
-export default function MatchesRow({ leagueName, leagueID, totalMatches }) {
+export default function MatchesRow({
+  leagueName,
+  leagueID,
+  totalMatches,
+  mock = true,
+}) {
   const [state, setState] = useState('pending');
   const [scoreData, setScoreData] = useState(null);
   const [previewData, setPreviewData] = useState(null);
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    Promise.all([
-      fetchLeagueMatches(leagueID, totalMatches, 'last'),
-      fetchLeagueMatches(leagueID, totalMatches, 'next'),
-    ])
-      .then(([scores, previews]) => {
-        setScoreData(scores.response);
-        setPreviewData(previews.response);
-        setState('fulfilled');
-      })
-      .catch((error) => {
-        console.log(error);
-        getMockData(mockScores[leagueName], mockPreviews[leagueName])
+    if (mock) {
+      getMockData(mockScores[leagueName], mockPreviews[leagueName])
+        .then(([scores, previews]) => {
+          setScoreData(scores);
+          setPreviewData(previews);
+          setState('fulfilled');
+        })
+        .catch((error) => {
+          console.log(error);
+          setState('rejected');
+        });
+    } else {
+      if (!scoreData && !previewData) {
+        Promise.all([
+          fetchLeagueMatches(leagueID, totalMatches, 'last'),
+          fetchLeagueMatches(leagueID, totalMatches, 'next'),
+        ])
           .then(([scores, previews]) => {
-            setScoreData(scores);
-            setPreviewData(previews);
+            setScoreData(scores.response);
+            setPreviewData(previews.response);
             setState('fulfilled');
           })
           .catch((error) => {
             console.log(error);
             setState('rejected');
           });
-      });
+      }
+    }
   }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
