@@ -13,7 +13,7 @@ import {
   handleLeftButtonClick,
   handleRightButtonClick,
 } from '../utils/utilities';
-import { fetchTeamMatches, getUserMatches } from '../utils/services';
+import { getUserMatches } from '../utils/services';
 
 export default function UserRow({ team }) {
   const [state, setState] = useState('pending');
