@@ -35,9 +35,17 @@ export async function fetchTeamMatches(teamID, lastOrNext, totalMatches = 1) {
   );
   const response = await promise;
   const result = await response.json();
+  // console.log(result.errors);
+  // if (!Array.isArray(result.errors))
+  //   throw new Error('Error fetching data: ', result.errors);
 
-  if (!Array.isArray(result.errors)) throw new Error('Error fetching data');
-  return result.response[0];
+  if (!Array.isArray(result.errors)) {
+    const errorMessage =
+      'Error fetching data: ' + JSON.stringify(result.errors);
+    throw new Error(errorMessage);
+  }
+
+  return result.response;
 }
 
 export async function getFeaturedMatches(teams) {
@@ -51,10 +59,25 @@ export async function getFeaturedMatches(teams) {
       const lastMatch = await fetchTeamMatches(teamID, 'last');
       const nextMatch = await fetchTeamMatches(teamID, 'next');
 
-      if (!matches.last.includes(lastMatch)) matches.last.push(lastMatch);
-      if (!matches.next.includes(nextMatch)) matches.next.push(nextMatch);
+      if (!matches.last.includes(lastMatch)) matches.last.push(...lastMatch);
+      if (!matches.next.includes(nextMatch)) matches.next.push(...nextMatch);
     }
   }
+  return matches;
+}
+
+export async function getUserMatches(team) {
+  const matches = {
+    last: [],
+    next: [],
+  };
+
+  const lastMatches = await fetchTeamMatches(team, 'last', 1);
+  const nextMatches = await fetchTeamMatches(team, 'next', 5);
+
+  matches.last.push(...lastMatches);
+  matches.next.push(...nextMatches);
+
   return matches;
 }
 

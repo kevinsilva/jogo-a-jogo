@@ -1,9 +1,11 @@
 import React from 'react';
 
 export default function TextInput({ label, value, onChange, type = 'text' }) {
+  const inputId = `${label.toLowerCase()}-input`;
+
   return (
     <>
-      <label htmlFor="" className="form__label">
+      <label htmlFor={inputId} className="form__label">
         {label}
       </label>
       <input
@@ -11,6 +13,8 @@ export default function TextInput({ label, value, onChange, type = 'text' }) {
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        name="formInput"
+        id={inputId}
       />
     </>
   );

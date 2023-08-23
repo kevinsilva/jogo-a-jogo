@@ -14,21 +14,21 @@ export default function PreviewCard({ previewData }) {
       <div className="match-card__main match-card__main--preview">
         <div className="match-card__teams">
           <div className="match-card__home">
-            <img
+            {/* <img
               className="match-card__home-img"
               src={previewData.teams.home.logo}
               alt=""
-            />
+            /> */}
             <h3 className="match-card__home-name">
               {previewData.teams.home.name}
             </h3>
           </div>
           <div className="match-card__away">
-            <img
+            {/* <img
               className="match-card__away-img"
               src={previewData.teams.away.logo}
               alt=""
-            />
+            /> */}
             <h3 className="match-card__away-name">
               {previewData.teams.away.name}
             </h3>

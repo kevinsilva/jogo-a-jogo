@@ -168,5 +168,18 @@ fetch team last and next match from BENFICA LIVERPOOL REAL MADRID AC MILAN
 
 ## Bug
 
-I am fetching repeated games. why?
-Tenho de rever api calls
+Solution:
+
+useEffect Run Twice in React v18.0.
+
+If you need to run once, you can disable strict mode in index.js file which is not recommended.
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode> // remove strict mode from here, not recommended
+<App />
+</React.StrictMode>
+);
+More on details here
+
+In production build, it'll be solved and useEffect hook will be called only once.

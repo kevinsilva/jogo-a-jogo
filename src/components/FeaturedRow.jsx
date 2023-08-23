@@ -23,28 +23,26 @@ export default function FeaturedRow() {
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    if (!scoreData && !previewData) {
-      getFeaturedMatches(sortFeaturedTeams(FEATURED_TEAMS))
-        .then(({ last: scores, next: previews }) => {
-          console.log(scores, previews);
-          setScoreData(scores);
-          setPreviewData(previews);
-          setState('fulfilled');
-        })
-        .catch((error) => {
-          console.log(error);
-          getMockData(mockFeaturedScores, mockFeaturedPreviews)
-            .then(([scores, previews]) => {
-              setScoreData(scores);
-              setPreviewData(previews);
-              setState('fulfilled');
-            })
-            .catch((error) => {
-              console.log(error);
-              setState('rejected');
-            });
-        });
-    }
+    getFeaturedMatches(sortFeaturedTeams(FEATURED_TEAMS))
+      .then(({ last: scores, next: previews }) => {
+        console.log(scores, previews);
+        setScoreData(scores);
+        setPreviewData(previews);
+        setState('fulfilled');
+      })
+      .catch((error) => {
+        console.log(error);
+        getMockData(mockFeaturedScores, mockFeaturedPreviews)
+          .then(([scores, previews]) => {
+            setScoreData(scores);
+            setPreviewData(previews);
+            setState('fulfilled');
+          })
+          .catch((error) => {
+            console.log(error);
+            setState('rejected');
+          });
+      });
   }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;

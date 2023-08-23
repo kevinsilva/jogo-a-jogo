@@ -38,21 +38,19 @@ export default function MatchesRow({
           setState('rejected');
         });
     } else {
-      if (!scoreData && !previewData) {
-        Promise.all([
-          fetchLeagueMatches(leagueID, totalMatches, 'last'),
-          fetchLeagueMatches(leagueID, totalMatches, 'next'),
-        ])
-          .then(([scores, previews]) => {
-            setScoreData(scores.response);
-            setPreviewData(previews.response);
-            setState('fulfilled');
-          })
-          .catch((error) => {
-            console.log(error);
-            setState('rejected');
-          });
-      }
+      Promise.all([
+        fetchLeagueMatches(leagueID, totalMatches, 'last'),
+        fetchLeagueMatches(leagueID, totalMatches, 'next'),
+      ])
+        .then(([scores, previews]) => {
+          setScoreData(scores.response);
+          setPreviewData(previews.response);
+          setState('fulfilled');
+        })
+        .catch((error) => {
+          console.log(error);
+          setState('rejected');
+        });
     }
   }, []);
 

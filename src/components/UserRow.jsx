@@ -13,7 +13,7 @@ import {
   handleLeftButtonClick,
   handleRightButtonClick,
 } from '../utils/utilities';
-import { fetchTeamMatches } from '../utils/services';
+import { fetchTeamMatches, getUserMatches } from '../utils/services';
 
 export default function UserRow({ team }) {
   const [state, setState] = useState('pending');
@@ -22,13 +22,11 @@ export default function UserRow({ team }) {
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    Promise.all([
-      fetchTeamMatches(team, 1, 'last'),
-      fetchTeamMatches(team, 5, 'next'),
-    ])
-      .then(([scores, previews]) => {
-        setScoreData(scores.response);
-        setPreviewData(previews.response);
+    getUserMatches(team)
+      .then(({ last: scores, next: previews }) => {
+        console.log(scores, previews);
+        setScoreData(scores);
+        setPreviewData(previews);
         setState('fulfilled');
       })
       .catch((error) => {
@@ -45,6 +43,30 @@ export default function UserRow({ team }) {
           });
       });
   }, []);
+  // useEffect(() => {
+  //   Promise.all([
+  //     fetchTeamMatches(team, 1, 'last'),
+  //     fetchTeamMatches(team, 5, 'next'),
+  //   ])
+  //     .then(([scores, previews]) => {
+  //       setScoreData(scores);
+  //       setPreviewData(previews);
+  //       setState('fulfilled');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       getMockData(mockUserScores, mockUserPreviews)
+  //         .then(([scores, previews]) => {
+  //           setScoreData(scores);
+  //           setPreviewData(previews);
+  //           setState('fulfilled');
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //           setState('rejected');
+  //         });
+  //     });
+  // }, []);
 
   if (state == 'pending') return <div className="loading-spinner">&nbsp;</div>;
   if (state == 'rejected') return <Error />;
