@@ -22,7 +22,7 @@ export default function UserRow({ team }) {
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    getUserMatches(team)
+    getUserMatches(team, 1, 5)
       .then(({ last: scores, next: previews }) => {
         console.log(scores, previews);
         setScoreData(scores);

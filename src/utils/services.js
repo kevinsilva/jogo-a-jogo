@@ -21,9 +21,10 @@ export async function fetchLeagueMatches(leagueID, totalMatches, lastOrNext) {
   const response = await promise;
   const result = await response.json();
 
-  console.log(result);
-  if (!Array.isArray(result.errors)) throw new Error('Error fetching data');
-  // if (result.errors.length > 0) throw new Error('Error fetching data');
+  if (!Array.isArray(result.errors)) {
+    const errorMsg = `Error fetching data: ${JSON.stringify(result.errors)}`;
+    throw new Error(errorMsg);
+  }
   return result;
 }
 
@@ -35,27 +36,23 @@ export async function fetchTeamMatches(teamID, lastOrNext, totalMatches = 1) {
   );
   const response = await promise;
   const result = await response.json();
-  // console.log(result.errors);
-  // if (!Array.isArray(result.errors))
-  //   throw new Error('Error fetching data: ', result.errors);
 
   if (!Array.isArray(result.errors)) {
-    const errorMessage =
-      'Error fetching data: ' + JSON.stringify(result.errors);
-    throw new Error(errorMessage);
+    const errorMsg = `Error fetching data: ${JSON.stringify(result.errors)}`;
+    throw new Error(errorMsg);
   }
 
   return result.response;
 }
 
-export async function getFeaturedMatches(teams) {
+export async function getFeaturedMatches(teams, matchesPerType) {
   const matches = {
     last: [],
     next: [],
   };
 
   for (const teamID of teams) {
-    if (matches.last.length < 2) {
+    if (matches.last.length < matchesPerType) {
       const lastMatch = await fetchTeamMatches(teamID, 'last');
       const nextMatch = await fetchTeamMatches(teamID, 'next');
 
@@ -66,14 +63,18 @@ export async function getFeaturedMatches(teams) {
   return matches;
 }
 
-export async function getUserMatches(team) {
+export async function getUserMatches(
+  team,
+  numberOfLastMatches,
+  numberOfNextMatches
+) {
   const matches = {
     last: [],
     next: [],
   };
 
-  const lastMatches = await fetchTeamMatches(team, 'last', 1);
-  const nextMatches = await fetchTeamMatches(team, 'next', 5);
+  const lastMatches = await fetchTeamMatches(team, 'last', numberOfLastMatches);
+  const nextMatches = await fetchTeamMatches(team, 'next', numberOfNextMatches);
 
   matches.last.push(...lastMatches);
   matches.next.push(...nextMatches);

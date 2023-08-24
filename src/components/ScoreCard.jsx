@@ -13,20 +13,20 @@ export default function ScoreCard({ scoreData }) {
       </div>
       <div className="match-card__main match-card__main--score">
         <div className="match-card__home">
-          {/* <img
+          <img
             className="match-card__home-img"
             src={scoreData.teams.home.logo}
             alt=""
-          /> */}
+          />
           <h5 className="match-card__home-name">{scoreData.teams.home.name}</h5>
           <h5 className="match-card__home-goals">{scoreData.goals.home}</h5>
         </div>
         <div className="match-card__away">
-          {/* <img
+          <img
             className="match-card__away-img"
             src={scoreData.teams.away.logo}
             alt=""
-          /> */}
+          />
           <h5 className="match-card__away-name">{scoreData.teams.away.name}</h5>
           <h5 className="match-card__away-goals">{scoreData.goals.away}</h5>
         </div>

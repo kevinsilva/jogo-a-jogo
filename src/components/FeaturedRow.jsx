@@ -23,7 +23,7 @@ export default function FeaturedRow() {
   const scrollableRef = useRef(null);
 
   useEffect(() => {
-    getFeaturedMatches(sortFeaturedTeams(FEATURED_TEAMS))
+    getFeaturedMatches(sortFeaturedTeams(FEATURED_TEAMS), 2)
       .then(({ last: scores, next: previews }) => {
         console.log(scores, previews);
         setScoreData(scores);
