@@ -1,10 +1,6 @@
 import { getCurrentSeason } from './utilities';
 
-// const API_KEY = import.meta.env.VITE_API_KEY;
-
-// For demonstration purposes only.
-// This key is intentionally made public to allow others to run and view this project.
-const API_KEY = 'ccc6e9ccf15214149d1e671f5a8c116e';
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getRequestOptions = () => {
   const myHeaders = new Headers();
