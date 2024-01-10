@@ -7,17 +7,14 @@ export default function Error({
   if (type == 'form')
     return (
       <p className="error__msg">
-        <img
-          className="alert-icon alert-icon--red"
-          src="/src/assets/alert.svg"
-        />
+        <img className="alert-icon alert-icon--red" src="/alert.svg" />
         {children}
       </p>
     );
   return (
     <div className="error__container">
       <p className="error__msg">
-        <img className="alert-icon" src="/src/assets/alert.svg" />
+        <img className="alert-icon" src="/alert.svg" />
         {children}
       </p>
     </div>

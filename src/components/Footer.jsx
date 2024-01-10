@@ -11,7 +11,7 @@ export default function Footer() {
         >
           <img
             className="github-logo"
-            src="/src/assets/logo-github.svg"
+            src="/logo-github.svg"
             alt="github-logo"
           />
         </a>
@@ -22,7 +22,7 @@ export default function Footer() {
         >
           <img
             className="linkedin-logo"
-            src="/src/assets/logo-linkedin.svg"
+            src="/logo-linkedin.svg"
             alt="linkedin-logo"
           />
         </a>
@@ -33,7 +33,7 @@ export default function Footer() {
         </p>
       </div>
       <div className="logo-container">
-        <img className="logo-secondary" src="/src/assets/logo.svg" alt="logo" />
+        <img className="logo-secondary" src="/logo.svg" alt="logo" />
       </div>
     </footer>
   );

@@ -16,7 +16,7 @@ export default function Header() {
       <div className="logo-container">
         <img
           className="logo-main"
-          src="/src/assets/logo.svg"
+          src="/logo.svg"
           alt="logo"
           onClick={() => {
             setPopupOpen(false);
