@@ -24,7 +24,6 @@ export default function UserRow({ team }) {
   useEffect(() => {
     getUserMatches(team, 1, 5)
       .then(({ last: scores, next: previews }) => {
-        console.log(scores, previews);
         setScoreData(scores);
         setPreviewData(previews);
         setState('fulfilled');

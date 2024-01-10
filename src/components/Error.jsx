@@ -9,7 +9,7 @@ export default function Error({
       <p className="error__msg">
         <img
           className="alert-icon alert-icon--red"
-          src="src/assets/alert.svg"
+          src="/src/assets/alert.svg"
         />
         {children}
       </p>
@@ -17,7 +17,7 @@ export default function Error({
   return (
     <div className="error__container">
       <p className="error__msg">
-        <img className="alert-icon" src="src/assets/alert.svg" />
+        <img className="alert-icon" src="/src/assets/alert.svg" />
         {children}
       </p>
     </div>
