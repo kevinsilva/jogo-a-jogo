@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
@@ -40,6 +41,11 @@ function App() {
     if (users !== baseUsers)
       localStorage.setItem('data', JSON.stringify(users));
   }, [users]);
+
+  useEffect(() => {
+    ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKING_ID);
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   const addUser = (email, password, team) => {
     if (email == '' || password == '')
