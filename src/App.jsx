@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import ReactGA from 'react-ga';
-
 import Header from './components/Header';
 import FeaturedRow from './components/FeaturedRow';
 import UserRow from './components/UserRow';
 import Leagues from './components/Leagues';
 import Footer from './components/Footer';
-
 import {
   isValid,
   isUserValid,
   getUserTeam,
   restoreScroll,
 } from './utils/utilities';
+import useAnalytics from './utils/useAnalytics';
 
 export const AppContext = React.createContext();
 
@@ -30,7 +28,10 @@ const baseUsers = [
 ];
 
 function App() {
+  useAnalytics();
   const [users, setUsers] = useState(baseUsers);
+
+
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem('data'));
@@ -42,10 +43,10 @@ function App() {
       localStorage.setItem('data', JSON.stringify(users));
   }, [users]);
 
-  useEffect(() => {
-    ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKING_ID);
-    ReactGA.pageview(window.location.pathname);
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKING_ID);
+  //   ReactGA.pageview(window.location.pathname);
+  // }, []);
 
   const addUser = (email, password, team) => {
     if (email == '' || password == '')
